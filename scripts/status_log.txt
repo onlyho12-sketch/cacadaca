@@ -1,0 +1,8 @@
+=== polishing_v5.py 실행 시작: 2026-06-30 14:50:23 ===
+t=90 rail=C seg=0 state=SLIDE tag=STATE to=SLIDE msg=구간_0_슬라이딩_시작_(Y=2.03).
+t=90 rail=SL seg=0 state=SLIDE tag=STATE to=SLIDE msg=구간_0_슬라이딩_시작_(Y=1.50).
+t=90 rail=SR seg=0 state=SLIDE tag=STATE to=SLIDE msg=구간_0_슬라이딩_시작_(Y=1.50).
+t=91 rail=C seg=0 state=SETTLE_SLIDE tag=STATE to=SETTLE_SLIDE msg=Y=2.03_도착._물리_안정화_중.
+t=181 rail=C seg=0 state=APPROACH tag=STATE to=APPROACH msg=슬라이딩_안정화_완료._어프로치_시작.
+t=186 rail=SL seg=0 state=SETTLE_SLIDE tag=STATE to=SETTLE_SLIDE msg=Y=1.50_도착._물리_안정화_중.
+t=193 rail=SR seg=0 state=SETTLE_SLIDE tag=STATE to=SETTLE_SLIDE msg=Y=1.50_도착._물리_안정화_중.
