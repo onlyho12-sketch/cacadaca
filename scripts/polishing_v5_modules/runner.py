@@ -5,9 +5,9 @@ import sys
 import numpy as np
 from scipy.spatial import KDTree
 
-from omni.isaac.core import World
-from omni.isaac.core.objects import VisualCuboid
-from omni.isaac.core.utils.prims import create_prim
+from isaacsim.core.api import World
+from isaacsim.core.api.objects import VisualCuboid
+from isaacsim.core.utils.prims import create_prim
 
 from . import common
 from .common import *
@@ -260,7 +260,7 @@ def main(simulation_app, obj_name="car"):
         ).Set(0.05)
 
     # 공유 물리 재질 (NoBounceMaterial)
-    from omni.isaac.core.materials import PhysicsMaterial
+    from isaacsim.core.api.materials import PhysicsMaterial
     PhysicsMaterial(
         prim_path="/World/NoBounceMaterial",
         dynamic_friction=POLISHING_DYNAMIC_FRICTION,
@@ -373,7 +373,7 @@ def main(simulation_app, obj_name="car"):
     _car_center = (np.mean(raw_points, axis=0) if len(raw_points) else np.array([0.0, 0.0, 1.0]))
     ros_pub = make_publisher(agents, polish_viz, _car_center)
 
-    from omni.isaac.core.prims import XFormPrim as _XFP
+    from isaacsim.core.prims import SingleXFormPrim as _XFP
     viz_flush_step = 0
     lift_step = 0
     scan_cloud_revealed = False
@@ -403,8 +403,12 @@ def main(simulation_app, obj_name="car"):
     # 렌더 스로틀(속도): N스텝마다 1번만 렌더. 물리는 매 스텝 그대로 → 결과 동일, 화면만 듬성듬성.
     # POLISH_RENDER_EVERY=1(기본)=매 스텝 렌더, 4~10이면 벽시계 속도 크게 상승.
     render_every = max(1, int(os.environ.get("POLISH_RENDER_EVERY", "1")))
+    max_steps = max(0, int(os.environ.get("POLISH_MAX_STEPS", "0")))
     render_idx = 0
     while simulation_app.is_running():
+        if max_steps and render_idx >= max_steps:
+            print(f"[main] 검증용 최대 스텝 도달: {max_steps}", flush=True)
+            break
         do_render = (render_idx % render_every == 0)
         render_idx += 1
         world.step(render=do_render)
@@ -523,3 +527,5 @@ def main(simulation_app, obj_name="car"):
             print(f"[main] ✓ 모든 로봇 폴리싱 완료(누적 {cov}/{total}점) — 리프트 하강 시작")
             lowering = True
             lower_step = 0
+
+    ros_pub.shutdown()

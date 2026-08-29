@@ -21,7 +21,10 @@ if not os.path.exists(USD_PATH):
 
 from isaacsim import SimulationApp
 
-simulation_app = SimulationApp({"headless": not args.gui})
+simulation_app = SimulationApp({
+    "headless": not args.gui,
+    "renderer": os.environ.get("ISAAC_RENDERER", "RealTimePathTracing"),
+})
 
 import numpy as np
 import matplotlib.colors as mcolors
@@ -30,7 +33,7 @@ import omni.replicator.core as rep
 
 from pxr import Usd, UsdGeom, Vt, Gf
 from isaacsim.core.api import World
-from omni.isaac.core.utils.prims import create_prim
+from isaacsim.core.utils.prims import create_prim
 
 DEPTH_DIR = os.path.join(OUTPUT_DIR, "depth")
 POINTS_DIR = os.path.join(OUTPUT_DIR, "points")

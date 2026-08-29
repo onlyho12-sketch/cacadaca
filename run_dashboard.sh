@@ -13,23 +13,36 @@
 #      → 브라우저에서 http://localhost:5173 접속.
 #
 # 다른 컴퓨터에서 Isaac Sim 경로가 다르면:
-#   export ISAAC_PYTHON=/내/경로/isaacsim/_build/linux-x86_64/release/python.sh
+#   export ISAAC_PYTHON=/내/경로/isaacsim/python.sh
 #   ./run_dashboard.sh
 # ===========================================================================
 set -e
 HERE="$(cd "$(dirname "$0")" && pwd)"
+export PATH="$HOME/.local/bin:$PATH"
+export ISAAC_PYTHON="${ISAAC_PYTHON:-$HOME/isaacsim-6.0.1/python.sh}"
 PIDS=()
 cleanup() { for p in "${PIDS[@]}"; do kill "$p" 2>/dev/null || true; done; }
 trap cleanup EXIT
 
 # --- 1) ROS2 rosbridge_server (UI ↔ ROS2 통신) ---
+# rosbridge는 Ubuntu의 ROS Humble(Python 3.10) 환경에서 실행한다. Isaac Sim
+# 6.x는 Python 3.12이므로 아래 환경을 Isaac 프로세스에 그대로 섞지 않는다.
 ROS_SETUP="${ROS_SETUP:-/opt/ros/humble/setup.bash}"
 if [ -f "$ROS_SETUP" ]; then
-  # shellcheck disable=SC1090
-  source "$ROS_SETUP"
-  if ros2 pkg prefix rosbridge_server >/dev/null 2>&1; then
+  setup_system_ros() {
+    # shellcheck disable=SC1090
+    source "$ROS_SETUP"
+    local local_ros_prefix="$HOME/.local/ros-humble/opt/ros/humble"
+    if [ -d "$local_ros_prefix" ]; then
+      export AMENT_PREFIX_PATH="$local_ros_prefix:${AMENT_PREFIX_PATH:-}"
+      export PYTHONPATH="$local_ros_prefix/local/lib/python3.10/dist-packages:${PYTHONPATH:-}"
+      export LD_LIBRARY_PATH="$local_ros_prefix/lib:${LD_LIBRARY_PATH:-}"
+    fi
+  }
+  if (setup_system_ros && ros2 pkg prefix rosbridge_server >/dev/null 2>&1); then
     echo "[run_dashboard] rosbridge_server 실행 (ws://localhost:9090)"
-    ros2 launch rosbridge_server rosbridge_websocket_launch.xml >/tmp/rosbridge.log 2>&1 &
+    (setup_system_ros && exec ros2 launch rosbridge_server rosbridge_websocket_launch.xml) \
+      >/tmp/rosbridge.log 2>&1 &
     PIDS+=($!)
   else
     echo "[run_dashboard] ⚠ rosbridge_server 미설치 → ROS2 통신 불가 (UI는 데모 모드)"
@@ -39,7 +52,24 @@ else
   echo "[run_dashboard] ⚠ ROS2($ROS_SETUP) 없음 → ROS2 통신 생략 (UI는 데모 모드)"
 fi
 
+# Isaac Sim 6.x standalone은 Python 3.12로 빌드된 내부 ROS 라이브러리를 사용한다.
+ISAAC_ROOT="$(dirname "$ISAAC_PYTHON")"
+ISAAC_ROS_LIB="$ISAAC_ROOT/exts/isaacsim.ros2.core/humble/lib"
+if [ ! -d "$ISAAC_ROS_LIB" ]; then
+  # Isaac Sim 4.5 호환 폴백.
+  ISAAC_ROS_LIB="$ISAAC_ROOT/exts/isaacsim.ros2.bridge/humble/lib"
+fi
+if [ -d "$ISAAC_ROS_LIB" ]; then
+  export ROS_DISTRO=humble
+  export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+  export LD_LIBRARY_PATH="$ISAAC_ROS_LIB:${LD_LIBRARY_PATH:-}"
+fi
+
 # --- 2) Isaac Sim 런처 서버 ('시작' 버튼 처리) ---
+if [ ! -x "$ISAAC_PYTHON" ]; then
+  echo "[run_dashboard] 오류: Isaac Sim Python을 찾을 수 없습니다: $ISAAC_PYTHON" >&2
+  exit 1
+fi
 echo "[run_dashboard] Isaac Sim 런처 실행 (http://localhost:8765)"
 python3 "$HERE/scripts/dashboard_launcher.py" &
 PIDS+=($!)

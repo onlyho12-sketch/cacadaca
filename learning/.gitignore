@@ -1,0 +1,10 @@
+data/processed/
+checkpoints/
+__pycache__/
+# RL 학습 로그·체크포인트 (수백 MB — 재생성 가능). 챔피언은 rl/champion/ 에서 추적한다.
+rl/logs/
+# outputs: 재현 기준 JSON(bo_best_recipe, polishing_model_config, bo_dataset)은 추적하고,
+# 재생성 가능한 무거운 산출물(이미지·CSV)만 무시한다.
+outputs/*.png
+polytwin/outputs/*.png
+polytwin/outputs/*.csv

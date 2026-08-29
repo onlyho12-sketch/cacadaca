@@ -6,10 +6,10 @@ import numpy as np
 from scipy.spatial.transform import Rotation as R
 
 from isaacsim.core.prims import SingleArticulation
-from omni.isaac.core.objects import VisualCuboid, VisualCylinder
-from omni.isaac.core.utils.prims import create_prim
-from omni.isaac.core.utils.types import ArticulationAction
-from omni.isaac.sensor import ContactSensor
+from isaacsim.core.api.objects import VisualCuboid, VisualCylinder
+from isaacsim.core.utils.prims import create_prim
+from isaacsim.core.utils.types import ArticulationAction
+from isaac_compat import ContactSensor
 
 from .common import *
 from .common import _SCRIPT_DIR, _SRC_DIR, ROBOT_USD_PATH
@@ -226,7 +226,7 @@ class RailRobotAgent:
         ]
         old_pad_path = pad_candidates[0]
         try:
-            from omni.isaac.core.utils.prims import get_prim_at_path
+            from isaacsim.core.utils.prims import get_prim_at_path
             for c in pad_candidates:
                 if get_prim_at_path(c):
                     old_pad_path = c
@@ -579,7 +579,7 @@ class RailRobotAgent:
     def _pad_contact_world_pos(self, stage):
         local_contact = np.array([0.0, -0.5 * float(POLISHING_DISK_HEIGHT), 0.0])
         try:
-            from omni.isaac.core.utils.xforms import get_world_pose
+            from isaacsim.core.utils.xforms import get_world_pose
             pad_world_pos, pad_world_quat = get_world_pose(self.pad_path)
             pad_world_rot = R.from_quat([
                 pad_world_quat[1],
@@ -618,7 +618,7 @@ class RailRobotAgent:
                 ], dtype=float))
 
         try:
-            from omni.isaac.core.utils.xforms import get_world_pose
+            from isaacsim.core.utils.xforms import get_world_pose
             pad_world_pos, pad_world_quat = get_world_pose(self.pad_path)
             pad_world_rot = R.from_quat([
                 pad_world_quat[1],
@@ -1173,9 +1173,9 @@ class RailRobotAgent:
     def _update_tele_lift(self, stage, new_y, new_z):
         """고정단(측면=바닥/천장=빔)은 그 높이에 고정(Y만 레일 추종),
         2단 튜브를 고정단↔로봇 베이스 거리에 맞춰 신축."""
-        from omni.isaac.core.prims import XFormPrim
+        from isaacsim.core.prims import SingleXFormPrim
         anchor_z = self._tele_lift_anchor_z()
-        XFormPrim(prim_path=self.tele_lift_path).set_world_pose(
+        SingleXFormPrim(prim_path=self.tele_lift_path).set_world_pose(
             position=np.array([self.rail_x, new_y, anchor_z]))
         # 필요한 컬럼 길이(고정단↔로봇 베이스 거리)를 실제 신축 한계로 클램프
         col_h = float(np.clip(abs(new_z - anchor_z),
@@ -1186,11 +1186,11 @@ class RailRobotAgent:
         self._set_tube_lift(stage, TELE_LIFT_STAGE2_PRIM, ext)
 
     def _update_column_visuals(self, stage, new_y, new_z):
-        from omni.isaac.core.prims import XFormPrim
+        from isaacsim.core.prims import SingleXFormPrim
         import numpy as np
         
         # 로봇 베이스 위치 업데이트 (공통)
-        XFormPrim(prim_path=self.world_prim_path).set_world_pose(position=np.array([self.rail_x, new_y, new_z]))
+        SingleXFormPrim(prim_path=self.world_prim_path).set_world_pose(position=np.array([self.rail_x, new_y, new_z]))
 
         if self.is_overhead:
             self._update_gantry_visuals(new_y, new_z)
@@ -1199,7 +1199,7 @@ class RailRobotAgent:
             return
 
         # 하단 슬라이더 위치 업데이트 (Z=0.05)
-        XFormPrim(prim_path=f"/World/RailSlider_{self.label}").set_world_pose(position=np.array([self.rail_x, new_y, 0.05]))
+        SingleXFormPrim(prim_path=f"/World/RailSlider_{self.label}").set_world_pose(position=np.array([self.rail_x, new_y, 0.05]))
 
         if self.is_side and USE_TELE_LIFT_ASSET:
             self._update_tele_lift(stage, new_y, new_z)
@@ -1207,16 +1207,16 @@ class RailRobotAgent:
         if self.is_side:
             # (구버전) 측면 단상: 바닥(0.10)에서 베이스까지 자라는 단일 원통
             h = max(0.04, new_z - 0.10)
-            col = XFormPrim(prim_path=f"/World/SideColumn_{self.label}")
+            col = SingleXFormPrim(prim_path=f"/World/SideColumn_{self.label}")
             col.set_world_pose(position=np.array([self.rail_x, new_y, 0.10 + h / 2.0]))
             col.set_local_scale(np.array([1.0, 1.0, h]))
             return
 
         # 3단 텔레스코픽 기둥 동기식 업데이트 (옛 레일 모드)
         ext = max(0.0, new_z - 0.45)
-        XFormPrim(prim_path=f"/World/TelescopicColumn_S1_{self.label}").set_world_pose(position=np.array([self.rail_x, new_y, 0.275]))
-        XFormPrim(prim_path=f"/World/TelescopicColumn_S2_{self.label}").set_world_pose(position=np.array([self.rail_x, new_y, 0.275 + ext / 2.0]))
-        XFormPrim(prim_path=f"/World/TelescopicColumn_S3_{self.label}").set_world_pose(position=np.array([self.rail_x, new_y, 0.275 + ext]))
+        SingleXFormPrim(prim_path=f"/World/TelescopicColumn_S1_{self.label}").set_world_pose(position=np.array([self.rail_x, new_y, 0.275]))
+        SingleXFormPrim(prim_path=f"/World/TelescopicColumn_S2_{self.label}").set_world_pose(position=np.array([self.rail_x, new_y, 0.275 + ext / 2.0]))
+        SingleXFormPrim(prim_path=f"/World/TelescopicColumn_S3_{self.label}").set_world_pose(position=np.array([self.rail_x, new_y, 0.275 + ext]))
 
     def _remove_sander_parts(self, stage, part_names):
         """지정 부품 제거. USD 인스턴스 내부 prim은 그대로는 못 지우므로,
@@ -1305,15 +1305,15 @@ class RailRobotAgent:
 
     def _update_gantry_visuals(self, new_y, new_z):
         """캐리지 Y이동 + 수직 Z슬라이더 신축 (매 스텝)."""
-        from omni.isaac.core.prims import XFormPrim
+        from isaacsim.core.prims import SingleXFormPrim
         L = self.label
         beam_z = GANTRY_BEAM_Z
-        XFormPrim(prim_path=f"/World/GantryCarriage_{L}").set_world_pose(
+        SingleXFormPrim(prim_path=f"/World/GantryCarriage_{L}").set_world_pose(
             position=np.array([self.rail_x, new_y, beam_z - 0.06]))
         # tele_lift 사용 시엔 큐브 슬라이더가 없으므로 갱신 생략
         if not USE_TELE_LIFT_ASSET:
             col_h = max(0.02, beam_z - new_z)
-            zsl = XFormPrim(prim_path=f"/World/GantryZSlider_{L}")
+            zsl = SingleXFormPrim(prim_path=f"/World/GantryZSlider_{L}")
             zsl.set_world_pose(position=np.array([self.rail_x, new_y, 0.5 * (beam_z + new_z)]))
             zsl.set_local_scale(np.array([0.12, 0.12, col_h]))
 

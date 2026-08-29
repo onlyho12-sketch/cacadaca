@@ -15,11 +15,12 @@
 환경변수:
     LAUNCHER_HOST       (기본 127.0.0.1)
     LAUNCHER_PORT       (기본 8765)
-    ISAAC_PYTHON        (기본 ~/dev_ws/.../release/python.sh)
+    ISAAC_PYTHON        (기본 ~/isaacsim-6.0.1/python.sh)
     POLISH_SCRIPTS_DIR  (기본 이 파일이 있는 디렉터리)
 """
 import json
 import os
+import signal
 import subprocess
 import sys
 import threading
@@ -29,7 +30,7 @@ HOST = os.environ.get("LAUNCHER_HOST", "127.0.0.1")
 PORT = int(os.environ.get("LAUNCHER_PORT", "8765"))
 ISAAC_PYTHON = os.path.expanduser(os.environ.get(
     "ISAAC_PYTHON",
-    "~/dev_ws/isaac_sim/isaacsim/_build/linux-x86_64/release/python.sh",
+    "~/isaacsim-6.0.1/python.sh",
 ))
 SCRIPTS_DIR = os.environ.get(
     "POLISH_SCRIPTS_DIR", os.path.dirname(os.path.abspath(__file__)))
@@ -97,7 +98,7 @@ def _start(obj_name="car"):
                     "message": f"스크립트 없음: {script_path}"}
         cmd = [ISAAC_PYTHON, POLISH_SCRIPT, "--obj_name", obj_name]
         print(f"[launcher] 실행: (cwd={SCRIPTS_DIR}) {' '.join(cmd)}", flush=True)
-        _proc = subprocess.Popen(cmd, cwd=SCRIPTS_DIR)
+        _proc = subprocess.Popen(cmd, cwd=SCRIPTS_DIR, start_new_session=True)
         return {"status": "started", "pid": _proc.pid, "obj_name": obj_name}
 
 
@@ -107,11 +108,18 @@ def _stop():
         if not _is_running():
             return {"status": "not_running"}
         pid = _proc.pid
-        _proc.terminate()
+        try:
+            os.killpg(_proc.pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
         try:
             _proc.wait(timeout=10)
         except subprocess.TimeoutExpired:
-            _proc.kill()
+            try:
+                os.killpg(_proc.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+            _proc.wait()
         print(f"[launcher] 종료: pid={pid}", flush=True)
         return {"status": "stopped", "pid": pid}
 
@@ -192,12 +200,18 @@ def main():
         print(f"[launcher] ⚠ isaac_python 경로가 존재하지 않습니다. "
               f"ISAAC_PYTHON 환경변수로 지정하세요.", flush=True)
     server = ThreadingHTTPServer((HOST, PORT), Handler)
+
+    def handle_signal(_signum, _frame):
+        raise KeyboardInterrupt
+
+    signal.signal(signal.SIGTERM, handle_signal)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
         print("\n[launcher] 종료", flush=True)
+    finally:
         _stop()
-        server.shutdown()
+        server.server_close()
 
 
 if __name__ == "__main__":

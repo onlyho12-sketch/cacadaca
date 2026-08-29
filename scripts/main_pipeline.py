@@ -6,7 +6,7 @@ from tkinter import simpledialog, messagebox
 
 SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPTS_DIR)
-PYTHON_SH = "/home/rokey/dev_ws/isaac_sim/isaacsim/_build/linux-x86_64/release/python.sh"
+PYTHON_SH = os.path.expanduser(os.environ.get("ISAAC_PYTHON", "~/isaacsim-6.0.1/python.sh"))
 VALID_MODES = {"single", "multi", "rail", "full"}
 MIN_SCAN_POINTS = 100
 

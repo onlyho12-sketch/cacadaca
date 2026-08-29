@@ -669,7 +669,7 @@ def load_rail_tiles(stage, label, rail_x, rail_cy, rail_len, floor_z=None):
     마스터는 중심정렬돼 있어 타일 위치=세그먼트 중심으로 바로 배치된다. 반환: 생성 타일 수.
     """
     import math
-    from omni.isaac.core.utils.prims import create_prim
+    from isaacsim.core.utils.prims import create_prim
     from pxr import Usd, UsdGeom
     if floor_z is None:
         floor_z = RAIL_FLOOR_Z
@@ -733,7 +733,7 @@ def load_tele_lift_prop(stage, prim_path, copy_name, pos_xyz,
     반환: 생성 성공 여부(bool).
     """
     import shutil
-    from omni.isaac.core.utils.prims import create_prim
+    from isaacsim.core.utils.prims import create_prim
     from pxr import Usd, UsdGeom, Gf
 
     per_inst_usd = os.path.join(os.path.dirname(TELE_LIFT_USD_PATH), copy_name)

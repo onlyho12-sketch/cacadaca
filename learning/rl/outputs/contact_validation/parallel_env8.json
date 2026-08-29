@@ -1,0 +1,102 @@
+{
+  "phase": "parallel",
+  "num_envs": 8,
+  "contact_mode": "physical",
+  "thresholds": {
+    "free_space_max_n": 0.05,
+    "static_ss_err_max_n": 0.5,
+    "static_ss_std_max_n": 0.3,
+    "static_overshoot_max_ratio": 0.5,
+    "static_penetration_max_m": 0.006,
+    "track_err_mean_max_n": 1.0,
+    "track_err_p95_max_n": 2.5,
+    "reset_spike_max_n": 8.0
+  },
+  "segments": {
+    "parallel_8": {
+      "steps": 600,
+      "per_env": [
+        {
+          "env": 0,
+          "ss_mean_n": 5.801741656959057,
+          "err_mean_n": 0.06128421813249588,
+          "err_p95_n": 0.04839560985565173,
+          "max_n": 18.605602264404297,
+          "penetration_m": 0.001565486192703247,
+          "faults": 0
+        },
+        {
+          "env": 1,
+          "ss_mean_n": 5.801707197725773,
+          "err_mean_n": 0.06135442107915878,
+          "err_p95_n": 0.043789720535278305,
+          "max_n": 18.607894897460938,
+          "penetration_m": 0.0015657544136047363,
+          "faults": 0
+        },
+        {
+          "env": 2,
+          "ss_mean_n": 5.801741656959057,
+          "err_mean_n": 0.06128421813249588,
+          "err_p95_n": 0.04839560985565173,
+          "max_n": 18.605602264404297,
+          "penetration_m": 0.001565486192703247,
+          "faults": 0
+        },
+        {
+          "env": 3,
+          "ss_mean_n": 5.801591799110174,
+          "err_mean_n": 0.061163830906152725,
+          "err_p95_n": 0.04141583442687988,
+          "max_n": 18.60717010498047,
+          "penetration_m": 0.0015652775764465332,
+          "faults": 0
+        },
+        {
+          "env": 4,
+          "ss_mean_n": 5.801910195201636,
+          "err_mean_n": 0.06164014592766762,
+          "err_p95_n": 0.04935209751129135,
+          "max_n": 18.607139587402344,
+          "penetration_m": 0.001565307378768921,
+          "faults": 0
+        },
+        {
+          "env": 5,
+          "ss_mean_n": 5.801591799110174,
+          "err_mean_n": 0.061163830906152725,
+          "err_p95_n": 0.04141583442687988,
+          "max_n": 18.60717010498047,
+          "penetration_m": 0.0015652775764465332,
+          "faults": 0
+        },
+        {
+          "env": 6,
+          "ss_mean_n": 5.801557991206646,
+          "err_mean_n": 0.06115645915269852,
+          "err_p95_n": 0.04135823249816893,
+          "max_n": 18.6076602935791,
+          "penetration_m": 0.0015652775764465332,
+          "faults": 0
+        },
+        {
+          "env": 7,
+          "ss_mean_n": 5.801747150868177,
+          "err_mean_n": 0.06128079608082771,
+          "err_p95_n": 0.04816255569457993,
+          "max_n": 18.606979370117188,
+          "penetration_m": 0.0015651285648345947,
+          "faults": 0
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "parallel x8 전 env 추종+무NaN",
+      "pass": true,
+      "detail": "worst env4: err_mean=0.062N p95=0.049N pen=1.57mm"
+    }
+  ],
+  "result": "PASS"
+}

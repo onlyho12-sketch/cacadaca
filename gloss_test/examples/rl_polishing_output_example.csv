@@ -1,0 +1,5 @@
+data_origin,episode_id,cell_id,grid_row,grid_column,position_x_m,position_y_m,position_z_m,normal_x,normal_y,normal_z,force_n,rpm,feed_mm_s,step_over_ratio,pass_count,roughness_before,roughness_after,scratch_before,scratch_after,ra_before_um,ra_after_um,rz_before_um,rz_after_um,clearcoat_before_um,clearcoat_after_um,clearcoat_removed_um,relative_gloss_before_not_gu,relative_gloss_after_not_gu
+synthetic_interface_example_not_rl,example_ep_001,r01_c01,1,1,-0.08,-0.08,0.0,0.0,0.0,1.0,10.0,1500.0,20.0,0.25,2,0.42,0.13,0.70,0.15,0.80,0.25,4.00,1.40,45.0,42.2,2.8,0.20,0.90
+synthetic_interface_example_not_rl,example_ep_001,r01_c02,1,2,-0.04,-0.08,0.0,0.0,0.0,1.0,8.0,1400.0,22.0,0.25,2,0.30,0.15,0.45,0.18,0.60,0.28,3.20,1.55,44.0,42.0,2.0,0.35,0.86
+synthetic_interface_example_not_rl,example_ep_001,r02_c01,2,1,-0.08,-0.04,0.0,0.0,0.0,1.0,12.0,1600.0,18.0,0.25,3,0.55,0.12,0.82,0.12,1.00,0.22,5.00,1.20,46.0,42.5,3.5,0.12,0.93
+synthetic_interface_example_not_rl,example_ep_001,r02_c02,2,2,-0.04,-0.04,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.25,0,0.10,0.10,0.00,0.00,0.20,0.20,1.10,1.10,45.0,45.0,0.0,1.00,1.00

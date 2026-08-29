@@ -11,14 +11,21 @@ from isaacsim import SimulationApp
 
 if "PYTHONPATH" in os.environ:
     os.environ["PYTHONPATH"] = ":".join(
-        [p for p in os.environ["PYTHONPATH"].split(":") if "/opt/ros" not in p]
+        p for p in os.environ["PYTHONPATH"].split(":")
+        if "/opt/ros" not in p and "/.local/ros-humble/" not in p
     )
-sys.path = [p for p in sys.path if "/opt/ros" not in p]
+sys.path = [
+    p for p in sys.path
+    if "/opt/ros" not in p and "/.local/ros-humble/" not in p
+]
 
-simulation_app = SimulationApp({"headless": False})
+simulation_app = SimulationApp({
+    "headless": False,
+    "renderer": os.environ.get("ISAAC_RENDERER", "RealTimePathTracing"),
+})
 
-from omni.isaac.core.utils.extensions import enable_extension
-enable_extension("omni.isaac.ros2_bridge")
+from isaacsim.core.utils.extensions import enable_extension
+enable_extension("isaacsim.ros2.bridge")
 
 try:
     import rclpy
@@ -27,12 +34,12 @@ try:
 except ImportError:
     ROS2_AVAILABLE = False
 
-from omni.isaac.core import World
-from omni.isaac.core.objects import VisualSphere, VisualCylinder, VisualCuboid
+from isaacsim.core.api import World
+from isaacsim.core.api.objects import VisualSphere, VisualCylinder, VisualCuboid
 from isaacsim.core.prims import SingleArticulation
-from omni.isaac.core.utils.prims import create_prim
-from omni.isaac.sensor import ContactSensor
-from omni.isaac.core.utils.types import ArticulationAction
+from isaacsim.core.utils.prims import create_prim
+from isaac_compat import ContactSensor
+from isaacsim.core.utils.types import ArticulationAction
 from scipy.spatial.transform import Rotation as R
 from scipy.spatial import KDTree
 
@@ -521,7 +528,7 @@ class RobotAgent:
         ]
         old_pad_path = pad_candidates[0]
         try:
-            from omni.isaac.core.utils.prims import get_prim_at_path
+            from isaacsim.core.utils.prims import get_prim_at_path
             for c in pad_candidates:
                 if get_prim_at_path(c):
                     old_pad_path = c
@@ -999,7 +1006,7 @@ def main():
         ).Set(0.05)
 
     # 공유 물리 재질 (NoBounceMaterial)
-    from omni.isaac.core.materials import PhysicsMaterial
+    from isaacsim.core.api.materials import PhysicsMaterial
     PhysicsMaterial(
         prim_path="/World/NoBounceMaterial",
         dynamic_friction=POLISHING_DYNAMIC_FRICTION,

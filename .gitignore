@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Regenerable rendering/test outputs (large, not source)
+gloss_test/results/

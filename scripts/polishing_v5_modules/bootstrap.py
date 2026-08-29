@@ -9,11 +9,14 @@ import traceback
 
 
 def _strip_ros_paths():
+    def is_external_ros_path(path):
+        return "/opt/ros" in path or "/.local/ros-humble/" in path
+
     if "PYTHONPATH" in os.environ:
         os.environ["PYTHONPATH"] = ":".join(
-            p for p in os.environ["PYTHONPATH"].split(":") if "/opt/ros" not in p
+            p for p in os.environ["PYTHONPATH"].split(":") if not is_external_ros_path(p)
         )
-    sys.path = [p for p in sys.path if "/opt/ros" not in p]
+    sys.path = [p for p in sys.path if not is_external_ros_path(p)]
 
 
 def _parse_args(argv=None):
@@ -32,11 +35,14 @@ def run_from_cli(argv=None):
 
     from isaacsim import SimulationApp
 
-    simulation_app = SimulationApp({"headless": bool(args.headless)})
+    simulation_app = SimulationApp({
+        "headless": bool(args.headless),
+        "renderer": os.environ.get("ISAAC_RENDERER", "RealTimePathTracing"),
+    })
     try:
-        from omni.isaac.core.utils.extensions import enable_extension
+        from isaacsim.core.utils.extensions import enable_extension
 
-        enable_extension("omni.isaac.ros2_bridge")
+        enable_extension("isaacsim.ros2.bridge")
         try:
             import rclpy  # noqa: F401
             from std_msgs.msg import Float64  # noqa: F401
@@ -48,5 +54,6 @@ def run_from_cli(argv=None):
         main(simulation_app, obj_name=args.obj_name)
     except Exception:
         traceback.print_exc()
+        raise
     finally:
         simulation_app.close()

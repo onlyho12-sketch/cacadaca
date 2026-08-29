@@ -57,7 +57,7 @@
 |------|------|
 | OS | Ubuntu 22.04.5 LTS |
 | Kernel | 6.8.0-124-generic (x86_64) |
-| 시뮬레이터 | NVIDIA Isaac Sim (standalone python.sh) |
+| 시뮬레이터 | NVIDIA Isaac Sim 6.0.1 GA (standalone `python.sh`) |
 | ROS | ROS2 Humble (`/opt/ros/humble`) |
 | Python (시스템) | 3.10 |
 | GPU | NVIDIA GeForce RTX 5080 Laptop (Driver 580.x) |
@@ -65,10 +65,12 @@
 
 > **Isaac Sim 실행기 alias** (개발 환경 기준)
 > ```bash
-> alias isaac_python='~/dev_ws/isaac_sim/isaacsim/_build/linux-x86_64/release/python.sh'
+> alias isaac_python='~/isaacsim-6.0.1/python.sh'
 > alias isaac='isaac-sim.sh'
 > ```
 > Isaac Sim 스크립트는 반드시 `isaac_python`으로 실행해야 합니다 (시스템 `python3` 불가).
+> 기본 렌더러는 RTX - Real-Time 2.0이며, 필요하면
+> `ISAAC_RENDERER=PathTracing`으로 고품질 누적 렌더링을 선택할 수 있습니다.
 
 ---
 
@@ -118,7 +120,7 @@ UI를 띄우고 **시작 버튼**을 누르면 Isaac Sim 폴리싱 시뮬레이�
 
 ```bash
 # 1) (다른 PC라면) Isaac Sim 설치 경로 지정 — 경로가 동일하면 생략 가능
-export ISAAC_PYTHON=/내/경로/isaacsim/_build/linux-x86_64/release/python.sh
+export ISAAC_PYTHON=/내/경로/isaacsim-6.0.1/python.sh
 
 # 2) 한 번에 실행 (런처 서버 + 웹 UI)
 ./run_dashboard.sh
