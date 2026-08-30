@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import os
 import sys
 
@@ -34,7 +35,20 @@ from isaaclab.app import AppLauncher
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--checkpoint", type=str, required=True)
+parser.add_argument("--policy_mode", choices=("checkpoint", "zero", "finish_rule"),
+                    default="checkpoint",
+                    help="checkpoint 정책, residual=0 기준, 또는 후속 약한 마무리 규칙")
+parser.add_argument("--finish_force_action", type=float, default=-0.5,
+                    help="finish_rule의 2차 force residual")
+parser.add_argument("--finish_late_force_action", type=float, default=-1.0,
+                    help="finish_rule의 3차 이후 force residual")
+parser.add_argument("--finish_feed_mm_s", type=float, default=8.0,
+                    help="finish_rule의 2차 이후 목표 feed")
+parser.add_argument("--finish_min_gu", type=float, default=68.0,
+                    help="finish_rule에서 3차 진입을 허용할 2차 종료 GU proxy 하한")
 parser.add_argument("--num_envs", type=int, default=8)
+parser.add_argument("--feed_speed_mm_s", type=float, default=None,
+                    help="로봇 환경 기준 이송속도 재정의 (기본: Tesla polishing 12.7 mm/s)")
 parser.add_argument("--num_sequences", type=int, default=3,
                     help="env 당 반복할 (새 표면 → 재폴리싱 완료까지) 시퀀스 수")
 parser.add_argument("--max_passes", type=int, default=6)
@@ -44,6 +58,10 @@ parser.add_argument("--max_control_steps", type=int, default=200000,
 parser.add_argument("--out", type=str,
                     default=os.path.join(_REPO_ROOT, "learning", "rl", "robot", "results",
                                          "repolish_eval.csv"))
+parser.add_argument("--pass_out", type=str, default=None,
+                    help="pass별 진단 CSV (기본: --out 파일명 뒤에 _passes 추가)")
+parser.add_argument("--tile_out", type=str, default=None,
+                    help="타일별 현재 GU·낙관적 상한·처분 CSV (기본: --out 뒤에 _tiles 추가)")
 AppLauncher.add_app_launcher_args(parser)
 args = parser.parse_args()
 app = AppLauncher(args).app
@@ -82,9 +100,14 @@ def load_policy(checkpoint, device):
 def main():
     env_cfg = RobotPolishEnvCfg()
     env_cfg.scene.num_envs = args.num_envs
+    if args.feed_speed_mm_s is not None:
+        env_cfg.robot_feed_speed_mm_s = args.feed_speed_mm_s
     env_cfg.enable_pad_physical_contact = True   # repolish는 반드시 실측 PhysX 힘 기준
     env_cfg.repolish_max_passes = args.max_passes
     env_cfg.repolish_cooldown_s = args.cooldown_s
+    if args.policy_mode == "finish_rule":
+        env_cfg.repolish_finish_gate_after_pass = 2
+        env_cfg.repolish_finish_min_gu = args.finish_min_gu
     # 한 시퀀스(최대 pass 수)를 다 담을 수 있도록 넉넉히: 공칭 1 pass 완주 시간(BO recipe
     # 기준 raster 총 길이/feed, 대략 200~250s) + pass당 냉각시간을 max_passes 배 확보.
     nominal_pass_s = 260.0
@@ -96,11 +119,39 @@ def main():
           f"max_passes={args.max_passes} cooldown={args.cooldown_s}s "
           f"episode_length_s={env_cfg.episode_length_s:.0f}")
 
-    policy = load_policy(args.checkpoint, env.device)
+    if args.policy_mode == "zero":
+        def policy(obs):
+            return torch.zeros((len(obs["policy"]), 2), device=env.device)
+        policy_name = "zero_action"
+        print("[repolish] policy=zero_action (force/feed residual 모두 0)")
+    elif args.policy_mode == "finish_rule":
+        base_feed = env.recipe.feed_speed_mm_s
+        finish_feed_action = ((args.finish_feed_mm_s / base_feed) - 1.0) / env.cfg.feed_ratio_limit
+        finish_feed_action = float(np.clip(finish_feed_action, -1.0, 1.0))
+
+        def policy(obs):
+            actions = torch.zeros((len(obs["policy"]), 2), device=env.device)
+            later = env._pass_count > 0
+            late = env._pass_count > 1
+            actions[later, 0] = float(np.clip(args.finish_force_action, -1.0, 1.0))
+            actions[late, 0] = float(np.clip(args.finish_late_force_action, -1.0, 1.0))
+            actions[later, 1] = finish_feed_action
+            return actions
+
+        policy_name = "finish_rule"
+        print(f"[repolish] policy=finish_rule (pass1 residual=0; pass2 force_action="
+              f"{args.finish_force_action:.3f}; pass3+ force_action="
+              f"{args.finish_late_force_action:.3f}; feed={args.finish_feed_mm_s:.3f} mm/s, "
+              f"feed_action={finish_feed_action:.3f}; finish_min_gu={args.finish_min_gu:.2f})")
+    else:
+        policy = load_policy(args.checkpoint, env.device)
+        policy_name = os.path.basename(args.checkpoint)
 
     obs, _ = env.reset()
     seq_done = np.zeros(args.num_envs, dtype=int)
     rows = []
+    pass_rows = []
+    tile_rows = []
     step = 0
     target = args.num_envs * args.num_sequences
     while len(rows) < target and step < args.max_control_steps:
@@ -116,9 +167,28 @@ def main():
             if log is None:
                 continue
             b, f = log["before"], log["final"]
+            history = log.get("pass_history", [])
+            best_pass = 0
+            best_gu = float(b["gu"])
+            for p in history:
+                if float(p["gu_after"]) > best_gu:
+                    best_gu = float(p["gu_after"])
+                    best_pass = int(p["pass"])
+            outcome = log["outcome"]
+            if outcome == "success":
+                disposition = "success"
+            elif outcome in {"fail_clearcoat", "fail_clearcoat_budget"}:
+                disposition = "recoat_or_refinish_review"
+            elif outcome in {"fail_overheat", "fail_force_overload",
+                             "fail_unstable_contact", "fail_timeout"}:
+                disposition = "human_review_required_safety_stop"
+            else:
+                disposition = "best_safe_result_current_process_limit"
             rows.append({
-                "checkpoint": os.path.basename(args.checkpoint), "env": i,
-                "sequence": seq_done[i], "outcome": log["outcome"], "passes": log["passes"],
+                "checkpoint": policy_name, "env": i,
+                "sequence": seq_done[i], "outcome": outcome, "disposition": disposition,
+                "passes": log["passes"], "best_observed_pass": best_pass,
+                "best_observed_gu": round(best_gu, 2),
                 "gu_before": round(b["gu"], 2), "gu_final": round(f["gu"], 2),
                 "ra_final_um": round(f["ra"], 4), "rz_final_um": round(f["rz"], 3),
                 "scratch_before_um": round(b["scratch"], 3), "scratch_final_um": round(f["scratch"], 3),
@@ -127,6 +197,80 @@ def main():
                 "thermal_damage_peak": round(f["thermal_damage_peak"], 6),
                 "quality_ok": log["quality_ok"], "safety_ok": log["safety_ok"],
             })
+            for p in history:
+                pass_rows.append({
+                    "checkpoint": policy_name, "env": i,
+                    "sequence": seq_done[i], **p,
+                })
+                gu_map = np.asarray(json.loads(p["tile_gu_map_json"]), dtype=float)
+                ceiling_map = np.asarray(
+                    json.loads(p["tile_optimistic_ceiling_gu_map_json"]), dtype=float)
+                gu_min_baseline_map = np.asarray(
+                    json.loads(p["tile_gu_min_baseline_map_json"]), dtype=float)
+                gu_cellwise_worst_map = np.asarray(
+                    json.loads(p["tile_gu_cellwise_worst_map_json"]), dtype=float)
+                ceiling_min_baseline_map = np.asarray(json.loads(
+                    p["tile_optimistic_ceiling_min_baseline_map_json"]), dtype=float)
+                ceiling_cellwise_worst_map = np.asarray(json.loads(
+                    p["tile_optimistic_ceiling_cellwise_worst_map_json"]), dtype=float)
+                q_cc_current_map = np.asarray(
+                    json.loads(p["tile_q_clearcoat_current_map_json"]), dtype=float)
+                q_cc_min_baseline_map = np.asarray(
+                    json.loads(p["tile_q_clearcoat_min_baseline_map_json"]), dtype=float)
+                q_cc_cellwise_worst_map = np.asarray(
+                    json.loads(p["tile_q_clearcoat_cellwise_worst_map_json"]), dtype=float)
+                limiter_map = np.asarray(json.loads(p["tile_limiter_map_json"]), dtype=object)
+                cc_map = np.asarray(json.loads(p["tile_cc_min_map_json"]), dtype=float)
+                cc_initial_min_map = np.asarray(
+                    json.loads(p["tile_cc_initial_min_map_json"]), dtype=float)
+                cc_initial_mean_map = np.asarray(
+                    json.loads(p["tile_cc_initial_mean_map_json"]), dtype=float)
+                for tile_x, tile_y in np.ndindex(gu_map.shape):
+                    gu = float(gu_map[tile_x, tile_y])
+                    ceiling = float(ceiling_map[tile_x, tile_y])
+                    cc_min = float(cc_map[tile_x, tile_y])
+                    if gu >= env.cfg.repolish_target_gu:
+                        tile_disposition = "target_met"
+                    elif ceiling < env.cfg.repolish_target_gu:
+                        tile_disposition = "current_clearcoat_or_thermal_limit"
+                    elif cc_min <= (env.cfg.clearcoat_safety_limit_um
+                                    + env.cfg.repolish_cc_safety_margin_um):
+                        tile_disposition = "clearcoat_budget_stop"
+                    else:
+                        tile_disposition = "plausible_rework_candidate"
+                    tile_rows.append({
+                        "checkpoint": policy_name,
+                        "env": i,
+                        "sequence": seq_done[i],
+                        "pass": int(p["pass"]),
+                        "tile_x": tile_x,
+                        "tile_y": tile_y,
+                        "gu_current": round(gu, 3),
+                        "gu_optimistic_ceiling": round(ceiling, 3),
+                        "gu_if_min_baseline": round(
+                            float(gu_min_baseline_map[tile_x, tile_y]), 3),
+                        "gu_if_cellwise_worst": round(
+                            float(gu_cellwise_worst_map[tile_x, tile_y]), 3),
+                        "gu_ceiling_if_min_baseline": round(
+                            float(ceiling_min_baseline_map[tile_x, tile_y]), 3),
+                        "gu_ceiling_if_cellwise_worst": round(
+                            float(ceiling_cellwise_worst_map[tile_x, tile_y]), 3),
+                        "ceiling_margin_to_target": round(
+                            ceiling - env.cfg.repolish_target_gu, 3),
+                        "q_clearcoat_current": round(
+                            float(q_cc_current_map[tile_x, tile_y]), 6),
+                        "q_clearcoat_min_baseline": round(
+                            float(q_cc_min_baseline_map[tile_x, tile_y]), 6),
+                        "q_clearcoat_cellwise_worst": round(
+                            float(q_cc_cellwise_worst_map[tile_x, tile_y]), 6),
+                        "clearcoat_initial_min_um": round(
+                            float(cc_initial_min_map[tile_x, tile_y]), 3),
+                        "clearcoat_initial_mean_um": round(
+                            float(cc_initial_mean_map[tile_x, tile_y]), 3),
+                        "clearcoat_min_um": round(cc_min, 3),
+                        "limiting_term_current": str(limiter_map[tile_x, tile_y]),
+                        "disposition": tile_disposition,
+                    })
             seq_done[i] += 1
         if step % 2000 == 0:
             print(f"[repolish] step={step} sequences={len(rows)}/{target} "
@@ -142,6 +286,26 @@ def main():
             w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
             w.writeheader(); w.writerows(rows)
         print(f"\n에피소드(시퀀스)별 CSV → {args.out}")
+    if pass_rows:
+        pass_out = args.pass_out
+        if pass_out is None:
+            stem, ext = os.path.splitext(args.out)
+            pass_out = stem + "_passes" + (ext or ".csv")
+        os.makedirs(os.path.dirname(pass_out) or ".", exist_ok=True)
+        with open(pass_out, "w", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, fieldnames=list(pass_rows[0].keys()))
+            w.writeheader(); w.writerows(pass_rows)
+        print(f"pass별 진단 CSV → {pass_out}")
+    if tile_rows:
+        tile_out = args.tile_out
+        if tile_out is None:
+            stem, ext = os.path.splitext(args.out)
+            tile_out = stem + "_tiles" + (ext or ".csv")
+        os.makedirs(os.path.dirname(tile_out) or ".", exist_ok=True)
+        with open(tile_out, "w", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, fieldnames=list(tile_rows[0].keys()))
+            w.writeheader(); w.writerows(tile_rows)
+        print(f"타일별 한계 진단 CSV → {tile_out}")
 
     n = len(rows)
     outcomes = {}

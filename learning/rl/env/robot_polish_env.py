@@ -7,6 +7,7 @@ contact position and the force computed from the measured pad-to-surface gap.
 from __future__ import annotations
 
 from collections.abc import Sequence
+import json
 
 import numpy as np
 import torch
@@ -171,6 +172,22 @@ class RobotPolishEnv(PolishEnv):
             )
         super().__init__(cfg, render_mode, **kwargs)
 
+        # 자동차 클리어코트용 이송속도는 공용 BO recipe를 바꾸지 않고 로봇 환경에서만
+        # 덮어쓴다. 경로 형상/길이는 feed와 무관하므로 recipe와 초기 feed 텐서만 바꾸면
+        # 이후 _pre_physics_step 및 _reset_idx도 동일 값을 일관되게 사용한다.
+        robot_feed = float(cfg.robot_feed_speed_mm_s)
+        if not np.isfinite(robot_feed) or robot_feed <= 0.0:
+            raise ValueError(f"robot_feed_speed_mm_s must be finite and > 0, got {robot_feed}")
+        recipe_feed = float(self.recipe.feed_speed_mm_s)
+        self.recipe.feed_speed_mm_s = robot_feed
+        self._feed_cmd.fill_(robot_feed / 1000.0)
+        print(
+            f"[RobotPolishEnv] robot feed override {recipe_feed:.3f} -> "
+            f"{robot_feed:.3f} mm/s (policy range "
+            f"{robot_feed * (1.0 - self.cfg.feed_ratio_limit):.3f}~"
+            f"{robot_feed * (1.0 + self.cfg.feed_ratio_limit):.3f} mm/s)"
+        )
+
         if cfg.enable_pad_physical_contact:
             # 폐루프(센서 피드백) 안정화 — cfg 주석의 Phase B 실측 근거 참고.
             self.contact.admittance_damping = float(cfg.physical_admittance_damping)
@@ -223,8 +240,13 @@ class RobotPolishEnv(PolishEnv):
         # 이번 pass 동안 실측 평균힘 — "힘당 제거율" 추정에 쓴다 (_quality_update 에서 누적).
         self._pass_force_accum = torch.zeros(self.num_envs, device=self.device)
         self._pass_force_n = torch.zeros(self.num_envs, device=self.device)
-        self._pass_force_mean: dict[int, float] = {}     # 직전 pass 의 실측 평균힘
-        self._pass_removal_um: dict[int, float] = {}     # 직전 pass 의 cc_min 감소량
+        # 재폴리싱 진단 전용 누적값. 제어·품질·종료 판정에는 사용하지 않고 pass 종료
+        # 시점에 CSV로 내보낼 근거만 모은다.
+        self._pass_force_cmd_accum = torch.zeros(self.num_envs, device=self.device)
+        self._pass_feed_accum = torch.zeros(self.num_envs, device=self.device)
+        self._pass_action_accum = torch.zeros((self.num_envs, 2), device=self.device)
+        self._pass_force_max = torch.zeros(self.num_envs, device=self.device)
+        self._repolish_pass_history: dict[int, list[dict]] = {}
 
         self._update_measured_pad_state()
         print(
@@ -313,6 +335,11 @@ class RobotPolishEnv(PolishEnv):
             self._pad_in_patch, self._pad_gap_m, torch.full_like(self._pad_gap_m, 0.20)
         )
         physical = self.cfg.enable_pad_physical_contact
+        if physical:
+            # 물리 안전 게이트는 control-step 평균뿐 아니라 센서 raw 순간값도 본다.
+            # 평균화로 14 N 초과 피크가 숨는 것을 막는다.
+            self._force_hard_violated |= (
+                self._force_sensor_n > self.cfg.force_hard_limit_n)
         sensor_feedback = None
         if physical:
             # 폐루프 force tracking: 어드미턴스 피드백을 PhysX 센서 필터힘으로 교체 —
@@ -338,6 +365,8 @@ class RobotPolishEnv(PolishEnv):
         used = torch.where(self._pad_in_patch, used, torch.zeros_like(used))
         self._force_model_n = model_force
         self._force_used_n = used
+        if self._repolish_mode:
+            self._pass_force_max = torch.maximum(self._pass_force_max, used)
         self._force_accum += used
         self._force_sq_accum += used * used
         self._substep_n += 1
@@ -458,6 +487,9 @@ class RobotPolishEnv(PolishEnv):
         if self._repolish_mode and self._substep_n > 0:
             # pass 전체 평균힘 누적 — 미달분·안전예산 기반 다음 pass 힘 산정에 쓴다.
             self._pass_force_accum += self._force_accum / self._substep_n
+            self._pass_force_cmd_accum += self._force_cmd
+            self._pass_feed_accum += self._feed_cmd
+            self._pass_action_accum += self._prev_action
             self._pass_force_n += 1.0
         if self.log_raw_steps and self.step_log:
             self.step_log[-1].update({
@@ -560,12 +592,15 @@ class RobotPolishEnv(PolishEnv):
         self._pass_base_force[ids] = self.recipe.target_contact_force_n
         self._pass_force_accum[ids] = 0.0
         self._pass_force_n[ids] = 0.0
+        self._pass_force_cmd_accum[ids] = 0.0
+        self._pass_feed_accum[ids] = 0.0
+        self._pass_action_accum[ids] = 0.0
+        self._pass_force_max[ids] = 0.0
         first_uv = np.asarray(self._pos_at_arc(0.0), dtype=np.float64)
         self._prev_uv[ids.cpu().numpy()] = first_uv
         for i in ids.cpu().tolist():
             self._repolish_prev_metrics.pop(i, None)
-            self._pass_force_mean.pop(i, None)
-            self._pass_removal_um.pop(i, None)
+            self._repolish_pass_history.pop(i, None)
 
     def _soft_reset_path(self, ids: torch.Tensor) -> None:
         """재폴리싱: 같은 표면(surface)에서 다음 pass를 위해 경로·접촉·로봇만 리셋.
@@ -588,6 +623,10 @@ class RobotPolishEnv(PolishEnv):
         self._action_rate[ids] = 0.0
         self._pass_force_accum[ids] = 0.0
         self._pass_force_n[ids] = 0.0
+        self._pass_force_cmd_accum[ids] = 0.0
+        self._pass_feed_accum[ids] = 0.0
+        self._pass_action_accum[ids] = 0.0
+        self._pass_force_max[ids] = 0.0
         # _pass_base_force 는 여기서 건드리지 않는다 — _repolish_decide 가 다음 pass
         # 목표힘을 이미 정해서 넣어뒀다(정보 없으면 recipe 기준값 그대로).
         # thermal_hard_violated 는 일부러 유지한다 — 표면의 peak_temperature_c 는
@@ -606,6 +645,155 @@ class RobotPolishEnv(PolishEnv):
             t += self.quality_dt
         self._sim_time[i] = t
 
+    def _tile_quality_diagnostic(self, i: int, tiles: tuple[int, int] = (5, 5)) -> dict:
+        """Pass 종료 시 타일별 품질/안전 진단. 제어에는 사용하지 않는 출력 전용 값."""
+        from learning.polytwin.gloss_proxy import _tile_slices, gu_from_relative
+
+        result = self._gloss.evaluate(self._surfaces[i], tiles=tiles)
+        gu_map = result["gu_map"]
+        term_maps = result["term_maps"]
+        limiter_terms = ["q_ra", "q_scratch", "q_uniformity", "q_thermal"]
+        if self._gloss.cfg.w_clearcoat > 0.0:
+            limiter_terms.append("q_clearcoat")
+        limiter_terms = tuple(limiter_terms)
+        limiter_stack = np.stack([term_maps[k] for k in limiter_terms], axis=-1)
+        limiter_idx = np.argmin(limiter_stack, axis=-1)
+        limiter_map = np.asarray(limiter_terms, dtype=object)[limiter_idx]
+
+        surface = self._surfaces[i]
+        gloss_cfg = self._gloss.cfg
+        safety_um = gloss_cfg.clearcoat_failure_limit_um
+        cc_min_map = np.zeros(tiles, dtype=np.float64)
+        cc_initial_min_map = np.zeros(tiles, dtype=np.float64)
+        cc_initial_mean_map = np.zeros(tiles, dtype=np.float64)
+        q_cc_min_baseline_map = np.zeros(tiles, dtype=np.float64)
+        q_cc_cellwise_worst_map = np.zeros(tiles, dtype=np.float64)
+        for sl_i, sl_j, ti, tj in _tile_slices(surface.shape, tiles):
+            initial = surface.initial_clearcoat_um[sl_i, sl_j]
+            remaining = surface.clearcoat_remaining_um[sl_i, sl_j]
+            initial_min = float(initial.min())
+            remaining_min = float(remaining.min())
+            cc_min_map[ti, tj] = remaining_min
+            cc_initial_min_map[ti, tj] = initial_min
+            cc_initial_mean_map[ti, tj] = float(initial.mean())
+            q_cc_min_baseline_map[ti, tj] = np.clip(
+                (remaining_min - safety_um) / max(initial_min - safety_um, 1e-6),
+                0.0, 1.0)
+            local_margin_ratio = (
+                (remaining - safety_um) / np.maximum(initial - safety_um, 1e-6)
+            )
+            q_cc_cellwise_worst_map[ti, tj] = float(
+                np.clip(local_margin_ratio.min(), 0.0, 1.0))
+
+        # 세 식의 차이만 보기 위해 다른 품질항은 동일하게 유지한다. current는 현행
+        # (최종 최소)/(초기 평균), min_baseline은 (최종 최소)/(초기 최소),
+        # cellwise_worst는 위치별 안전여유 잔존비 중 최솟값이다.
+        geometric_weight_sum = (
+            gloss_cfg.w_ra + gloss_cfg.w_scratch
+            + gloss_cfg.w_uniformity + gloss_cfg.w_clearcoat
+        )
+
+        def _gu_for_q_clearcoat(q_clearcoat_map, perfect_mutable: bool):
+            log_geom = gloss_cfg.w_clearcoat * np.log(
+                np.maximum(q_clearcoat_map, 1e-6))
+            if not perfect_mutable:
+                log_geom += (
+                    gloss_cfg.w_ra * np.log(np.maximum(term_maps["q_ra"], 1e-6))
+                    + gloss_cfg.w_scratch
+                    * np.log(np.maximum(term_maps["q_scratch"], 1e-6))
+                    + gloss_cfg.w_uniformity
+                    * np.log(np.maximum(term_maps["q_uniformity"], 1e-6))
+                )
+            log_q = (
+                log_geom / geometric_weight_sum
+                + gloss_cfg.w_thermal
+                * np.log(np.maximum(term_maps["q_thermal"], 1e-6))
+            )
+            return gu_from_relative(np.exp(log_q), gloss_cfg.upper_anchor_gu)
+
+        gu_min_baseline_map = _gu_for_q_clearcoat(q_cc_min_baseline_map, False)
+        gu_cellwise_worst_map = _gu_for_q_clearcoat(q_cc_cellwise_worst_map, False)
+
+        # Clearcoat 보전도와 누적 열손상은 추가 폴리싱으로 좋아질 수 없다. 반대로
+        # Ra·scratch·균일도를 모두 완벽(q=1)으로 놓은 낙관적 GU 상한을 식별로 비교한다.
+        optimistic_ceiling_gu_map = _gu_for_q_clearcoat(term_maps["q_clearcoat"], True)
+        optimistic_ceiling_min_baseline_map = _gu_for_q_clearcoat(
+            q_cc_min_baseline_map, True)
+        optimistic_ceiling_cellwise_worst_map = _gu_for_q_clearcoat(
+            q_cc_cellwise_worst_map, True)
+
+        fail = gu_map < self.cfg.repolish_target_gu
+        # 추가가공 가능은 품질 성공 예측이 아니라, Clearcoat 설계 여유가 남았다는 뜻뿐이다.
+        cc_rework_ok = (
+            cc_min_map > self.cfg.clearcoat_safety_limit_um
+            + self.cfg.repolish_cc_safety_margin_um
+        )
+        rework = fail & cc_rework_ok
+        stop = fail & ~cc_rework_ok
+        ceiling_blocked = fail & (optimistic_ceiling_gu_map < self.cfg.repolish_target_gu)
+        ceiling_allows = fail & ~ceiling_blocked
+        plausible_rework = ceiling_allows & cc_rework_ok
+        budget_stop = ceiling_allows & ~cc_rework_ok
+        fail_indices = [f"{x}:{y}" for x, y in np.argwhere(fail)]
+        rework_indices = [f"{x}:{y}" for x, y in np.argwhere(rework)]
+        stop_indices = [f"{x}:{y}" for x, y in np.argwhere(stop)]
+        ceiling_blocked_indices = [f"{x}:{y}" for x, y in np.argwhere(ceiling_blocked)]
+        plausible_rework_indices = [f"{x}:{y}" for x, y in np.argwhere(plausible_rework)]
+        budget_stop_indices = [f"{x}:{y}" for x, y in np.argwhere(budget_stop)]
+        limiter_counts = {
+            k: int(((limiter_map == k) & fail).sum()) for k in limiter_terms
+        }
+        return {
+            "tile_gu_mean": float(gu_map.mean()),
+            "tile_gu_min": float(gu_map.min()),
+            "tile_gu_fail_count": int(fail.sum()),
+            "tile_rework_candidate_count": int(rework.sum()),
+            "tile_stop_count": int(stop.sum()),
+            "tile_optimistic_ceiling_gu_mean": float(optimistic_ceiling_gu_map.mean()),
+            "tile_optimistic_ceiling_gu_min": float(optimistic_ceiling_gu_map.min()),
+            "tile_min_baseline_ceiling_blocked_count": int(
+                ((gu_map < self.cfg.repolish_target_gu)
+                 & (optimistic_ceiling_min_baseline_map
+                    < self.cfg.repolish_target_gu)).sum()),
+            "tile_cellwise_ceiling_blocked_count": int(
+                ((gu_map < self.cfg.repolish_target_gu)
+                 & (optimistic_ceiling_cellwise_worst_map
+                    < self.cfg.repolish_target_gu)).sum()),
+            "tile_ceiling_blocked_count": int(ceiling_blocked.sum()),
+            "tile_plausible_rework_count": int(plausible_rework.sum()),
+            "tile_budget_stop_count": int(budget_stop.sum()),
+            "tile_fail_indices": ";".join(fail_indices),
+            "tile_rework_indices": ";".join(rework_indices),
+            "tile_stop_indices": ";".join(stop_indices),
+            "tile_ceiling_blocked_indices": ";".join(ceiling_blocked_indices),
+            "tile_plausible_rework_indices": ";".join(plausible_rework_indices),
+            "tile_budget_stop_indices": ";".join(budget_stop_indices),
+            "tile_limiter_counts_json": json.dumps(limiter_counts, sort_keys=True),
+            "tile_gu_map_json": json.dumps(np.round(gu_map, 3).tolist()),
+            "tile_gu_min_baseline_map_json": json.dumps(
+                np.round(gu_min_baseline_map, 3).tolist()),
+            "tile_gu_cellwise_worst_map_json": json.dumps(
+                np.round(gu_cellwise_worst_map, 3).tolist()),
+            "tile_optimistic_ceiling_gu_map_json": json.dumps(
+                np.round(optimistic_ceiling_gu_map, 3).tolist()),
+            "tile_optimistic_ceiling_min_baseline_map_json": json.dumps(
+                np.round(optimistic_ceiling_min_baseline_map, 3).tolist()),
+            "tile_optimistic_ceiling_cellwise_worst_map_json": json.dumps(
+                np.round(optimistic_ceiling_cellwise_worst_map, 3).tolist()),
+            "tile_q_clearcoat_current_map_json": json.dumps(
+                np.round(term_maps["q_clearcoat"], 6).tolist()),
+            "tile_q_clearcoat_min_baseline_map_json": json.dumps(
+                np.round(q_cc_min_baseline_map, 6).tolist()),
+            "tile_q_clearcoat_cellwise_worst_map_json": json.dumps(
+                np.round(q_cc_cellwise_worst_map, 6).tolist()),
+            "tile_limiter_map_json": json.dumps(limiter_map.tolist()),
+            "tile_cc_min_map_json": json.dumps(np.round(cc_min_map, 3).tolist()),
+            "tile_cc_initial_min_map_json": json.dumps(
+                np.round(cc_initial_min_map, 3).tolist()),
+            "tile_cc_initial_mean_map_json": json.dumps(
+                np.round(cc_initial_mean_map, 3).tolist()),
+        }
+
     def _repolish_decide(self, i: int) -> bool:
         """한 pass 종료 시점의 성공/재시도/실패 판정 (인수인계서 19장 5~9번).
 
@@ -616,6 +804,8 @@ class RobotPolishEnv(PolishEnv):
         cfg = self.cfg
         self._pass_count[i] += 1
         fin = self._evaluate_quality(i)
+        prev = self._repolish_prev_metrics.get(i)
+        start = prev if prev is not None else self._before_metrics.get(i, fin)
         quality_ok = (fin["gu"] >= cfg.repolish_target_gu
                       and fin["ra"] <= cfg.t_ra_pass_max_um
                       and fin["rz"] <= cfg.t_rz_pass_max_um)
@@ -628,12 +818,59 @@ class RobotPolishEnv(PolishEnv):
         unstable_ok = not bool(self._unstable_hard_violated[i])
         safety_ok = force_ok and thermal_ok and cc_ok and unstable_ok
 
+        n_steps = float(self._pass_force_n[i].clamp(min=1.0))
+        pass_force_n = float(self._pass_force_accum[i] / n_steps)
+        pass_removal_um = max(0.0, float(start["cc_min"]) - fin["cc_min"])
+        cc_budget = fin["cc_min"] - cfg.clearcoat_safety_limit_um
+        gu_gap = max(0.0, cfg.repolish_target_gu - fin["gu"]) / max(cfg.repolish_target_gu, 1e-6)
+        ra_gap = max(0.0, fin["ra"] - cfg.t_ra_pass_max_um) / max(cfg.t_ra_pass_max_um, 1e-6)
+        rz_gap = max(0.0, fin["rz"] - cfg.t_rz_pass_max_um) / max(cfg.t_rz_pass_max_um, 1e-6)
+        shortfall_ratio = max(gu_gap, ra_gap, rz_gap)
+        removal_per_n = pass_removal_um / pass_force_n if pass_force_n > 0.5 else 0.0
+        pass_diag = {
+            "pass": int(self._pass_count[i]),
+            "decision": "",
+            "base_force_n": float(self._pass_base_force[i]),
+            "force_cmd_mean_n": float(self._pass_force_cmd_accum[i] / n_steps),
+            "force_used_mean_n": pass_force_n,
+            "force_used_max_n": float(self._pass_force_max[i]),
+            "force_action_mean": float(self._pass_action_accum[i, 0] / n_steps),
+            "feed_cmd_mean_mm_s": float(self._pass_feed_accum[i] / n_steps) * 1000.0,
+            "feed_action_mean": float(self._pass_action_accum[i, 1] / n_steps),
+            "fallback_steps": int(self._fallback_steps[i]),
+            "gu_before": float(start["gu"]), "gu_after": fin["gu"],
+            "ra_before_um": float(start["ra"]), "ra_after_um": fin["ra"],
+            "rz_before_um": float(start["rz"]), "rz_after_um": fin["rz"],
+            "scratch_before_um": float(start["scratch"]),
+            "scratch_after_um": fin["scratch"],
+            "clearcoat_before_um": float(start["cc_min"]),
+            "clearcoat_after_um": fin["cc_min"],
+            "clearcoat_removed_um": pass_removal_um,
+            "clearcoat_budget_um": cc_budget,
+            "temperature_peak_c": fin["temperature_peak_c"],
+            "thermal_damage_peak": fin["thermal_damage_peak"],
+            "shortfall_ratio": shortfall_ratio,
+            "removal_per_force_um_n": removal_per_n,
+            "desired_extra_force_n": None,
+            "max_extra_force_n": None,
+            "next_base_force_n": None,
+            "quality_ok": quality_ok, "safety_ok": safety_ok,
+        }
+        pass_diag.update(self._tile_quality_diagnostic(i))
+
+        def _record(decision: str, next_force: float | None = None):
+            pass_diag["decision"] = decision
+            pass_diag["next_base_force_n"] = next_force
+            self._repolish_pass_history.setdefault(i, []).append(pass_diag.copy())
+
         def _finish(outcome: str):
+            _record(outcome)
             b = self._before_metrics.get(i, fin)
             self._repolish_log[i] = {
                 "outcome": outcome, "passes": int(self._pass_count[i]),
                 "before": b, "final": fin,
                 "quality_ok": quality_ok, "safety_ok": safety_ok,
+                "pass_history": list(self._repolish_pass_history.get(i, [])),
             }
 
         if quality_ok and safety_ok:
@@ -649,46 +886,63 @@ class RobotPolishEnv(PolishEnv):
         if int(self._pass_count[i]) >= cfg.repolish_max_passes:
             _finish("fail_max_passes")
             return True
-        prev = self._repolish_prev_metrics.get(i)
         if prev is not None:
-            improved = (
-                (fin["gu"] - prev["gu"]) > cfg.repolish_gu_improve_eps
-                or (prev["scratch"] - fin["scratch"]) > cfg.repolish_scratch_improve_eps_um
-                or (prev["ra"] - fin["ra"]) > cfg.repolish_ra_improve_eps_um
+            # Scratch 하나만 계속 줄어도 GU/Ra/Rz 가 악화되는 과가공을 "개선"으로
+            # 통과시키지 않는다. 최종 판정 지표 중 하나라도 허용오차 이상 퇴행하면
+            # 즉시 중단하고, 퇴행 없이 품질 지표가 하나 이상 좋아져야 계속한다.
+            quality_regressed = (
+                (prev["gu"] - fin["gu"]) > cfg.repolish_gu_improve_eps
+                or (fin["ra"] - prev["ra"]) > cfg.repolish_ra_improve_eps_um
+                or (fin["rz"] - prev["rz"]) > cfg.repolish_rz_improve_eps_um
             )
-            if not improved:
+            quality_improved = (
+                (fin["gu"] - prev["gu"]) > cfg.repolish_gu_improve_eps
+                or (prev["ra"] - fin["ra"]) > cfg.repolish_ra_improve_eps_um
+                or (prev["rz"] - fin["rz"]) > cfg.repolish_rz_improve_eps_um
+            )
+            if quality_regressed:
+                _finish("fail_quality_regression")
+                return True
+            if not quality_improved:
                 _finish("fail_no_improvement")
+                return True
+
+        # 선택적 근접 마무리 게이트. 전체 레스터 3차 pass는 기존 100환경에서
+        # 진입 GU<68인 12/12가 개선되지 않았으므로, finish_rule 평가에서만
+        # 2차 종료 후 목표 근접 + Ra/Rz 통과 표면에 한정한다. 기본값 0은 비활성.
+        gate_pass = int(cfg.repolish_finish_gate_after_pass)
+        if gate_pass > 0 and int(self._pass_count[i]) >= gate_pass:
+            finish_eligible = (
+                fin["gu"] >= cfg.repolish_finish_min_gu
+                and fin["ra"] <= cfg.t_ra_pass_max_um
+                and fin["rz"] <= cfg.t_rz_pass_max_um
+            )
+            if not finish_eligible:
+                _finish("fail_finish_not_eligible")
                 return True
 
         # ── 미달이지만 안전 — 다음 pass 목표힘을 "미달분·안전예산" 기반으로 재산정 ──
         # "정해진 스텝만큼 무조건 올리기"는 clearcoat을 안전선 아래로 뚫을 수 있어
         # 채택하지 않는다. 대신 방금 pass 에서 실측한 (힘당 clearcoat 감소율)로
         # 다음 힘을 역산하고, 남은 안전예산을 넘지 않는 선에서만 올린다.
-        baseline_cc = (prev["cc_min"] if prev is not None
-                      else self._before_metrics.get(i, fin)["cc_min"])
-        pass_removal_um = max(0.0, float(baseline_cc) - fin["cc_min"])
-        pass_force_n = float(self._pass_force_accum[i] / self._pass_force_n[i].clamp(min=1.0))
-        self._pass_removal_um[i] = pass_removal_um
-        self._pass_force_mean[i] = pass_force_n
-
-        cc_budget = fin["cc_min"] - cfg.clearcoat_safety_limit_um
         if cc_budget <= cfg.repolish_cc_safety_margin_um:
             # 더 깎을 안전 여유가 사실상 없다 — 억지로 재시도하지 않는다.
             _finish("fail_clearcoat_budget")
             return True
 
         base_force = self.recipe.target_contact_force_n
-        hard_cap = cfg.repolish_force_cap_ratio * cfg.force_hard_limit_n
-        gu_gap = max(0.0, cfg.repolish_target_gu - fin["gu"]) / max(cfg.repolish_target_gu, 1e-6)
-        ra_gap = max(0.0, fin["ra"] - cfg.t_ra_pass_max_um) / max(cfg.t_ra_pass_max_um, 1e-6)
-        rz_gap = max(0.0, fin["rz"] - cfg.t_rz_pass_max_um) / max(cfg.t_rz_pass_max_um, 1e-6)
-        shortfall_ratio = max(gu_gap, ra_gap, rz_gap)
+        # _pass_base_force 뒤에 정책의 +force_ratio_limit residual 이 곱해지므로,
+        # 기본힘 자체를 0.85*hard_limit 로 두면 최종 명령은 hard limit 를 넘을 수 있다.
+        # 최대 양의 residual 이후에도 지정 비율 안에 남도록 역산한다.
+        hard_cap = (cfg.repolish_force_cap_ratio * cfg.force_hard_limit_n
+                    / (1.0 + cfg.force_ratio_limit))
 
         next_force = base_force
         if pass_force_n > 0.5 and pass_removal_um > 1e-6:
-            removal_per_n = pass_removal_um / pass_force_n
             desired_extra_force = (shortfall_ratio * cfg.repolish_force_gain_um) / removal_per_n
             max_extra_force = max(0.0, cc_budget - cfg.repolish_cc_safety_margin_um) / removal_per_n
+            pass_diag["desired_extra_force_n"] = desired_extra_force
+            pass_diag["max_extra_force_n"] = max_extra_force
             if desired_extra_force > max_extra_force and shortfall_ratio > cfg.repolish_infeasible_shortfall:
                 # 안전예산 안에서 낼 수 있는 최대 힘으로도 남은 미달을 못 채울 것으로
                 # 추정된다 — 억지로 pass 를 반복하는 대신 정직하게 실패 처리한다.
@@ -699,6 +953,7 @@ class RobotPolishEnv(PolishEnv):
 
         self._pass_base_force[i] = next_force
         self._repolish_prev_metrics[i] = fin
+        _record("continue", next_force)
         # 냉각 후 같은 표면에서 다음 pass (19-7/19-8)
         self._apply_cooldown(i, cfg.repolish_cooldown_s)
         return False

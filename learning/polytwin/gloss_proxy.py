@@ -46,13 +46,15 @@ class GlossProxyConfig:
     ra_reference_um: float = C.RA_TARGET_UM      # 이보다 좋으면 q_ra=1
     ra_decay_scale_um: float = 0.10              # PT-DESIGN
     uniformity_decay_scale_um: float = 1.0       # PT-DESIGN  removal std [μm] 기준
+    # q_clearcoat는 안전 진단용으로 계속 계산하지만, 잔량과 GU의 직접 상관을 뒷받침하는
+    # 광학 근거가 없어 기본 GU 결합에서는 제외한다. 안전 실패는 RL 환경이 별도 판정한다.
     clearcoat_failure_limit_um: float = C.CLEARCOAT_SAFETY_LIMIT_UM
     scratch_epsilon_um: float = 0.01
     # 결합 가중치 (03 문서 8장 geometric combination) — PT-DESIGN
     w_ra: float = 1.0
     w_scratch: float = 1.0
     w_uniformity: float = 1.0
-    w_clearcoat: float = 1.0
+    w_clearcoat: float = 0.0
     w_thermal: float = 1.0
     w_optical: float = 0.0     # RTX 파이프라인 연결(Step 8) 전까지 0
     # 판정 한계 (03 문서 10장) — PT-DESIGN

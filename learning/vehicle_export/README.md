@@ -65,18 +65,20 @@ init_clearcoat_um, init_gu_proxy, surface_seed(선택)`
 | `gu_target_pass` | 20° GU proxy after ≥ **70** | literature-derived project target |
 | `ra_target_pass` | Ra after ≤ **0.20 μm** | literature-derived project target |
 | `rz_target_pass` | Rz after ≤ **2.0 μm** | literature-derived project target |
-| `clearcoat_safe` | 잔여 최소 ≥ **35 μm** | literature-derived project target (검사 시스템과 통일) |
+| `clearcoat_safe` | 잔여 최소 ≥ **30 μm** | 문헌 초기두께 하단을 채택한 L-DERIVED+PT-DESIGN 안전선 |
 | `scratch_improved` | after < before (before<0.05 면 자동 통과) | 파생 판정 |
 | `overall_pass` | 위 전부 + 완주 + 힘한계(14 N) 미위반 | |
 | `failure_reason` | 실패 항목을 `;` 로 연결 (수치 포함) | |
 
-### Clearcoat 35 μm 기준과 GU 스케일 (중요)
+### Clearcoat 기준 변경 이력과 GU 분리 (중요)
 
-GU proxy 의 clearcoat 품질항이 이 상수를 쓰므로 **GU 스케일이 전체적으로 ~0.7 내려갔다**
-(행동 동일한 baseline 68.18→67.45). 30 기준 시절 수치와 직접 비교 금지. 35 기준 공식:
-baseline GU 67.45/scratch 1.073 μm vs **BC 67.77/0.448 μm (Δscratch −58%)**.
-이 스케일에서 "GU ≥ 70" 은 다수 셀이 미달하지만, **목표값은 낮추지 않고 그대로 실패로
-판정한다** (프로젝트 방침). 실측 보정은 Gate 7 의 일이다.
+과거 35 μm 기준에서는 GU proxy의 `q_clearcoat`가 같은 상수를 사용해 GU 스케일도 함께
+변했다. 당시 공식 결과 baseline GU 67.45/scratch 1.073 μm, BC 67.77/0.448 μm는 역사적
+비교값으로 보존하되 현재 결과와 직접 비교하지 않는다.
+
+현재 기준은 잔량 30 μm 미만을 별도 안전 실패로 판정하며 `q_clearcoat`는 진단만 기록하고
+GU 결합에서는 제외한다. 30 μm는 논문이 검증한 잔량 안전규격이 아니라, 문헌의 대표 초기
+Clearcoat 두께 30~50 μm 하단을 채택한 프로젝트 안전선이다.
 
 ## 6. 평면 학습의 한계 (요구 7)
 

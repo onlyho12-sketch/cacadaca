@@ -1,0 +1,9 @@
+checkpoint,env,sequence,outcome,passes,gu_before,gu_final,ra_final_um,rz_final_um,scratch_before_um,scratch_final_um,clearcoat_min_um,temperature_peak_c,thermal_damage_peak,quality_ok,safety_ok
+zero_action,0,0,fail_clearcoat_budget,2,48.02,60.47,0.193,1.781,1.829,0.785,36.41,38.94,0.072987,False,True
+zero_action,1,0,fail_clearcoat_budget,2,55.02,65.23,0.1587,1.274,1.759,0.44,36.66,36.91,0.032253,False,True
+zero_action,4,0,fail_clearcoat_budget,2,55.12,66.7,0.1827,1.683,1.733,0.801,36.95,37.57,0.044292,False,True
+zero_action,6,0,fail_clearcoat_budget,3,59.39,62.18,0.1647,1.289,1.536,0.107,35.91,36.97,0.044547,False,True
+zero_action,7,0,fail_clearcoat_budget,3,60.55,65.67,0.1836,1.377,1.919,0.227,36.86,36.85,0.049652,False,True
+zero_action,2,0,fail_clearcoat_budget,4,51.5,59.43,0.1915,1.827,1.457,0.32,35.7,37.9,0.092218,False,True
+zero_action,5,0,fail_clearcoat_budget,4,50.47,62.05,0.2265,1.924,1.505,0.123,36.89,38.33,0.118922,False,True
+zero_action,3,0,fail_no_improvement,5,49.7,56.27,0.3338,2.714,1.634,0.089,37.54,43.41,0.498319,False,True

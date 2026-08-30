@@ -50,14 +50,16 @@ r_after = gm.evaluate(s)
 gu_after = r_after["summary"]["gu_mean"]
 check("폴리싱 후 GU 상승", gu_after > gu_before, f"{gu_before:.1f} → {gu_after:.1f} GU")
 
-# 6. Clearcoat 과다 제거 시 GU 항이 무너져 전체가 실패
+# 6. Clearcoat는 GU와 분리한다. q_clearcoat 진단은 0이 되지만 광택값은 바뀌지 않고,
+#    실제 안전 실패는 RL 환경의 clearcoat_safety_limit_um 하드 제약이 담당한다.
 s_over = make_flat_patch(PATCH, 0.002, seed=22, with_scratches=False)
+gu_over_before = gm.evaluate(s_over)["summary"]["gu_mean"]
 s_over.clearcoat_remaining_um[:] = C.CLEARCOAT_SAFETY_LIMIT_UM - 1.0   # 안전한계 아래로 강제
 r_over = gm.evaluate(s_over)
-check("6. clearcoat 과다제거 → q_clearcoat=0·불합격",
+check("6. clearcoat 과다제거 → q_clearcoat=0, GU와 분리",
       r_over["term_maps"]["q_clearcoat"].max() == 0.0
-      and not r_over["summary"]["gloss_pass"],
-      f"GU {r_over['summary']['gu_mean']:.1f}")
+      and abs(r_over["summary"]["gu_mean"] - gu_over_before) < 1e-9,
+      f"GU {gu_over_before:.1f} → {r_over['summary']['gu_mean']:.1f}")
 
 # 7. 같은 표면 재평가 시 결과 동일 (결정론)
 r1 = gm.evaluate(make_flat_patch(PATCH, 0.002, seed=23))

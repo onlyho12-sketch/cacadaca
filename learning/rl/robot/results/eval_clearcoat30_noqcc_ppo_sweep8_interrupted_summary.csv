@@ -1,0 +1,7 @@
+condition,checkpoint,n,gu_before,gu_after,gu_pass,scratch_before_um,scratch_after_um,scratch_improved,ra_before_um,ra_after_um,ra_pass,rz_before_um,rz_after_um,rz_pass,clearcoat_min_um,cc_pass,temperature_mean_c,temperature_peak_c,thermal_safe,overall_pass,contact_mode,feed_speed_mm_s,status
+old700,learning/rl/robot/logs/2026-08-29_13-14-15/model_700.pt,8,50.43,68.28,3,1.671,0.946,8,0.1966,0.1551,8,2.035,1.539,8,37.76,8,25.83,40.76,8,3,physical,5.946,completed_before_speed_correction
+p800,learning/rl/robot/logs_clearcoat30_noqcc/2026-08-30_05-22-29/model_800.pt,8,50.43,67.68,2,1.671,1.005,8,0.1966,0.1587,8,2.034,1.584,8,37.83,8,25.94,40.25,8,2,physical,5.946,completed_before_speed_correction
+p900,learning/rl/robot/logs_clearcoat30_noqcc/2026-08-30_05-22-29/model_900.pt,8,50.43,65.89,1,1.671,1.156,8,0.1966,0.1475,8,2.034,1.636,8,38.06,8,26.23,37.45,8,1,physical,5.946,completed_before_speed_correction
+p1000,learning/rl/robot/logs_clearcoat30_noqcc/2026-08-30_05-22-29/model_1000.pt,8,50.43,66.27,1,1.671,1.137,8,0.1966,0.1586,8,2.035,1.655,7,38.05,8,26.13,36.72,8,1,physical,5.946,completed_before_speed_correction
+p1050,learning/rl/robot/logs_clearcoat30_noqcc/2026-08-30_05-22-29/model_1050.pt,8,50.43,67.18,1,1.671,1.077,8,0.1966,0.1591,8,2.035,1.622,8,37.91,8,25.83,37.25,8,1,physical,5.946,completed_before_speed_correction
+p1100,learning/rl/robot/logs_clearcoat30_noqcc/2026-08-30_05-22-29/model_1100.pt,8,50.43,67.43,1,1.671,1.062,8,0.1966,0.1628,7,2.035,1.635,8,37.99,8,25.79,37.30,8,1,physical,5.946,completed_before_speed_correction

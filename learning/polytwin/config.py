@@ -112,9 +112,10 @@ THERMAL_DAMAGE_MAX = 10.0
 THERMAL_GLOSS_DAMAGE_SCALE = 1.0        # PT-DESIGN q_thermal exponential scale
 
 # ── 안전·품질 한계 (02 문서 12장) — 전부 PT-DESIGN. 논문 규격 아님 ────────
-CLEARCOAT_SAFETY_LIMIT_UM = 35.0      # 2026-08-28 차량 검사 시스템 기준으로 통일 (구 30.0)
-#   ⚠ BO recipe(recipe_00020) 는 30 제약으로 탐색됐으나 결과 clearcoat_min 38.38 ≥ 35 라
-#     여전히 feasible — 재탐색 불필요. 관측 채널(안전여유)에도 쓰이므로 BC 챔피언은 재생성함.
+CLEARCOAT_SAFETY_LIMIT_UM = 30.0
+# L-DERIVED + PT-DESIGN: Alsoufi et al.의 자동차 Clearcoat 대표 초기두께 30~50 μm 중
+# 하단을 프로젝트 잔량 안전선으로 채택했다. 논문이 검증한 폴리싱 후 안전규격은 아니다.
+# Clearcoat는 안전 제약으로만 사용하며 GU proxy 광학 품질항과 분리한다.
 HEALTHY_ALLOWANCE_UM = 1.0            # PT-DESIGN
 
 # ── reference simulation (02 문서 7장) — k 캘리브레이션 기준 ──────────────

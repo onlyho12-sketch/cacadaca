@@ -6,7 +6,7 @@
 
 `name=` (경로 없음) 은 action=0 baseline. 각 조건은 같은 seed 시퀀스를 재사용한다.
 품질은 전부 SYNTHETIC — 논문 기반 디지털 트윈(GU proxy) 출력. 판정 기준은
-literature-derived project target (GU≥70 / Ra≤0.20 / Rz≤2.0 / CC≥35 / scratch 감소).
+project target (GU≥70 / Ra≤0.20 / Rz≤2.0 / CC≥환경 안전선 / scratch 감소).
 """
 import argparse
 import csv
@@ -24,6 +24,8 @@ parser.add_argument("--conditions", type=str, required=True,
                     help="쉼표구분 name=ckpt (ckpt 비우면 baseline)")
 parser.add_argument("--num_envs", type=int, default=8)
 parser.add_argument("--episodes", type=int, default=2)
+parser.add_argument("--feed_speed_mm_s", type=float, default=None,
+                    help="로봇 환경 기준 이송속도 재정의 (기본: Tesla polishing 12.7 mm/s)")
 parser.add_argument("--contact_mode", type=str, default="physical",
                     choices=["physical", "model"],
                     help="physical=PhysX 센서힘(검증 완료, C단계 기본) / model=가상 스프링힘")
@@ -39,6 +41,7 @@ import torch  # noqa: E402
 from rsl_rl.models.mlp_model import MLPModel  # noqa: E402
 from tensordict import TensorDict  # noqa: E402
 
+from learning.polytwin import config as PC  # noqa: E402
 from learning.rl.env.robot_polish_env import RobotPolishEnv  # noqa: E402
 from learning.rl.env.robot_polish_env_cfg import RobotPolishEnvCfg  # noqa: E402
 
@@ -121,7 +124,8 @@ def summarize(rows, name, ckpt):
     print(f"  Rz         {f('rz_before_um').mean():6.3f} → {f('rz_after_um').mean():6.3f} um"
           f" | <=2.0   {c('rz_pass'):2d}/{n}")
     print(f"  CC 최소     {f('clearcoat_min_um').min():6.2f} um"
-          f"           | >=35    {c('cc_pass'):2d}/{n}")
+          f"           | >={PC.CLEARCOAT_SAFETY_LIMIT_UM:.0f}    "
+          f"{c('cc_pass'):2d}/{n}")
     print(f"  온도       mean {f('temperature_mean_c').mean():6.2f} °C | "
           f"peak {f('temperature_peak_c').max():6.2f} °C | thermal-safe {c('thermal_safe'):2d}/{n}")
     print(f"  열손상 peak 평균 {f('thermal_damage_peak').mean():.6f}")
@@ -139,6 +143,8 @@ def main():
 
     env_cfg = RobotPolishEnvCfg()
     env_cfg.scene.num_envs = args.num_envs
+    if args.feed_speed_mm_s is not None:
+        env_cfg.robot_feed_speed_mm_s = args.feed_speed_mm_s
     env_cfg.enable_pad_physical_contact = (args.contact_mode == "physical")
     env = RobotPolishEnv(env_cfg, render_mode=None)
     print(f"[eval] contact_mode={args.contact_mode} "
@@ -157,6 +163,7 @@ def main():
         for r in rows:
             r["checkpoint"] = ckpt or "action=0"
             r["contact_mode"] = args.contact_mode
+            r["feed_speed_mm_s"] = env.recipe.feed_speed_mm_s
         all_rows += rows
         summaries.append(summarize(rows, name, ckpt))
 

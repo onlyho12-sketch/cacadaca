@@ -1,6 +1,6 @@
 {
   "model_version": "literature_polishing_thermal_v2",
-  "k_literature_synthetic": 1.303830239070435e-06,
+  "k_literature_synthetic": 1.3038302390704353e-06,
   "pad_radius_m": 0.055,
   "footprint_sigma_ratio": 0.5,
   "footprint_active_threshold": 0.05,
@@ -90,24 +90,24 @@
     "quality_dt_s": 0.05
   },
   "calibration_check": {
-    "ra_um": 0.12709219752630274,
-    "rz_um": 0.8994625626395111,
+    "ra_um": 0.1270921975263027,
+    "rz_um": 0.8994625626395109,
     "rz_method": "polytwin_rz_5peak_5valley_v1",
     "max_residual_scratch_um": 0.0,
-    "mean_removal_um": 2.994788455147522,
+    "mean_removal_um": 2.994788455147523,
     "max_removal_um": 3.7129800147473166,
     "clearcoat_min_um": 36.87599447760846,
-    "healthy_overremoval_um": 1.9947884551475221,
+    "healthy_overremoval_um": 1.9947884551475226,
     "heat_proxy_peak": 0.08573046981913968,
-    "temperature_mean_c": 23.922400302337202,
+    "temperature_mean_c": 23.9224003023372,
     "temperature_peak_c": 36.079097761543935,
     "friction_heat_flux_peak_w_m2": 3110.084807768015,
     "temperature_removal_factor_mean": 1.0215872573057168,
-    "thermal_damage_mean": 3.501006712363114e-05,
+    "thermal_damage_mean": 3.501006712363115e-05,
     "thermal_damage_peak": 0.006394685851329348,
     "coverage_ratio": 1.0,
     "model_version": "literature_polishing_thermal_v2",
-    "k_literature_synthetic": 1.303830239070435e-06,
+    "k_literature_synthetic": 1.3038302390704353e-06,
     "process_time_s": 1800.0499999989106
   }
 }

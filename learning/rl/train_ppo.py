@@ -21,6 +21,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--num_envs", type=int, default=8)
 parser.add_argument("--max_iterations", type=int, default=300)
 parser.add_argument("--seed", type=int, default=42)
+parser.add_argument("--feed_speed_mm_s", type=float, default=None,
+                    help="로봇 환경 기준 이송속도 재정의 (기본: Tesla polishing 12.7 mm/s)")
 parser.add_argument("--resume", type=str, default=None,
                     help="이 checkpoint 에서 이어서 학습 (BC 부트스트랩 미세조정용)")
 # ── BC 보호 (종말 보상 미세조정용 — WORKLOG 9장) ──
@@ -65,6 +67,8 @@ def main():
     env_cfg = RobotPolishEnvCfg()
     env_cfg.scene.num_envs = args.num_envs
     env_cfg.seed = args.seed
+    if args.feed_speed_mm_s is not None:
+        env_cfg.robot_feed_speed_mm_s = args.feed_speed_mm_s
     env_cfg.enable_pad_physical_contact = (args.contact_mode == "physical")
     env = RobotPolishEnv(env_cfg, render_mode=None)
     print(f"[train_ppo] contact_mode={args.contact_mode} "

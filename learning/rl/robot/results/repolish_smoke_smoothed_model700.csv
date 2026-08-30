@@ -1,0 +1,9 @@
+checkpoint,env,sequence,outcome,passes,gu_before,gu_final,ra_final_um,rz_final_um,scratch_before_um,scratch_final_um,clearcoat_min_um,temperature_peak_c,thermal_damage_peak,quality_ok,safety_ok
+model_700.pt,1,0,fail_clearcoat_budget,2,55.02,54.63,0.2083,1.533,1.759,0.163,35.09,44.0,0.333213,False,True
+model_700.pt,2,0,fail_infeasible,2,51.5,61.64,0.2131,1.527,1.457,0.249,37.2,44.22,0.357127,False,True
+model_700.pt,0,0,fail_clearcoat_budget,2,48.02,47.05,0.2388,1.775,1.829,0.562,35.01,41.85,0.205835,False,True
+model_700.pt,3,0,fail_infeasible,3,49.7,43.88,0.4672,3.428,1.634,0.13,37.19,53.53,1.181226,False,True
+model_700.pt,2,1,fail_clearcoat_budget,2,61.36,62.18,0.203,1.366,1.412,0.151,36.85,42.32,0.270202,False,True
+model_700.pt,1,1,fail_infeasible,3,50.15,47.87,0.4575,3.412,1.678,0.088,37.92,50.79,0.954434,False,True
+model_700.pt,0,1,fail_infeasible,3,53.57,46.95,0.5075,3.518,1.814,0.167,39.74,51.63,1.127251,False,True
+model_700.pt,3,1,fail_infeasible,3,49.04,52.24,0.3477,2.697,1.704,0.121,37.03,46.25,0.711824,False,True

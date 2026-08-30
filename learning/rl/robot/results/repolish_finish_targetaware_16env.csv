@@ -1,0 +1,17 @@
+checkpoint,env,sequence,outcome,passes,gu_before,gu_final,ra_final_um,rz_final_um,scratch_before_um,scratch_final_um,clearcoat_min_um,temperature_peak_c,thermal_damage_peak,quality_ok,safety_ok
+finish_rule,0,0,fail_infeasible,2,48.02,62.42,0.1819,1.818,1.829,0.995,37.11,35.9,0.008118,False,True
+finish_rule,1,0,fail_no_improvement,2,55.02,66.79,0.1481,1.294,1.759,0.688,37.28,35.9,0.008118,False,True
+finish_rule,3,0,fail_quality_regression,2,49.7,68.58,0.2072,1.656,1.634,0.62,43.37,36.04,0.01484,False,True
+finish_rule,6,0,fail_quality_regression,2,59.39,68.76,0.123,1.108,1.536,0.501,37.74,35.9,0.008117,False,True
+finish_rule,8,0,fail_no_improvement,2,60.87,67.37,0.1499,1.438,1.726,0.632,37.28,35.9,0.008118,False,True
+finish_rule,10,0,success,2,56.88,70.58,0.1296,1.344,1.791,0.671,41.86,35.9,0.008117,True,True
+finish_rule,13,0,fail_no_improvement,2,61.59,68.48,0.1544,1.555,1.688,0.879,37.66,35.9,0.008118,False,True
+finish_rule,14,0,fail_no_improvement,2,56.39,65.13,0.1503,1.279,1.661,0.691,37.17,35.9,0.008118,False,True
+finish_rule,2,0,fail_quality_regression,3,51.5,67.81,0.1261,1.244,1.457,0.379,38.31,35.9,0.008118,False,True
+finish_rule,4,0,fail_quality_regression,3,55.12,66.22,0.1854,1.578,1.733,0.62,36.6,35.9,0.008118,False,True
+finish_rule,5,0,fail_quality_regression,3,50.47,67.93,0.1776,1.401,1.505,0.299,39.38,35.9,0.008118,False,True
+finish_rule,7,0,fail_quality_regression,3,60.55,68.06,0.1664,1.349,1.919,0.532,37.83,35.9,0.008118,False,True
+finish_rule,9,0,fail_quality_regression,3,51.67,67.79,0.1719,1.357,1.68,0.476,38.26,35.9,0.008118,False,True
+finish_rule,11,0,fail_quality_regression,3,50.62,68.48,0.1937,1.617,1.566,0.207,40.65,35.9,0.008118,False,True
+finish_rule,12,0,fail_no_improvement,3,47.87,67.57,0.1961,1.459,1.843,0.47,39.75,36.3,0.017486,False,True
+finish_rule,15,0,fail_quality_regression,3,55.5,62.42,0.1846,1.49,1.559,0.414,36.33,35.9,0.008118,False,True

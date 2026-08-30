@@ -1,0 +1,17 @@
+checkpoint,env,sequence,outcome,disposition,passes,best_observed_pass,best_observed_gu,gu_before,gu_final,ra_final_um,rz_final_um,scratch_before_um,scratch_final_um,clearcoat_min_um,temperature_peak_c,thermal_damage_peak,quality_ok,safety_ok
+finish_rule,0,0,fail_finish_not_eligible,best_safe_result_current_process_limit,2,2,62.42,48.02,62.42,0.1819,1.818,1.829,0.995,37.11,35.9,0.008118,False,True
+finish_rule,1,0,fail_finish_not_eligible,best_safe_result_current_process_limit,2,2,66.79,55.02,66.79,0.1481,1.294,1.759,0.688,37.28,35.9,0.008118,False,True
+finish_rule,3,0,fail_quality_regression,best_safe_result_current_process_limit,2,2,68.58,49.7,68.58,0.2072,1.656,1.634,0.62,43.37,36.04,0.01484,False,True
+finish_rule,4,0,fail_quality_regression,best_safe_result_current_process_limit,2,2,67.51,55.12,67.51,0.1742,1.809,1.733,0.968,37.56,35.9,0.008118,False,True
+finish_rule,6,0,fail_quality_regression,best_safe_result_current_process_limit,2,1,69.41,59.39,68.76,0.123,1.108,1.536,0.501,37.74,35.9,0.008117,False,True
+finish_rule,7,0,fail_quality_regression,best_safe_result_current_process_limit,2,2,68.98,60.55,68.98,0.1528,1.492,1.919,0.928,38.7,35.9,0.008118,False,True
+finish_rule,8,0,fail_quality_regression,best_safe_result_current_process_limit,2,1,67.44,60.87,67.37,0.1499,1.438,1.726,0.632,37.28,35.9,0.008118,False,True
+finish_rule,9,0,fail_quality_regression,best_safe_result_current_process_limit,2,2,68.16,51.67,68.16,0.1564,1.493,1.68,0.829,39.22,35.9,0.008118,False,True
+finish_rule,10,0,success,success,2,2,70.58,56.88,70.58,0.1296,1.344,1.791,0.671,41.86,35.9,0.008117,True,True
+finish_rule,11,0,fail_quality_regression,best_safe_result_current_process_limit,2,2,68.81,50.62,68.81,0.1821,1.694,1.566,0.485,41.54,35.9,0.008118,False,True
+finish_rule,12,0,fail_quality_regression,best_safe_result_current_process_limit,2,2,67.8,47.87,67.8,0.1872,1.585,1.843,0.733,40.47,36.3,0.017486,False,True
+finish_rule,13,0,fail_quality_regression,best_safe_result_current_process_limit,2,1,68.53,61.59,68.48,0.1544,1.555,1.688,0.879,37.66,35.9,0.008118,False,True
+finish_rule,14,0,fail_finish_not_eligible,best_safe_result_current_process_limit,2,2,65.13,56.39,65.13,0.1503,1.279,1.661,0.691,37.17,35.9,0.008118,False,True
+finish_rule,15,0,fail_quality_regression,best_safe_result_current_process_limit,2,2,65.38,55.5,65.38,0.1711,1.497,1.559,0.56,37.33,35.9,0.008118,False,True
+finish_rule,2,0,fail_max_passes,best_safe_result_current_process_limit,3,2,69.01,51.5,68.13,0.1226,1.201,1.457,0.394,38.47,35.9,0.008118,False,True
+finish_rule,5,0,fail_max_passes,best_safe_result_current_process_limit,3,2,68.36,50.47,68.11,0.1752,1.4,1.505,0.327,39.53,35.9,0.008118,False,True

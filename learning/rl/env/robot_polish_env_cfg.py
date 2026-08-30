@@ -9,6 +9,8 @@ from isaaclab.assets import ArticulationCfg
 from isaaclab.scene import InteractiveSceneCfg
 from isaaclab.utils.configclass import configclass
 
+from learning.polytwin import config as PC
+
 from .polish_env_cfg import PolishEnvCfg
 
 
@@ -21,6 +23,17 @@ _ROBOT_USD = os.path.join(
 @configclass
 class RobotPolishEnvCfg(PolishEnvCfg):
     """The analytical quality model driven by the real M0609/pad pose."""
+
+    # Tesla Model Y Service Manual, Paint Defect Rectification (2020-2024):
+    # polishing 단계는 0.5 inch/s = 12.7 mm/s 로 패드를 이동한다. 공용 BO recipe
+    # JSON(5.946 mm/s)은 과거 실험 재현을 위해 수정하지 않고 로봇 환경에서만 덮어쓴다.
+    # 정책 feed residual ±50%와 결합한 실제 범위는 6.35~19.05 mm/s다.
+    robot_feed_speed_mm_s: float = 12.7
+
+    # 문헌의 대표 초기두께 30~50 μm 하단을 프로젝트 잔량 안전선으로 채택한다.
+    # 논문이 검증한 잔량 안전규격은 아니며 L-DERIVED + PT-DESIGN이다.
+    # 공용 PolishEnvCfg(과거 35 μm 실험 재현용)는 건드리지 않고 로봇 환경에서 덮어쓴다.
+    clearcoat_safety_limit_um: float = PC.CLEARCOAT_SAFETY_LIMIT_UM
 
     scene: InteractiveSceneCfg = InteractiveSceneCfg(
         num_envs=4, env_spacing=1.6, replicate_physics=True
@@ -102,9 +115,9 @@ class RobotPolishEnvCfg(PolishEnvCfg):
     # repolish_mode=False(기본)면 RobotPolishEnv._get_dones()는 부모(PolishEnv)와
     # 완전히 동일하게 동작한다 — 기존 학습/평가 스크립트는 영향 없음.
     repolish_target_gu: float = 70.0             # 05 문서/기존 all_pass 판정과 동일 앵커
-    repolish_scratch_improve_eps_um: float = 0.02  # 이 미만 개선이면 "더 이상 개선 없음"
     repolish_gu_improve_eps: float = 0.3
     repolish_ra_improve_eps_um: float = 0.005
+    repolish_rz_improve_eps_um: float = 0.05
     repolish_max_passes: int = 6
     repolish_cooldown_s: float = 20.0            # pass 사이 무가공 냉각 시간
     # 접촉 불안정 하드컷 — 과부하(force_hard_limit_n)와 별개로, 순간 힘이 크게
@@ -122,3 +135,7 @@ class RobotPolishEnvCfg(PolishEnvCfg):
     # (거의 다 왔는데 조기 실패 처리하는 것을 막는 완충값).
     repolish_infeasible_shortfall: float = 0.05
     repolish_force_cap_ratio: float = 0.85        # force_hard_limit_n 대비 상한 (과부하 재트립 방지)
+    # 선택적 마무리-band 게이트. 0이면 기존 상태기계에는 영향 없음. 양수이면 지정 pass
+    # 이후 GU가 이 값 이상이고 Ra/Rz가 이미 통과한 표면만 다음 마무리 pass를 허용한다.
+    repolish_finish_gate_after_pass: int = 0
+    repolish_finish_min_gu: float = 0.0

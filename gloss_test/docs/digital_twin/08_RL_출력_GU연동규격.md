@@ -116,5 +116,6 @@ vehicle_rl_150_state_report.txt
 states/<region_id>_rl_state_maps.npz
 ```
 
-기본 Clearcoat 안전한계 `35 μm`는 `PT-DESIGN`이며 CLI에서 변경할 수 있다. 안전한계 미달 또는
+기본 Clearcoat 안전한계 `30 μm`는 문헌 초기두께 범위 하단을 채택한
+`L-DERIVED + PT-DESIGN`이며 CLI에서 변경할 수 있다. 안전한계 미달 또는
 70 GU proxy 미달 셀도 삭제하지 않고 실패 마스크로 저장해 이후 차량 시각화에서 표시한다.

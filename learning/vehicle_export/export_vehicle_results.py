@@ -55,7 +55,7 @@ DEFAULT_CKPT = os.path.join(_REPO, "learning", "rl", "champion", "model_bc.pt")
 # 근거로 프로젝트가 채택한 문헌 기반 목표값). 프로젝트 자체 실측·보정값이 아니다.
 # 원칙: 결과가 기준에 미달해도 목표값을 낮추지 않는다 — 그대로 실패로 판정한다.
 GU_PASS_MIN = 70.0                       # 20° GU proxy ≥ 70 (03 문서 목표)
-CLEARCOAT_SAFE_MIN_UM = PC.CLEARCOAT_SAFETY_LIMIT_UM     # 잔여 ≥ 35 μm — 프로젝트 통일 기준
+CLEARCOAT_SAFE_MIN_UM = PC.CLEARCOAT_SAFETY_LIMIT_UM     # 잔여 ≥ 30 μm — L-DERIVED+PT-DESIGN
 RA_PASS_MAX_UM = 0.20                    # Ra ≤ 0.20 μm — literature-derived project target
 RZ_PASS_MAX_UM = 2.0                     # Rz ≤ 2.0 μm — literature-derived project target
 
