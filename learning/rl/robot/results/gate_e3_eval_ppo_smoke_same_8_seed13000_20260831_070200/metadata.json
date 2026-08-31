@@ -1,0 +1,118 @@
+{
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/results/gate_e3_ppo_smoke_base14_12env_seed20260831_20260831_070000/model_final.pt",
+  "checkpoint_infos": {
+    "actor_drift": {
+      "mlp_changed_tensor_count": 6,
+      "mlp_finite": true,
+      "mlp_l2_delta": 0.04306218166497972,
+      "mlp_max_abs_delta": 0.0014546066522598267,
+      "mlp_relative_l2_delta": 0.0030490801897568587,
+      "mlp_tensor_count": 6
+    },
+    "actor_iterations": 1,
+    "algorithm_overrides": {
+      "clip_param": 0.1,
+      "desired_kl": 0.005,
+      "entropy_coef": 0.005,
+      "gamma": 0.9995,
+      "learning_rate": 0.0001
+    },
+    "champion_promoted": false,
+    "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/champion/model_bc_robot_tesla12p7.pt",
+    "checkpoint_sha256_before": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+    "created_utc": "2026-08-30T20:39:28.375868+00:00",
+    "critic_drift": {
+      "mlp_changed_tensor_count": 6,
+      "mlp_finite": true,
+      "mlp_l2_delta": 5.654919937960318,
+      "mlp_max_abs_delta": 0.14200500398874283,
+      "mlp_relative_l2_delta": 0.5998280183285,
+      "mlp_tensor_count": 6
+    },
+    "critic_warmup_iterations": 2,
+    "envs_per_profile": 4,
+    "gate": "Gate E3 base14 PPO integration smoke",
+    "integration_checks": {
+      "actor_finite": true,
+      "actor_mlp_changed": true,
+      "critic_finite": true,
+      "critic_mlp_changed": true,
+      "current_fallback_steps": 0,
+      "current_force_hard_violations": 0,
+      "current_sensor_faults": 0,
+      "current_thermal_hard_violations": 0,
+      "current_unstable_hard_violations": 0,
+      "no_contact_removal_errors": 0,
+      "parent_actor_loaded_exact": true
+    },
+    "integration_smoke_pass": true,
+    "legacy_training_samples": 0,
+    "nominal_samples": 1728,
+    "num_envs": 12,
+    "num_steps_per_env": 48,
+    "observation_dim": 14,
+    "observation_mode": "base14",
+    "parent_checkpoint_infos": {
+      "contact_mode": "physical",
+      "coverage": {
+        "contact_steps": 1061201,
+        "episode_ends": 200,
+        "free_steps": 38799,
+        "sensor_fault_steps": 0
+      },
+      "env": "RobotPolishEnv",
+      "observation_dim": 14,
+      "source": "robot_bc_physical"
+    },
+    "path": {
+      "direction_mode": "same_xx",
+      "edge_mode": "balanced_extend5",
+      "mode": "gate_c",
+      "step_over_ratio": 0.4
+    },
+    "physical_contact": true,
+    "production_training": false,
+    "profiles": [
+      "factory_prepolish",
+      "factory_prepolish_deep_defect",
+      "factory_prepolish_deep_stress"
+    ],
+    "pt_design": true,
+    "seed": 20260831,
+    "surface_seed_base": 12000,
+    "total_iterations": 3
+  },
+  "checkpoint_sha256": "4bcc948a4365775f3ca05574b1c066a381db6f78ef8785b2d096f3a3357e12f6",
+  "completed": 8,
+  "created_utc": "2026-08-30T20:48:01.189426+00:00",
+  "envs_per_profile": 2,
+  "expected": 8,
+  "gate": "Gate E2 pilot paired evaluation",
+  "max_passes": 1,
+  "observation_dim": 14,
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "lines_per_sweep": 5,
+    "path_length_m": 2.1,
+    "path_mode": "gate_c",
+    "step_over_m": 0.044000000000000004,
+    "step_over_ratio": 0.4,
+    "sweeps": 2
+  },
+  "physical_contact": true,
+  "policy_label": "gate_e3_ppo_smoke_base14",
+  "ppo_performed": false,
+  "profile_seeds": [
+    13000,
+    13097
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "surface_seed_base": 13000,
+  "training_performed_in_eval": false
+}

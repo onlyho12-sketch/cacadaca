@@ -1,0 +1,52 @@
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/results/gate_e7_train_seed20260833_150336_20260831_160000/model_211.pt",
+  "checkpoint_infos": null,
+  "checkpoint_sha256": "4f237c3100cdac4d551b9e70e3854d42dd93acdd4208dd1b07ebe5cd09a5b589",
+  "completed": 16,
+  "created_utc": "2026-08-31T09:17:14.249865+00:00",
+  "design_status": "PT-DESIGN local-window extension; SYNTHETIC output",
+  "diagnostic_version": "gate_e6_local_window_area_v1",
+  "envs_per_profile": 4,
+  "episode_decision_changed": false,
+  "expected": 16,
+  "gate": "Gate E6 paired evaluation with sub-tile quality area",
+  "observation_dim": 14,
+  "path": {
+    "direction_mode": "cross_xy",
+    "edge_mode": "balanced_extend5",
+    "lines_per_sweep": 5,
+    "path_length_m": 2.1,
+    "path_mode": "gate_c",
+    "step_over_m": 0.044000000000000004,
+    "step_over_ratio": 0.4,
+    "sweeps": 2
+  },
+  "policy_label": "s20260833_it211",
+  "profile_seeds": [
+    25000,
+    25097,
+    25194,
+    25291
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "quality_four": [
+    "local GU >= 70",
+    "local Ra <= 0.20 um",
+    "local Rz <= 2.0 um",
+    "scratch improved from initial or initial < 0.05 um"
+  ],
+  "safety_separate": [
+    "clearcoat",
+    "temperature",
+    "force/contact"
+  ],
+  "surface_seed_base": 25000,
+  "tile_rows": 400,
+  "training_performed_in_eval": false
+}

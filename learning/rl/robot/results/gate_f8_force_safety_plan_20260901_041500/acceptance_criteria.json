@@ -1,0 +1,48 @@
+{
+  "gate": "F8_SMALL_FORCE_SAFETY_CONSTRAINT_PILOT",
+  "frozen_before_execution": true,
+  "production_training": false,
+  "promotion_allowed": false,
+  "parent_release": "learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "parent_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "observation_mode": "base14",
+  "candidates": {
+    "control": "unmodified parent action",
+    "static_cap": "curved-only force action <= +0.50",
+    "predictive_shield": "curved-only static cap plus 2-step force/delta prediction; starts reducing at 9 N, zero force action at 11 N, minimum -0.50"
+  },
+  "flat_contract": "all candidates are exact action passthrough on flat",
+  "fixed_seeds": {
+    "physics": 20260901,
+    "policy": 20260831,
+    "surface_base": 33000
+  },
+  "stage1": {
+    "direction": "same_xx",
+    "geometries": ["flat", "cylinder", "sphere", "freeform"],
+    "profiles": ["legacy_stress", "factory_prepolish", "factory_prepolish_deep_defect", "factory_prepolish_deep_stress"],
+    "envs_per_profile": 1,
+    "sequences_per_arm": 16
+  },
+  "stage2": {
+    "entry": "candidate has fewer cylinder+freeform force overloads than control, zero sensor faults, and no new flat safety failure",
+    "direction": "cross_xy",
+    "arms": "control plus the best entered candidate",
+    "sequences_per_arm": 16
+  },
+  "final_gate": [
+    "candidate cylinder+freeform safety pass count must exceed paired control",
+    "candidate must have zero force overloads across both directions",
+    "flat safety and quality pass counts must not regress",
+    "mean curved final all4 area drop versus control must be <= 1 percentage point",
+    "sensor fault steps must be zero"
+  ],
+  "stop_rules": [
+    "do not tune thresholds after seeing results",
+    "do not run PPO or reward retraining in F8",
+    "do not start production training",
+    "do not modify or promote champion/release artifacts"
+  ],
+  "reward_candidate_disposition": "deferred: existing environment already has overshoot and instability penalties; validate a deterministic safety layer before authorizing delayed-reward PPO",
+  "supervision_candidate_disposition": "F7 richer geometry supervision failed its frozen offline entry criterion"
+}

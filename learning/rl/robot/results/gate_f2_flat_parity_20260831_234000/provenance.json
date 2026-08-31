@@ -1,0 +1,28 @@
+{
+  "gate": "F2",
+  "created_local": "2026-08-31T23:40:00+09:00",
+  "repository_root": "/home/rokey/cacadaca",
+  "local_branch": "lr_yj",
+  "local_git_head": "1059b31b6c79e3ffb889bcc4e3d27fe8afa82fa7",
+  "f1_source": "learning/rl/robot/results/gate_f1_port_20260831_233329",
+  "new_files": [
+    "learning/rl/tests/test_gate_f_flat_parity.py"
+  ],
+  "existing_files_modified": [],
+  "production_files_modified_in_f2": [],
+  "test_sha256": "74c067f5ccb595af7874897f94aa31ef9c37168ee1c9b63dd2f5e2b00aaa975a",
+  "f1_code_sha256": {
+    "learning/rl/gate_f_curved_geometry.py": "a4a9b6d2d95d729ffefeec63dc043e573c258df69c9a02740805d7f94a6f1f68",
+    "learning/rl/env/gate_f_curved_polish_env.py": "62f9d9e8079508070eced5b3c0c4efe6f9ae31dc860e44da0fff008fb1ee103b",
+    "learning/rl/env/gate_f_curved_polish_env_cfg.py": "998edd2229866a5181cf81e16d683d00e043ae9478f7e12f81d2c3a8b780a46b"
+  },
+  "protected_sha256_after_f2": {
+    "scripts/polishing_v5.py": "234bb26fbdec318902b67aeb36e0cc1518a22c508f2a3fc4000a6ac8bcf0ac55",
+    "learning/rl/env/polish_env.py": "79aa3c57ef4fc250ce157463d64adc80d67008e125c9ecd4cf07461f838c9630",
+    "learning/rl/env/polish_env_cfg.py": "8711d99116ae3c21534b7f5e206288466268beb8c40a872d1912dce11e9ae581",
+    "learning/rl/robot/champion/model_bc_robot_tesla12p7.pt": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+    "learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052"
+  },
+  "physx_executed": false,
+  "training_executed": false
+}

@@ -1,0 +1,5 @@
+policy_label,delta_quality_pass_vs_champion,delta_all4_area_pct_points_vs_champion,delta_control_steps_vs_champion,delta_control_steps_pct_vs_champion,delta_tile100_vs_champion,delta_tile95_vs_champion,delta_tile90_vs_champion,delta_tile80_vs_champion
+champion,0,0.0,0.0,0.0,0,0,0,0
+s20260831_it211,4,0.23374999999995794,415.34375,11.36099429001265,0,0,8,4
+s20260832_it260,6,0.5078124999999716,1226.875,33.558997504017505,6,11,17,6
+s20260833_it211,6,0.6371874999999534,2644.40625,72.33305980100523,16,21,19,9

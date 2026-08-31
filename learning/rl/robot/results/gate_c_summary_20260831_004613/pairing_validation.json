@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-08-30T15:46:13.680176+00:00",
+  "initial_exact_cross_vs_same": {
+    "legacy_stress": true,
+    "new_car_mild": true
+  },
+  "profile_seeds": [
+    1000,
+    1097,
+    1194,
+    1291,
+    1388,
+    1485,
+    1582,
+    1679,
+    1776,
+    1873,
+    1970,
+    2067,
+    2164,
+    2261,
+    2358,
+    2455
+  ],
+  "run_directories": {
+    "legacy_stress__cross_xy": "/home/rokey/cacadaca/learning/rl/robot/results/gate_c2_so0p40_balext5_crossxy_legacy_16_20260831_002200",
+    "legacy_stress__same_xx": "/home/rokey/cacadaca/learning/rl/robot/results/gate_c2_so0p40_balext5_samexx_legacy_16_20260831_003300",
+    "new_car_mild__cross_xy": "/home/rokey/cacadaca/learning/rl/robot/results/gate_c2_so0p40_balext5_crossxy_newcar_16_20260831_002800",
+    "new_car_mild__same_xx": "/home/rokey/cacadaca/learning/rl/robot/results/gate_c2_so0p40_balext5_samexx_newcar_16_20260831_003900"
+  },
+  "seed_exact_across_four_runs": true,
+  "training_performed": false
+}

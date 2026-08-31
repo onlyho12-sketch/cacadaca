@@ -1,0 +1,51 @@
+{
+  "alternative_lambda": 0.99,
+  "alternative_lambda_rollout_start_weight_min_mean_max": [
+    0.6626767429355641,
+    0.8158641705701349,
+    0.9486149510619347
+  ],
+  "champion_promoted": false,
+  "checkpoint_created": false,
+  "comparison_gamma_0p99_weight_mean": 3.285434379543438e-14,
+  "created_utc": "2026-08-31T03:36:44.953556+00:00",
+  "current_lambda_rollout_start_weight_min_mean_max": [
+    0.1326629791982612,
+    0.41839688516719525,
+    0.7718484186416096
+  ],
+  "dense_abs_reward_mean": 217.48710607593725,
+  "direct_credit_path_fraction_mean": 0.0064736522212917895,
+  "direct_credit_steps_min_mean_max": [
+    6.0,
+    21.0,
+    40.0
+  ],
+  "episode_steps_min_mean_max": [
+    2942.0,
+    3269.0,
+    3562.0
+  ],
+  "executions": 12,
+  "gae_lambda": 0.95,
+  "gamma": 0.9995,
+  "gate": "Gate E5 exact rollout-local credit summary",
+  "gate_e4_steps_per_env": 480,
+  "gate_e4_terminal_events_possible": false,
+  "gate_e6_recommendation": "Do not start full PPO yet. Compare the current 48/0.95 control against a PT-DESIGN 128-step/0.99-lambda pilot at equal sample budget with iteration checkpoints and strict safety gates.",
+  "hypothetical_uninterrupted_gamma_weight_mean": 0.19621767271656423,
+  "key_finding": "Gate E4 had zero terminal events; with 48-step rollouts, only the terminal's position inside its final rollout receives direct GAE credit.",
+  "raw_dir": "/home/rokey/cacadaca/learning/rl/robot/results/gate_e5_credit_frozen12_same_seed17000_20260831_073000",
+  "rollout_steps": 48,
+  "terminal_reward_min_mean_max": [
+    654.4697265625,
+    691.0739186604818,
+    715.38134765625
+  ],
+  "terminal_rollout_first_all": [
+    62,
+    75
+  ],
+  "terminal_to_dense_abs_ratio_mean": 3.2136205790014376,
+  "training_performed": false
+}

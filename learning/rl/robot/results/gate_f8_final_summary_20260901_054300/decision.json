@@ -1,0 +1,41 @@
+{
+  "candidate": "static_cap",
+  "candidate_entry_curved_safety_pass": 16,
+  "candidate_force_overloads": 0,
+  "champion_promoted": false,
+  "completion_pass": true,
+  "control_entry_curved_safety_pass": 11,
+  "control_force_overloads": 5,
+  "created_utc": "2026-08-31T20:42:55.866100+00:00",
+  "criteria_frozen_before_physx": {
+    "candidate_selection_tiebreak": [
+      "fewer cylinder+freeform force overloads",
+      "higher curved safety pass count",
+      "smaller paired curved all4 area drop versus control",
+      "less intrusive shield (static_cap before predictive_shield)"
+    ],
+    "final_gate": {
+      "candidate_force_overloads_both_directions": 0,
+      "entry_curved_safety_pass_gt_control": true,
+      "flat_quality_pass_not_below_control": true,
+      "flat_safety_pass_not_below_control": true,
+      "mean_curved_all4_area_drop_max_percentage_points": 1.0,
+      "sensor_fault_steps": 0
+    },
+    "stage2_entry": {
+      "entry_curved_force_overloads_below_control": true,
+      "flat_action_passthrough_parity": true,
+      "flat_safety_pass_not_below_control": true,
+      "sensor_fault_steps": 0
+    }
+  },
+  "decision": "PASS",
+  "gate": "F8_SMALL_FORCE_SAFETY_CONSTRAINT_PILOT",
+  "mean_curved_all4_area_drop_pp": 0.003750000000000734,
+  "parent_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "runs": 16,
+  "sequences": 64,
+  "stage": "final",
+  "tile_rows": 1600,
+  "training_performed": false
+}

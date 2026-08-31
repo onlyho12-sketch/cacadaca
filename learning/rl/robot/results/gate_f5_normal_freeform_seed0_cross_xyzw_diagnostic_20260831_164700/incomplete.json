@@ -1,0 +1,35 @@
+{
+  "control_steps": 703,
+  "final_diagnostic_captured": false,
+  "latched_safety_captured": false,
+  "repolish_log": {
+    "before": {
+      "cc_min": 43.37213268492907,
+      "gu": 72.75308062734142,
+      "ra": 0.1097307693050428,
+      "rz": 0.8456373003843545,
+      "scratch": 0.4290214107790902,
+      "temperature_mean_c": 23.0,
+      "temperature_peak_c": 23.0,
+      "thermal_damage_mean": 0.0,
+      "thermal_damage_peak": 0.0
+    },
+    "final": {
+      "cc_min": 43.29066670311114,
+      "gu": 73.4400639595872,
+      "ra": 0.10651654058765221,
+      "rz": 0.8196610610933447,
+      "scratch": 0.414176654709311,
+      "temperature_mean_c": 23.780000681924093,
+      "temperature_peak_c": 26.220285627470705,
+      "thermal_damage_mean": 0.0,
+      "thermal_damage_peak": 0.0
+    },
+    "outcome": "fail_force_overload",
+    "passes": 0,
+    "quality_ok": false,
+    "safety_ok": false
+  },
+  "terminated": true,
+  "truncated": false
+}

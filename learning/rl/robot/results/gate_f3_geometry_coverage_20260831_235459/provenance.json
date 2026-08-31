@@ -1,0 +1,31 @@
+{
+  "gate": "F3",
+  "created_local": "2026-08-31T23:54:59+09:00",
+  "repository_root": "/home/rokey/cacadaca",
+  "local_branch": "lr_yj",
+  "local_git_head": "1059b31b6c79e3ffb889bcc4e3d27fe8afa82fa7",
+  "f1_source": "learning/rl/robot/results/gate_f1_port_20260831_233329",
+  "f2_source": "learning/rl/robot/results/gate_f2_flat_parity_20260831_234000",
+  "superseded_f3_diagnostic": "learning/rl/robot/results/gate_f3_geometry_coverage_20260831_235207",
+  "normal_sign_correction": {
+    "reason": "external cylinder/sphere normals had the opposite tangent sign from the imported negative-sag height gradients",
+    "detection": "R0.60 cylinder produced a nonphysical 21.52 mm tangent-plane deviation over a 55 mm pad radius",
+    "validation": "analytic normals now match numerical height gradients for cylinder and sphere",
+    "previous_geometry_sha256": "a4a9b6d2d95d729ffefeec63dc043e573c258df69c9a02740805d7f94a6f1f68",
+    "corrected_geometry_sha256": "da7616a2b8b55e5d82bbdf6689b1d62a437084966a7147a59703d4ba51cf1c45",
+    "external_source_modified": false,
+    "protected_local_file_modified": false
+  },
+  "new_f3_files": [
+    "learning/rl/gate_f_curved_coverage_screen.py",
+    "learning/rl/tests/test_gate_f_curved_coverage_screen.py"
+  ],
+  "gate_f_files_updated": [
+    "learning/rl/gate_f_curved_geometry.py",
+    "learning/rl/tests/test_gate_f_curved_geometry.py"
+  ],
+  "existing_protected_files_modified": [],
+  "physx_executed": false,
+  "training_executed": false,
+  "metric_status": "PT-DESIGN_ANALYTIC_GEOMETRY_NOT_PHYSX_OR_PHYSICAL_REMOVAL"
+}

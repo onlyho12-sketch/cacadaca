@@ -1,0 +1,93 @@
+{
+  "candidate": {
+    "direction_mode": "cross_xy",
+    "edge_mode": "balanced_extend5",
+    "lines_per_sweep": 5,
+    "path_length_m": 2.1,
+    "step_over_m": 0.044000000000000004,
+    "step_over_ratio": 0.4,
+    "sweeps": 2
+  },
+  "caveat": "new_car_mild distributions and mar optics are PT-DESIGN.",
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/champion/model_bc_robot_tesla12p7.pt",
+  "checkpoint_sha256": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+  "complete": true,
+  "created_utc": "2026-08-30T15:32:18.505815+00:00",
+  "feed_speed_mm_s": 12.7,
+  "mar_optics_config": {
+    "evidence_tag": "PT-DESIGN_NO_MEASURED_MAR_GU_CALIBRATION",
+    "geometric_weight": 1.0,
+    "model_id": "pt_design_subgrid_mar_optics_v1",
+    "removal_characteristic_um": 0.25,
+    "scatter_gain": 8.0
+  },
+  "max_passes": 1,
+  "new_car_mild_spec": {
+    "base_micro_ra_max_um": 0.065,
+    "base_micro_ra_min_um": 0.035,
+    "design_status": "PT-DESIGN_NO_MEASURED_DISTRIBUTION",
+    "individual_scratch_count_probabilities": [
+      0.45,
+      0.35,
+      0.15,
+      0.05
+    ],
+    "individual_scratch_count_values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "individual_scratch_length_max_m": 0.08,
+    "individual_scratch_length_min_m": 0.01,
+    "individual_scratch_width_m": 0.001,
+    "light_scratch_depth_max_um": 0.2,
+    "light_scratch_depth_min_um": 0.05,
+    "light_scratch_mixture_fraction": 0.8,
+    "mar_density_correlation_m": 0.012,
+    "mar_density_max": 0.2,
+    "mar_density_mean_max": 0.1,
+    "mar_density_mean_min": 0.03,
+    "mar_severity_correlation_m": 0.018,
+    "mar_severity_max": 0.25,
+    "mar_severity_mean_max": 0.16,
+    "mar_severity_mean_min": 0.04,
+    "mar_spatial_variation": 0.45,
+    "profile_id": "new_car_mild",
+    "tags": {
+      "base_micro_ra_range": "PT-DESIGN",
+      "clearcoat_range": "existing L-DERIVED 40-50 um",
+      "mar_density_and_severity": "PT-DESIGN_NO_MEASURED_DISTRIBUTION",
+      "profile": "PT-DESIGN",
+      "scratch_count_and_mixture": "PT-DESIGN_NO_MEASURED_DISTRIBUTION",
+      "scratch_depth_range": "PT-DESIGN_NO_MEASURED_DISTRIBUTION",
+      "scratch_geometry": "PT-DESIGN_NO_MEASURED_DISTRIBUTION"
+    },
+    "visible_scratch_depth_max_um": 0.6,
+    "visible_scratch_depth_min_um": 0.2
+  },
+  "num_envs": 16,
+  "obs_dim": 14,
+  "physical_contact": true,
+  "profile_seeds": [
+    1000,
+    1097,
+    1194,
+    1291,
+    1388,
+    1485,
+    1582,
+    1679,
+    1776,
+    1873,
+    1970,
+    2067,
+    2164,
+    2261,
+    2358,
+    2455
+  ],
+  "steps_executed": 2680,
+  "surface_profile": "new_car_mild",
+  "training_performed": false
+}

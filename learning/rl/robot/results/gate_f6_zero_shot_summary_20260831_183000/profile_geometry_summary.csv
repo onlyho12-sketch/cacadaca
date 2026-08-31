@@ -1,0 +1,17 @@
+surface_kind,surface_profile,sequences,safety_pass,quality_pass,force_overload_failures,mean_control_steps,mean_final_all4_area_pct
+flat,legacy_stress,4,4,0,0,5611.25,76.0875
+flat,factory_prepolish,4,4,4,0,3345.0,98.45500000000001
+flat,factory_prepolish_deep_defect,4,4,4,0,3814.0,96.42249999999999
+flat,factory_prepolish_deep_stress,4,4,4,0,3844.25,96.2075
+cylinder,legacy_stress,4,3,0,1,4958.5,75.75250000000001
+cylinder,factory_prepolish,4,2,2,2,1823.25,98.27749999999999
+cylinder,factory_prepolish_deep_defect,4,2,2,2,2561.75,96.16999999999999
+cylinder,factory_prepolish_deep_stress,4,4,4,0,3843.75,96.215
+sphere,legacy_stress,4,4,0,0,5605.25,76.07000000000001
+sphere,factory_prepolish,4,4,4,0,3343.25,98.45500000000001
+sphere,factory_prepolish_deep_defect,4,4,4,0,3811.25,96.4125
+sphere,factory_prepolish_deep_stress,4,4,4,0,3840.25,96.20750000000001
+freeform,legacy_stress,4,3,0,1,5132.75,75.88
+freeform,factory_prepolish,4,0,0,4,644.5,98.225
+freeform,factory_prepolish_deep_defect,4,4,4,0,3808.5,96.41499999999999
+freeform,factory_prepolish_deep_stress,4,4,4,0,3851.5,96.215

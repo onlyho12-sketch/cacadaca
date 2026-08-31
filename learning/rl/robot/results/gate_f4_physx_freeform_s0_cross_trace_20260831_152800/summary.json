@@ -1,0 +1,22 @@
+{
+  "all_finite": true,
+  "candidate_id": "freeform_s0_cross",
+  "complete": false,
+  "control_steps_checkpointed": 1750,
+  "curvature_radius_m": 0.6,
+  "direction_mode": "cross_xy",
+  "failure_reason": "Isaac app reproducibly entered quick framework shutdown between reported control steps 1900 and 2000 without traceback or completed artifacts",
+  "force_sensor_raw_max_n_partial": 9.041650772094727,
+  "freeform_seed": 0,
+  "gate": "F4",
+  "metric_status": "INCOMPLETE_PT-DESIGN_SYNTHETIC_CURVED_PHYSX_DIAGNOSTIC",
+  "partial_trace_last_control_step": 1750,
+  "partial_trace_row_count": 1750,
+  "physics_seed": 20260901,
+  "surface_kind": "freeform",
+  "surface_seed": 31000,
+  "trace_all_finite": true,
+  "training_performed": false,
+  "vertical_pad": true,
+  "zero_action": true
+}

@@ -1,0 +1,4 @@
+surface_kind,safety_pass,required_safety_pass,quality_pass,flat_quality_pass,quality_pass_count_delta,all4_cell_area_pct,flat_all4_cell_area_pct,all4_delta_percentage_points,mean_control_steps,flat_mean_control_steps,mean_control_steps_delta_pct
+cylinder,11,16,8,12,-4,91.60375,91.793125,-0.1893749999999983,3296.8125,4153.625,-20.628065846098288
+sphere,16,16,12,12,0,91.78625,91.793125,-0.006875000000007958,4150.0,4153.625,-0.08727316500647397
+freeform,11,16,8,12,-4,91.68375,91.793125,-0.109375,3359.3125,4153.625,-19.123356104607424

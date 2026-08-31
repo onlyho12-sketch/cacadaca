@@ -1,0 +1,63 @@
+{
+  "actor_relative_l2_delta_in_segment": 0.03957920078217659,
+  "algorithm_overrides": {
+    "clip_param": 0.1,
+    "desired_kl": 0.005,
+    "entropy_coef": 0.005,
+    "gamma": 0.9995,
+    "lambda": 0.95,
+    "learning_rate": 0.0001
+  },
+  "champion_promoted": false,
+  "champion_promotion_allowed": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/results/gate_e7_train_seed20260832_150336_20260831_113000/model_196.pt",
+  "checkpoint_sha256_after": "afe11120f80fc57e499e4d127f9e92888b43816a0c8c3f65671c9b0aefa367ad",
+  "checkpoint_sha256_before": "afe11120f80fc57e499e4d127f9e92888b43816a0c8c3f65671c9b0aefa367ad",
+  "completed_final_iteration": 260,
+  "created_utc": "2026-08-31T06:54:44.626112+00:00",
+  "critic_relative_l2_delta_in_segment": 0.10969961332674329,
+  "cumulative_nominal_samples": 150336,
+  "cumulative_target_iterations": 261,
+  "envs_per_profile": 4,
+  "expected_saved_iteration": 196,
+  "gae_lambda": 0.95,
+  "gate": "Gate E7 PPO main training interrupted-run continuation",
+  "integration_checks": {
+    "actor_changed_in_segment": true,
+    "actor_finite": true,
+    "critic_changed_in_segment": true,
+    "critic_finite": true,
+    "current_fallback_steps": 0,
+    "current_force_hard_violations": 0,
+    "current_sensor_faults": 0,
+    "current_thermal_hard_violations": 0,
+    "current_unstable_hard_violations": 0,
+    "no_contact_removal_errors": 0,
+    "parent_checkpoint_unchanged": true
+  },
+  "integration_pass": true,
+  "model_final": "/home/rokey/cacadaca/learning/rl/robot/results/gate_e7_train_seed20260832_resume_after196_36864_20260831_153700/model_final.pt",
+  "model_final_sha256": "c3b5fea7589c9110dc79d3ca2d85d67a3291b8fa976d8e36c0e313fd663ae694",
+  "num_envs": 12,
+  "num_steps_per_env": 48,
+  "observation_dim": 14,
+  "observation_mode": "base14",
+  "parent_checkpoint_infos": null,
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "mode": "gate_c",
+    "step_over_ratio": 0.4
+  },
+  "production_training": true,
+  "profiles": [
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "remaining_iterations": 64,
+  "resume_at_iteration": 197,
+  "seed": 20260832,
+  "segment_nominal_samples": 36864,
+  "surface_seed_base": 22000
+}

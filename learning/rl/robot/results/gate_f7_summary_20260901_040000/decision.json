@@ -1,0 +1,20 @@
+{
+  "base14_test_force_mae": 0.014785069040954113,
+  "best_extension": "normal17",
+  "best_extension_relative_delta": 0.020442576782731203,
+  "best_extension_test_force_mae": 0.015087313950061798,
+  "champion_promoted": false,
+  "completion_pass": true,
+  "created_utc": "2026-08-31T18:54:43.982537+00:00",
+  "f8_started": false,
+  "gate": "F7_SMALL_OBSERVATION_ABLATION_AND_BC_PILOT",
+  "observation_extension_gate_pass": false,
+  "physx_candidate_evaluation_performed": false,
+  "physx_candidate_evaluation_skip_reason": "pre-frozen held-out force-MAE entry criterion failed",
+  "ppo_performed": false,
+  "recommendation": "Do not scale the normal/curvature observation extension. If separately approved, F8 should test an explicit force-safety objective/action constraint or richer anticipatory supervision, retaining base14 as the observation baseline.",
+  "release_modified": false,
+  "selected_mode": "base14",
+  "training_performed": true,
+  "training_type": "small behavior-cloning fine-tune"
+}

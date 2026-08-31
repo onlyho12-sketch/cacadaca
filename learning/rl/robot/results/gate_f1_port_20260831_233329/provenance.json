@@ -1,0 +1,67 @@
+{
+  "gate": "F1",
+  "created_local": "2026-08-31T23:33:29+09:00",
+  "repository_root": "/home/rokey/cacadaca",
+  "local_branch": "lr_yj",
+  "local_git_head": "1059b31b6c79e3ffb889bcc4e3d27fe8afa82fa7",
+  "working_tree_clean": false,
+  "implementation_scope": "isolated curved height/normal, trimesh, local-normal force projection, tests, and an unexecuted F4 smoke entry point",
+  "physx_executed": false,
+  "training_executed": false,
+  "external_source": {
+    "repository": "https://github.com/seb000423/cacadaca.git",
+    "branch": "learning-bc-v2",
+    "documented_commit": "1d020643687e516dbf56453caa8db88eab554adb",
+    "f1_pinned_commit": "cb9ee7e7beca0c40fb6669db659f90681bfcca1c",
+    "commits_ahead_of_document": 4,
+    "selected_sources_changed_between_commits": false,
+    "selected_sources": [
+      {
+        "path": "learning/polytwin/surface_state.py",
+        "functions": ["make_curved_patch", "curve_height_normal"],
+        "sha256_at_pinned_commit": "72b87b2c5ae372a3cea8238e984f4c0cad6e1669707f79f80f3b5cc50ea99e26"
+      },
+      {
+        "path": "learning/rl/env/robot_polish_env.py",
+        "functions": ["_spawn_curved_workpiece", "_update_measured_pad_state", "_apply_action"],
+        "sha256_at_pinned_commit": "4efc614527f29007258e617de755d196d2aa6b4a0926928a57e8e18ea2b20ab0"
+      },
+      {
+        "path": "learning/rl/env/robot_polish_env_cfg.py",
+        "functions": [],
+        "sha256_at_pinned_commit": "70a2a8e19cfbb2792f5f8ab01f3ad8ff6c950bf783dccd6d9c75757a15122b7d"
+      },
+      {
+        "path": "learning/polytwin/tests/test_curved.py",
+        "functions": [],
+        "sha256_at_pinned_commit": "a56c2e4022c817ef41812adb4eef9035f46c7f9e9a52a0530c06f2c2c40012f2"
+      },
+      {
+        "path": "learning/rl/tests/test_curved_robot_env.py",
+        "functions": [],
+        "sha256_at_pinned_commit": "fd5d3580a700799084767c26be4321778a4db2621289b07c3ded4cbe3125dff7"
+      }
+    ],
+    "excluded_new_remote_changes": [
+      "scripts/polishing_v5_modules changes",
+      "RL bridge",
+      "v5 pad-contact implementation",
+      "external checkpoints and results"
+    ]
+  },
+  "new_files": [
+    "learning/rl/gate_f_curved_geometry.py",
+    "learning/rl/env/gate_f_curved_polish_env.py",
+    "learning/rl/env/gate_f_curved_polish_env_cfg.py",
+    "learning/rl/tests/test_gate_f_curved_geometry.py",
+    "learning/rl/gate_f_curved_physx_smoke.py"
+  ],
+  "existing_files_modified": [],
+  "protected_sha256_after_f1": {
+    "scripts/polishing_v5.py": "234bb26fbdec318902b67aeb36e0cc1518a22c508f2a3fc4000a6ac8bcf0ac55",
+    "learning/rl/env/polish_env.py": "79aa3c57ef4fc250ce157463d64adc80d67008e125c9ecd4cf07461f838c9630",
+    "learning/rl/env/polish_env_cfg.py": "8711d99116ae3c21534b7f5e206288466268beb8c40a872d1912dce11e9ae581",
+    "learning/rl/robot/champion/model_bc_robot_tesla12p7.pt": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+    "learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052"
+  }
+}

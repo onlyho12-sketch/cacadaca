@@ -1,0 +1,3 @@
+attempt,started_at_kst,checkpoint,num_envs,num_sequences,max_passes,feed_speed_mm_s,contact_mode,status,failure_stage,error,gpu_recovery_action,result_csv_written
+1,2026-08-30T23:08:15+09:00,learning/rl/robot/champion/model_bc_robot_tesla12p7.pt,1,1,1,12.7,physical,blocked,CUDA initialization,cuInit failed CUresult 999; torch.cuda.set_device raised CUDA unknown error,Reboot,False
+2,2026-08-30T23:14:35+09:00,learning/rl/robot/champion/model_bc_robot_tesla12p7.pt,1,1,1,12.7,physical,completed,None,None,None,True

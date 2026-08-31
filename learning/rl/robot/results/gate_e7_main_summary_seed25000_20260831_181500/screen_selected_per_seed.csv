@@ -1,0 +1,4 @@
+training_seed,selected_policy_label,selected_checkpoint_iteration,selected_nominal_samples,selection_order,safety_pass,quality_pass,mean_final_all4_pass_area_pct,mean_control_steps
+20260831,s20260831_it211,211,122112,"safety, quality, all4 area, lower steps",8,4,91.88000000000001,4346.25
+20260832,s20260832_it260,260,150336,"safety, quality, all4 area, lower steps",8,5,92.31,5142.125
+20260833,s20260833_it211,211,122112,"safety, quality, all4 area, lower steps",8,6,92.53125000000001,6432.625

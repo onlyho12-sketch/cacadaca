@@ -1,0 +1,13 @@
+{
+  "champion_replaced": false,
+  "created_utc": "2026-08-31T05:26:14.616529+00:00",
+  "full_training_started": false,
+  "gate": "Gate E6b control checkpoint quality-time confirmation",
+  "pareto_candidates": [
+    "champion",
+    "control_30528",
+    "control_46080"
+  ],
+  "reason": "control_30528 keeps the 80% tile-count gain with only 1.46% more steps than champion; control_46080 gives slightly more quality but costs 14.93% more steps.",
+  "recommended_flat_ppo_candidate": "control_30528"
+}

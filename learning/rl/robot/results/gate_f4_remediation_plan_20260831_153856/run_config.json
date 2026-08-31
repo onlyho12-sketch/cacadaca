@@ -1,0 +1,16 @@
+{
+  "acceptance_criteria": "unchanged from gate_f4_physx_plan_20260831_150801",
+  "diagnosis": {
+    "completed_candidate_gap_signed_error_mean_m_range": [-0.0031843558382907097, -0.003146803371444251],
+    "completed_candidate_gap_p95_m_range": [0.004115127678960562, 0.004344040900468826],
+    "freeform_partial_trace_all_finite": true,
+    "freeform_partial_trace_raw_force_max_n": 9.041650772094727,
+    "freeform_quiet_shutdown_reproductions": 3
+  },
+  "frozen_before_remediation_rerun": true,
+  "gate": "F4-remediation",
+  "physics_and_path_settings": "unchanged",
+  "training_performed": false,
+  "vertical_tracking_compensation_m": 0.0005,
+  "vertical_tracking_compensation_rationale": "minimum round 0.5 mm feed-forward exceeds the largest observed 4.0 mm p95 miss (0.344 mm) by 0.156 mm without changing force setpoint or acceptance threshold"
+}

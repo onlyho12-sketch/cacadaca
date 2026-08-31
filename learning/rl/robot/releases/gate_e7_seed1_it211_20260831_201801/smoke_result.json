@@ -1,0 +1,37 @@
+{
+  "action_dim": 2,
+  "action_max": 1.0,
+  "action_min": -1.0,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "checks": {
+    "action_dimension_is_2": true,
+    "action_shape_is_4_by_2": true,
+    "actions_are_clamped": true,
+    "actions_are_finite": true,
+    "actor_tensors_are_finite": true,
+    "observation_dimension_is_14": true,
+    "required_checkpoint_keys_present": true,
+    "same_seed_actions_are_exact": true,
+    "saved_iteration_is_211": true,
+    "source_and_packaged_sha256_match": true,
+    "strict_actor_state_load": true
+  },
+  "created_utc": "2026-08-31T11:20:00.728341+00:00",
+  "input_batch_shape": [
+    4,
+    14
+  ],
+  "observation_dim": 14,
+  "output_batch_shape": [
+    4,
+    2
+  ],
+  "overall_pass": true,
+  "physx_executed": false,
+  "saved_iteration": 211,
+  "source_checkpoint": "/home/rokey/cacadaca/learning/rl/robot/results/gate_e7_train_seed20260831_150336_20260831_110000/model_211.pt",
+  "source_checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "test_type": "non-destructive CPU checkpoint load and inference smoke",
+  "training_executed": false
+}

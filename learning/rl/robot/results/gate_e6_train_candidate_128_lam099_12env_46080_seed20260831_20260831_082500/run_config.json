@@ -1,0 +1,41 @@
+{
+  "actor_iterations": 28,
+  "algorithm_overrides": {
+    "clip_param": 0.1,
+    "desired_kl": 0.005,
+    "entropy_coef": 0.005,
+    "gamma": 0.9995,
+    "lambda": 0.99,
+    "learning_rate": 0.0001
+  },
+  "arm": "candidate",
+  "champion_promotion_allowed": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/champion/model_bc_robot_tesla12p7.pt",
+  "checkpoint_sha256_before": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+  "created_utc": "2026-08-31T03:58:33.897494+00:00",
+  "critic_warmup_iterations": 2,
+  "envs_per_profile": 4,
+  "gae_lambda": 0.99,
+  "gate": "Gate E6 equal-sample PPO credit pilot",
+  "nominal_samples": 46080,
+  "num_envs": 12,
+  "num_steps_per_env": 128,
+  "observation_dim": 14,
+  "observation_mode": "base14",
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "mode": "gate_c",
+    "step_over_ratio": 0.4
+  },
+  "production_training": false,
+  "profiles": [
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "pt_design": true,
+  "seed": 20260831,
+  "surface_seed_base": 18200,
+  "total_iterations": 30
+}

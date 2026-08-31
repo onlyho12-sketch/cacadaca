@@ -1,0 +1,2 @@
+surface_profile,direction_mode,env,profile_seed,split,outcome,passes,quality_ok,safety_ok,included_in_bc,contact_steps,sensor_fault_steps,gu_final,ra_final_um,rz_final_um,scratch_final_um,clearcoat_min_um
+factory_prepolish,same_xx,0,1027,validation,success,1,True,True,True,2567,0,76.29192718173601,0.09488716613682915,0.7573883838809248,0.0,42.407482971586695

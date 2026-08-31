@@ -1,0 +1,35 @@
+{
+  "action": [
+    0.0,
+    0.0
+  ],
+  "candidate_id": "gate_f5_normal_sphere_xyzw",
+  "created_utc": "2026-08-31T16:38:42.599272+00:00",
+  "curvature_radius_m": 0.6,
+  "environment": "GateF4DiagnosticEnv",
+  "feed_speed_mm_s": 12.7,
+  "force_hard_limit_n": 14.0,
+  "freeform_seed": 0,
+  "gate": "F5",
+  "metric_status": "PT-DESIGN_SYNTHETIC_CURVED_PHYSX_DIAGNOSTIC",
+  "pad_alignment": "normal",
+  "path": {
+    "direction_mode": "cross_xy",
+    "edge_mode": "balanced_extend5",
+    "lines_per_sweep": 5,
+    "path_length_m": 2.1,
+    "path_mode": "gate_c",
+    "step_over_m": 0.044000000000000004,
+    "step_over_ratio": 0.4,
+    "sweeps": 2
+  },
+  "physical_contact": true,
+  "physics_seed": 20260901,
+  "physx_executed": true,
+  "profile": "factory_prepolish",
+  "sensor_valid_min_n": 0.05,
+  "surface_kind": "sphere",
+  "surface_seed": 31000,
+  "training_performed": false,
+  "vertical_tracking_compensation_m": 0.0005
+}

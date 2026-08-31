@@ -1,0 +1,20 @@
+{
+  "completed_sequences": 64,
+  "completion_decision": "PASS",
+  "created_utc": "2026-08-31T18:29:33.772078+00:00",
+  "criteria_frozen_before_physx": {
+    "all4_cell_area_drop_max_percentage_points": 1.0,
+    "completed_sequences": 64,
+    "curved_safety_rate_min": 1.0,
+    "mean_control_steps_increase_max_pct": 40.0,
+    "quality_pass_count_drop_max": 0,
+    "sensor_fault_steps": 0,
+    "tile_rows": 1600
+  },
+  "failure_rows": 24,
+  "gate": "F6",
+  "next_step": "Zero-shot is insufficient; F7 observation/action pilot requires separate user approval.",
+  "tile_rows": 1600,
+  "training_performed": false,
+  "zero_shot_sufficiency_decision": "FAIL"
+}

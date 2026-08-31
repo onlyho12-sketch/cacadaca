@@ -1,0 +1,2 @@
+checkpoint,env,sequence,outcome,disposition,passes,best_observed_pass,best_observed_gu,gu_before,gu_final,ra_final_um,rz_final_um,scratch_before_um,scratch_final_um,clearcoat_min_um,temperature_peak_c,thermal_damage_peak,quality_ok,safety_ok
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=12.700)",0,0,fail_max_passes,best_safe_result_current_process_limit,2,2,65.73,44.05,65.73,0.2022,1.899,1.829,1.125,37.38,39.15,0.064187,False,True

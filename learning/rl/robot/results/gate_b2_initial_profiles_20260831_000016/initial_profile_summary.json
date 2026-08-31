@@ -1,0 +1,238 @@
+{
+  "all_finite": true,
+  "caveat": "new_car_mild scratch count/depth/mixture and mar distributions are PT-DESIGN because no measured joint distribution is available.",
+  "created_utc": "2026-08-30T15:00:27.168560+00:00",
+  "legacy_exact_all": false,
+  "legacy_stress": {
+    "base_micro_ra_um": {
+      "max": 0.08025559036001415,
+      "mean": 0.07963016938844297,
+      "min": 0.07608908751606973,
+      "std": 0.0004381893525540638
+    },
+    "base_micro_rz_um": {
+      "max": 0.7503434957126562,
+      "mean": 0.6538547722529005,
+      "min": 0.5632216836432595,
+      "std": 0.035386059428833876
+    },
+    "clearcoat_max_um": {
+      "max": 50.0,
+      "mean": 48.29584471796015,
+      "min": 43.94581086852331,
+      "std": 1.4124745125902738
+    },
+    "clearcoat_mean_um": {
+      "max": 49.85144498676745,
+      "mean": 44.91289167638229,
+      "min": 40.7923403205189,
+      "std": 1.4484186321876993
+    },
+    "clearcoat_min_um": {
+      "max": 47.08022148793228,
+      "mean": 41.57670753409782,
+      "min": 40.0,
+      "std": 1.3306352311872445
+    },
+    "individual_scratch_count": {
+      "max": -1.0,
+      "mean": -1.0,
+      "min": -1.0,
+      "std": 0.0
+    },
+    "individual_scratch_max_um": {
+      "max": 1.9981713136261172,
+      "mean": 1.7696719416481435,
+      "min": 0.7929247124054521,
+      "std": 0.21690260063007402
+    },
+    "initial_gu_mean": {
+      "max": 70.66719832620738,
+      "mean": 54.33035382199433,
+      "min": 43.29038504996431,
+      "std": 5.77970256412901
+    },
+    "initial_gu_min": {
+      "max": 41.07545646488536,
+      "mean": 26.988786447517782,
+      "min": 25.18189403617972,
+      "std": 3.3479502688031864
+    },
+    "initial_total_ra_um": {
+      "max": 0.18373337244286486,
+      "mean": 0.129753003417936,
+      "min": 0.08719302045216876,
+      "std": 0.020688551536331704
+    },
+    "initial_total_rz_um": {
+      "max": 2.4972396197210642,
+      "mean": 2.1014971050164997,
+      "min": 1.1961907365589068,
+      "std": 0.23508496067691143
+    },
+    "mar_density_mean": {
+      "max": 0.0,
+      "mean": 0.0,
+      "min": 0.0,
+      "std": 0.0
+    },
+    "mar_severity_mean": {
+      "max": 0.0,
+      "mean": 0.0,
+      "min": 0.0,
+      "std": 0.0
+    },
+    "n": 256,
+    "q_mar_mean": {
+      "max": 1.0,
+      "mean": 1.0,
+      "min": 1.0,
+      "std": 0.0
+    }
+  },
+  "mar_optics_config": {
+    "evidence_tag": "PT-DESIGN_NO_MEASURED_MAR_GU_CALIBRATION",
+    "geometric_weight": 1.0,
+    "model_id": "pt_design_subgrid_mar_optics_v1",
+    "removal_characteristic_um": 0.25,
+    "scatter_gain": 8.0
+  },
+  "new_car_mild": {
+    "base_micro_ra_um": {
+      "max": 0.0645135803090769,
+      "mean": 0.049124117531519115,
+      "min": 0.034643750093159655,
+      "std": 0.008700114282596453
+    },
+    "base_micro_rz_um": {
+      "max": 0.5785915593617765,
+      "mean": 0.4045572786494912,
+      "min": 0.26146359386845247,
+      "std": 0.0736658383316349
+    },
+    "clearcoat_max_um": {
+      "max": 50.0,
+      "mean": 48.21108469596326,
+      "min": 44.15149785234166,
+      "std": 1.4024980922470947
+    },
+    "clearcoat_mean_um": {
+      "max": 50.0,
+      "mean": 44.81601782643747,
+      "min": 40.71297800388971,
+      "std": 1.5067468025234456
+    },
+    "clearcoat_min_um": {
+      "max": 50.0,
+      "mean": 41.54817641426605,
+      "min": 40.0,
+      "std": 1.5793808830786278
+    },
+    "individual_scratch_count": {
+      "max": 3.0,
+      "mean": 0.78125,
+      "min": 0.0,
+      "std": 0.8699631816921909
+    },
+    "individual_scratch_max_um": {
+      "max": 0.5973366917815194,
+      "mean": 0.12142166323823718,
+      "min": 0.0,
+      "std": 0.16050632194062447
+    },
+    "initial_gu_mean": {
+      "max": 88.81473521890807,
+      "mean": 85.26641796729763,
+      "min": 74.98194158437569,
+      "std": 3.358194597521011
+    },
+    "initial_gu_min": {
+      "max": 88.73762369502016,
+      "mean": 56.85310004001315,
+      "min": 26.950281800105078,
+      "std": 29.406523128295845
+    },
+    "initial_total_ra_um": {
+      "max": 0.06455954429510997,
+      "mean": 0.049307182511762186,
+      "min": 0.034643750093159655,
+      "std": 0.008691500417164134
+    },
+    "initial_total_rz_um": {
+      "max": 0.7785429012867802,
+      "mean": 0.4359691594643657,
+      "min": 0.26146359386845247,
+      "std": 0.0996762366674395
+    },
+    "mar_density_mean": {
+      "max": 0.10002036635518391,
+      "mean": 0.06482202102732437,
+      "min": 0.030554182033497728,
+      "std": 0.02000775299189916
+    },
+    "mar_severity_mean": {
+      "max": 0.15999450013981895,
+      "mean": 0.09823987532138224,
+      "min": 0.04006644962464435,
+      "std": 0.03507882646310964
+    },
+    "n": 256,
+    "q_mar_mean": {
+      "max": 0.9884739584886045,
+      "mean": 0.9503732121763706,
+      "min": 0.8867494025082695,
+      "std": 0.023672297657254537
+    }
+  },
+  "new_car_mild_spec": {
+    "base_micro_ra_max_um": 0.065,
+    "base_micro_ra_min_um": 0.035,
+    "design_status": "PT-DESIGN_NO_MEASURED_DISTRIBUTION",
+    "individual_scratch_count_probabilities": [
+      0.45,
+      0.35,
+      0.15,
+      0.05
+    ],
+    "individual_scratch_count_values": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "individual_scratch_length_max_m": 0.08,
+    "individual_scratch_length_min_m": 0.01,
+    "individual_scratch_width_m": 0.001,
+    "light_scratch_depth_max_um": 0.2,
+    "light_scratch_depth_min_um": 0.05,
+    "light_scratch_mixture_fraction": 0.8,
+    "mar_density_correlation_m": 0.012,
+    "mar_density_max": 0.2,
+    "mar_density_mean_max": 0.1,
+    "mar_density_mean_min": 0.03,
+    "mar_severity_correlation_m": 0.018,
+    "mar_severity_max": 0.25,
+    "mar_severity_mean_max": 0.16,
+    "mar_severity_mean_min": 0.04,
+    "mar_spatial_variation": 0.45,
+    "profile_id": "new_car_mild",
+    "tags": {
+      "base_micro_ra_range": "PT-DESIGN",
+      "clearcoat_range": "existing L-DERIVED 40-50 um",
+      "mar_density_and_severity": "PT-DESIGN_NO_MEASURED_DISTRIBUTION",
+      "profile": "PT-DESIGN",
+      "scratch_count_and_mixture": "PT-DESIGN_NO_MEASURED_DISTRIBUTION",
+      "scratch_depth_range": "PT-DESIGN_NO_MEASURED_DISTRIBUTION",
+      "scratch_geometry": "PT-DESIGN_NO_MEASURED_DISTRIBUTION"
+    },
+    "visible_scratch_depth_max_um": 0.6,
+    "visible_scratch_depth_min_um": 0.2
+  },
+  "num_seeds_per_profile": 256,
+  "patch_size_m": [
+    0.2,
+    0.2
+  ],
+  "resolution_m": 0.002,
+  "seed_base": 0
+}

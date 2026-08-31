@@ -1,0 +1,11 @@
+criterion,passed,candidate_value,required_or_champion_value
+candidate_safety_64_of_64,True,64,64
+candidate_sensor_fault_steps_zero,True,0,0
+quality_pass_not_below_champion,True,48,48
+all4_cell_area_not_below_champion,True,94.02828125,93.78421875
+tiles_all4_area_100pct_not_below_champion,True,1149,1141
+tiles_all4_area_ge95pct_not_below_champion,True,1238,1225
+tiles_all4_area_ge90pct_not_below_champion,True,1286,1273
+tiles_all4_area_ge80pct_not_below_champion,True,1391,1370
+mean_control_steps_increase_pct_le40,True,15.514530494831915,40.0
+candidate_same_seed_repeat_exact_csv_match,True,1,1

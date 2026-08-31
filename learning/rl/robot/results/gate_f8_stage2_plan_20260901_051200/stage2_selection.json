@@ -1,0 +1,35 @@
+{
+  "gate": "F8_SMALL_FORCE_SAFETY_CONSTRAINT_PILOT",
+  "stage": "2",
+  "created_local": "2026-09-01T05:12:00+09:00",
+  "stage1_summary": "learning/rl/robot/results/gate_f8_stage1_summary_20260901_051000",
+  "stage1_decision": "PASS",
+  "frozen_entry_rule": "candidate has fewer cylinder+freeform force overloads than control, zero sensor faults, and no new flat safety failure",
+  "entered_candidates": ["static_cap", "predictive_shield"],
+  "selected_candidate": "static_cap",
+  "selection_evidence": {
+    "control_cylinder_freeform_force_overloads": 3,
+    "static_cap_cylinder_freeform_force_overloads": 0,
+    "predictive_shield_cylinder_freeform_force_overloads": 0,
+    "static_cap_curved_safety_pass": 12,
+    "predictive_shield_curved_safety_pass": 12,
+    "static_cap_curved_all4_drop_pp": -0.039166666666665385,
+    "predictive_shield_curved_all4_drop_pp": -0.03749999999999787
+  },
+  "tiebreak_rule_order": [
+    "fewer cylinder+freeform force overloads",
+    "higher curved safety pass count",
+    "smaller paired curved all4 area drop versus control",
+    "less intrusive shield (static_cap before predictive_shield)"
+  ],
+  "tiebreak_disclosure": "The two candidates tied on the frozen entry metric and on curved safety pass count. The tiebreak order above was written into learning/rl/gate_f8_force_safety_summarize.py before any stage1 aggregation was run, but after partial stage1 force-overload counts were visible in this session. It selects which arm advances; it does not change any acceptance threshold.",
+  "stage2_arms": ["control", "static_cap"],
+  "stage2_direction": "cross_xy",
+  "stage2_geometries": ["flat", "cylinder", "sphere", "freeform"],
+  "stage2_runs": 8,
+  "fixed_seeds": {"physics": 20260901, "policy": 20260831, "surface_base": 33000},
+  "envs_per_profile": 1,
+  "final_gate_unchanged": true,
+  "training_performed": false,
+  "promotion_allowed": false
+}

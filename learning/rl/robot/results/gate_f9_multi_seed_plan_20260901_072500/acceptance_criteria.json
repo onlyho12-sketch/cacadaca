@@ -1,0 +1,69 @@
+{
+  "gate": "F9_MULTI_SEED_PAIRED_VALIDATION",
+  "frozen_before_execution": true,
+  "frozen_utc": "2026-08-31T22:25:00+00:00",
+  "purpose": "Larger paired validation of the F8-selected curved-only static force-action cap (+0.50) against control on independent, previously unused surface seeds. No training, no integration, no release changes.",
+  "parent_release": "learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "parent_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "observation_mode": "base14",
+  "arms": {
+    "control": "unmodified parent action",
+    "static_cap": "curved-only force action <= +0.50 (STATIC_FORCE_ACTION_CAP in learning/rl/gate_f8_force_safety.py); flat is exact action passthrough"
+  },
+  "executor": "learning/rl/gate_f8_force_safety_eval.py reused unmodified; one invocation per (arm, geometry, direction, seed base)",
+  "shield_source": "learning/rl/gate_f8_force_safety.py reused unmodified",
+  "geometries": ["flat", "cylinder", "sphere", "freeform"],
+  "curved_geometries": ["cylinder", "sphere", "freeform"],
+  "entry_curved_geometries_for_safety_check": ["cylinder", "freeform"],
+  "profiles": ["legacy_stress", "factory_prepolish", "factory_prepolish_deep_defect", "factory_prepolish_deep_stress"],
+  "directions": ["same_xx", "cross_xy"],
+  "surface_seed_bases": [40000, 41000, 42000, 43000],
+  "seed_base_provenance": "audited results directory names and gate metadata on 2026-09-01; no prior gate used any 40000-series surface seed base (F6 used 31000, F7 used 32000, F8 used 33000)",
+  "fixed_seeds": {"physics_seed": 20260901, "policy_seed": 20260831},
+  "envs_per_profile": 1,
+  "max_control_steps": 8000,
+  "expected_invocations": 64,
+  "expected_sequences": 256,
+  "expected_tile_rows": 6400,
+  "pairing_contract": "for every (geometry, direction, seed base, profile) the control and static_cap sequences must exist and share an identical profile_seed; pair keys must be unique across the whole official sample",
+  "final_gate": {
+    "completion_sequences": 256,
+    "completion_tile_rows": 6400,
+    "checkpoint_sha256_every_run": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+    "entry_curved_safety_pass_candidate_gt_control": "cylinder+freeform, both directions, all four seed bases",
+    "candidate_force_overloads": 0,
+    "flat_safety_pass_candidate_ge_control": true,
+    "flat_quality_pass_candidate_ge_control": true,
+    "flat_action_passthrough_parity": "all paired flat sequence rows identical on the frozen F8 parity field list",
+    "mean_curved_all4_area_drop_max_percentage_points": 1.0,
+    "sensor_fault_steps": 0
+  },
+  "interpretation_notes": [
+    "The curved-safety-improvement check is strict (candidate > control on cylinder+freeform). If control shows no curved safety failure on these independent seeds, the gate fails by design and is reported as-is; thresholds are not relaxed after results exist.",
+    "Curved control sequences may terminate early on hard force overload, so raw mean control-step comparisons are censored. Time comparisons are reported both raw (labeled censored) and over uncensored pairs where both arms finished without any hard violation. Early termination is never reported as a speedup.",
+    "A PASS makes static_cap an integration candidate only. Actual integration/release is a separately approved stage (F10 recommended)."
+  ],
+  "stop_rules": [
+    "do not change thresholds, cap value, seeds, or candidate definitions after seeing results",
+    "no BC/PPO training, no reward changes",
+    "no champion or release modification, no automatic promotion",
+    "do not delete or overwrite any existing results; preserve accidental duplicate runs and exclude them from official counts after hash verification",
+    "protected files remain untouched: scripts/polishing_v5.py, scripts/polishing_v5_modules/, learning/rl/env/polish_env.py, learning/rl/env/polish_env_cfg.py, existing champion/release checkpoints"
+  ],
+  "outputs": {
+    "plan_dir": "learning/rl/robot/results/gate_f9_multi_seed_plan_20260901_072500/",
+    "run_dirs": "learning/rl/robot/results/gate_f9_{arm}_{geometry}_{same|cross}_seed{base}_20260901_072500/",
+    "run_log": "learning/rl/robot/results/gate_f9_multi_seed_plan_20260901_072500/f9_run.log",
+    "run_dir_list": "learning/rl/robot/results/gate_f9_multi_seed_plan_20260901_072500/f9_run_dirs.txt",
+    "smoke_dir": "learning/rl/robot/results/gate_f9_smoke_static_cap_cylinder_20260901_072500/",
+    "summary_dir": "learning/rl/robot/results/gate_f9_summary_<completion timestamp>/"
+  },
+  "new_code": {
+    "summarizer": "learning/rl/gate_f9_summarize.py",
+    "summarizer_test": "learning/rl/tests/test_gate_f9_summarize.py"
+  },
+  "training_performed": false,
+  "ppo_performed": false,
+  "promotion_allowed": false,
+  "production_training": false
+}

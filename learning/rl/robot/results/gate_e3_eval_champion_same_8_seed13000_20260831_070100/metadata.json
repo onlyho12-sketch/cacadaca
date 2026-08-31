@@ -1,0 +1,48 @@
+{
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/champion/model_bc_robot_tesla12p7.pt",
+  "checkpoint_infos": {
+    "contact_mode": "physical",
+    "coverage": {
+      "contact_steps": 1061201,
+      "episode_ends": 200,
+      "free_steps": 38799,
+      "sensor_fault_steps": 0
+    },
+    "env": "RobotPolishEnv",
+    "observation_dim": 14,
+    "source": "robot_bc_physical"
+  },
+  "checkpoint_sha256": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+  "completed": 8,
+  "created_utc": "2026-08-30T20:43:54.355709+00:00",
+  "envs_per_profile": 2,
+  "expected": 8,
+  "gate": "Gate E2 pilot paired evaluation",
+  "max_passes": 1,
+  "observation_dim": 14,
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "lines_per_sweep": 5,
+    "path_length_m": 2.1,
+    "path_mode": "gate_c",
+    "step_over_m": 0.044000000000000004,
+    "step_over_ratio": 0.4,
+    "sweeps": 2
+  },
+  "physical_contact": true,
+  "policy_label": "frozen_champion",
+  "ppo_performed": false,
+  "profile_seeds": [
+    13000,
+    13097
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "surface_seed_base": 13000,
+  "training_performed_in_eval": false
+}

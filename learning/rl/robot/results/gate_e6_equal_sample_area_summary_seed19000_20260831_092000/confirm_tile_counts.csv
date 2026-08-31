@@ -1,0 +1,7 @@
+stage,policy_label,direction_mode,tiles_total,tiles_all4_area_100pct,tiles_all4_area_ge95pct,tiles_all4_area_ge90pct,all4_cells_pass,surface_cells_total,all4_cell_area_pct
+confirm,champion,same_xx,400,310,321,326,150759,160000,94.224375
+confirm,control_46080,same_xx,400,310,321,327,151061,160000,94.413125
+confirm,champion,cross_xy,400,310,321,323,150736,160000,94.21
+confirm,control_46080,cross_xy,400,310,321,324,151031,160000,94.394375
+confirm_combined,champion,same_xx+cross_xy,800,620,642,649,301495,320000,94.2171875
+confirm_combined,control_46080,same_xx+cross_xy,800,620,642,651,302092,320000,94.40375

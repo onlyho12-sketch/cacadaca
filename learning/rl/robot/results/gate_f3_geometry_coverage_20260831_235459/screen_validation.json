@@ -1,0 +1,34 @@
+{
+  "gate": "F3",
+  "created_local": "2026-08-31T23:54:59+09:00",
+  "candidate_geometry_count": 12,
+  "candidate_path_count": 24,
+  "tile_row_count": 600,
+  "selected_for_f4_count": 4,
+  "all_numeric_finite": true,
+  "all_finite_candidate_count": 24,
+  "physical_mesh_supported_candidate_count": 24,
+  "quality_map_supported_candidate_count": 18,
+  "effective_coverage_min_fraction": 1.0,
+  "minimum_physical_mesh_projected_margin_m": 0.01533629338173742,
+  "minimum_quality_map_projected_margin_m": -0.0046637066182625975,
+  "quality_map_overrun_candidates": [
+    "cylinder_r0p30/same_xx",
+    "cylinder_r0p30/cross_xy",
+    "sphere_r0p30/same_xx",
+    "sphere_r0p30/cross_xy",
+    "sphere_r0p45/same_xx",
+    "sphere_r0p45/cross_xy"
+  ],
+  "selected_for_f4": [
+    "flat/cross_xy",
+    "cylinder_r0p60/cross_xy",
+    "sphere_r0p60/cross_xy",
+    "freeform_s0/cross_xy"
+  ],
+  "cpu_tests_passed": 29,
+  "cpu_tests_failed": 0,
+  "physx_executed": false,
+  "training_executed": false,
+  "overall_pass": true
+}

@@ -1,0 +1,12 @@
+{
+  "active_envs_after": 4,
+  "all_observations_and_actions_finite": true,
+  "created_utc": "2026-08-31T22:33:06.049250+00:00",
+  "gate": "F8_FORCE_SAFETY_SMOKE",
+  "sensor_fault_steps": 0,
+  "shield_mode": "static_cap",
+  "smoke_pass": true,
+  "steps": 24,
+  "surface_kind": "cylinder",
+  "training_performed": false
+}

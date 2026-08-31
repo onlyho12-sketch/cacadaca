@@ -1,0 +1,10 @@
+scope,check,observed,operator,threshold,passed
+completion,sequences,48,eq,48,True
+static_cap,entry_curved_force_overloads,0,lt,3,True
+static_cap,sensor_fault_steps,0,eq,0,True
+static_cap,flat_safety_pass,4,ge,4,True
+static_cap,flat_action_passthrough_parity,True,eq,True,True
+predictive_shield,entry_curved_force_overloads,0,lt,3,True
+predictive_shield,sensor_fault_steps,0,eq,0,True
+predictive_shield,flat_safety_pass,4,ge,4,True
+predictive_shield,flat_action_passthrough_parity,True,eq,True,True

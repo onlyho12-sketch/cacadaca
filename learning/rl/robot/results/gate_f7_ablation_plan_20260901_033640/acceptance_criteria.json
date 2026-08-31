@@ -1,0 +1,33 @@
+{
+  "gate": "F7_SMALL_OBSERVATION_ABLATION_AND_BC_PILOT",
+  "frozen_before_execution": true,
+  "production_training": false,
+  "promotion_allowed": false,
+  "parent_release": "learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "parent_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "observation_arms": {
+    "base14": 14,
+    "normal17": 17,
+    "normal_curvature20": 20
+  },
+  "feature_contract": "base14 prefix unchanged; append local normal xyz; append normalized local graph Hessian huu,huv,hvv",
+  "training": "same collected samples, same split, parent-weight initialization, small BC fine-tune only",
+  "fixed_seeds": {
+    "physics": 20260901,
+    "policy": 20260831,
+    "surface_base": 32000,
+    "training": 20260901
+  },
+  "pilot_stop_rules": [
+    "stop if CPU schema or PhysX finite/sensor smoke fails",
+    "stop after one fixed BC ablation and one short paired evaluation",
+    "do not launch F8 full training",
+    "do not modify or promote champion/release artifacts"
+  ],
+  "direction_selection": [
+    "candidate held-out force-action MAE must beat base14",
+    "candidate must reduce curved force-overload count versus frozen parent",
+    "candidate must not introduce a flat safety failure",
+    "report quality tradeoff; no automatic promotion"
+  ]
+}

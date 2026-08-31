@@ -1,0 +1,88 @@
+{
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_bc_normal17_19200_20260901_035600/model_bc_gate_f7_normal17.pt",
+  "checkpoint_sha256": "64c6ee700c6a72fc7ae229a0806a20c51ce9ebd0a7217eceda71e26100911926",
+  "created_utc": "2026-08-31T18:51:48.897995+00:00",
+  "critic_training_performed": false,
+  "epochs": 20,
+  "feature_names": [
+    "force_mean_norm",
+    "force_error_norm",
+    "force_delta_norm",
+    "feed_cmd_norm",
+    "path_progress",
+    "local_scratch_mean_norm",
+    "local_scratch_max_norm",
+    "local_removal_norm",
+    "local_clearcoat_margin_norm",
+    "previous_force_action",
+    "previous_feed_action",
+    "local_temperature_mean_norm",
+    "local_temperature_peak_norm",
+    "local_thermal_damage_norm",
+    "surface_normal_x",
+    "surface_normal_y",
+    "surface_normal_z"
+  ],
+  "gate": "F7_SMALL_BC_ABLATION",
+  "learning_rate": 0.0002,
+  "metrics": [
+    {
+      "feed_mae": 0.0029915771447122097,
+      "force_mae": 0.014025270938873291,
+      "mae": 0.008508425205945969,
+      "mode": "normal17",
+      "mse": 0.0005275552393868566,
+      "n": 13440,
+      "split": "train"
+    },
+    {
+      "feed_mae": 0.0030407514423131943,
+      "force_mae": 0.013430758379399776,
+      "mae": 0.008235755376517773,
+      "mode": "normal17",
+      "mse": 0.0004699193814303726,
+      "n": 2880,
+      "split": "validation"
+    },
+    {
+      "feed_mae": 0.003063303418457508,
+      "force_mae": 0.015087313950061798,
+      "mae": 0.009075308218598366,
+      "mode": "normal17",
+      "mse": 0.0007915179012343287,
+      "n": 2880,
+      "split": "test"
+    }
+  ],
+  "mode": "normal17",
+  "observation_dim": 17,
+  "parent": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "parent_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "parent_weight_initialized": true,
+  "ppo_performed": false,
+  "promotion_allowed": false,
+  "samples": 19200,
+  "shards": [
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_collect_flat_4_seed32000_20260901_034500/dataset.npz",
+      "sha256": "ed4362e5f3c35ea7efa84d2ad02c8cba7713c718fc0610d2669c0b3bd657a686"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_collect_cylinder_4_seed32000_20260901_034800/dataset.npz",
+      "sha256": "0e00a7c50c28a5e29321536944f644ea3d2c017d9ff01125d730520491035a49"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_collect_sphere_4_seed32000_20260901_035000/dataset.npz",
+      "sha256": "7de2308a4fe26729377efed4c189252b9fc99265507bf047513238d092eac337"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_collect_freeform_4_seed32000_20260901_035200/dataset.npz",
+      "sha256": "a1becc922a7778e4cfc6ad7a97e61321ad2f4a825b9a2cd37a0a4dfeba4946f9"
+    }
+  ],
+  "split_counts": {
+    "test": 2880,
+    "train": 13440,
+    "validation": 2880
+  }
+}

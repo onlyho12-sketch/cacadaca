@@ -1,0 +1,41 @@
+{
+  "algorithm_overrides": {
+    "clip_param": 0.1,
+    "desired_kl": 0.005,
+    "entropy_coef": 0.005,
+    "gamma": 0.9995,
+    "lambda": 0.95,
+    "learning_rate": 0.0001
+  },
+  "champion_promotion_allowed": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/results/gate_e7_train_seed20260832_150336_20260831_113000/model_196.pt",
+  "checkpoint_sha256_before": "afe11120f80fc57e499e4d127f9e92888b43816a0c8c3f65671c9b0aefa367ad",
+  "created_utc": "2026-08-31T06:54:44.626112+00:00",
+  "cumulative_nominal_samples": 150336,
+  "cumulative_target_iterations": 261,
+  "envs_per_profile": 4,
+  "expected_saved_iteration": 196,
+  "gae_lambda": 0.95,
+  "gate": "Gate E7 PPO main training interrupted-run continuation",
+  "num_envs": 12,
+  "num_steps_per_env": 48,
+  "observation_dim": 14,
+  "observation_mode": "base14",
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "mode": "gate_c",
+    "step_over_ratio": 0.4
+  },
+  "production_training": true,
+  "profiles": [
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "remaining_iterations": 64,
+  "resume_at_iteration": 197,
+  "seed": 20260832,
+  "segment_nominal_samples": 36864,
+  "surface_seed_base": 22000
+}

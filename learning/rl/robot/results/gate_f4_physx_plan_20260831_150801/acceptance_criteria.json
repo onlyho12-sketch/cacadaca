@@ -1,0 +1,36 @@
+{
+  "all_candidates_must_pass_all_checks": true,
+  "candidate_rule": {
+    "cylinder_r0p60_cross": "cylinder",
+    "flat_cross": "flat",
+    "freeform_s0_cross": "freeform",
+    "sphere_r0p60_cross": "sphere"
+  },
+  "criteria": [
+    {"metric": "complete", "operator": "eq", "threshold": true},
+    {"metric": "all_finite", "operator": "eq", "threshold": true},
+    {"metric": "trace_all_finite", "operator": "eq", "threshold": true},
+    {"metric": "force_hard_violated", "operator": "eq", "threshold": false},
+    {"metric": "thermal_hard_violated", "operator": "eq", "threshold": false},
+    {"metric": "unstable_hard_violated", "operator": "eq", "threshold": false},
+    {"metric": "sensor_fault_control_steps", "operator": "eq", "threshold": 0},
+    {"metric": "fallback_steps", "operator": "eq", "threshold": 0},
+    {"metric": "no_contact_removal_errors", "operator": "eq", "threshold": 0},
+    {"metric": "raw_hard_force_control_steps", "operator": "eq", "threshold": 0},
+    {"metric": "post_first_contact_rate", "operator": "ge", "threshold": 0.95},
+    {"metric": "force_sensor_filtered_steady_mean_n", "operator": "ge", "threshold": 2.0},
+    {"metric": "force_sensor_filtered_steady_mean_n", "operator": "le", "threshold": 12.0},
+    {"metric": "force_sensor_filtered_steady_std_n", "operator": "le", "threshold": 2.0},
+    {"metric": "force_tracking_abs_error_steady_mean_n", "operator": "le", "threshold": 1.5},
+    {"metric": "force_tracking_abs_error_steady_p95_n", "operator": "le", "threshold": 4.0},
+    {"metric": "force_sensor_raw_max_n", "operator": "le", "threshold": 14.0},
+    {"metric": "gap_tracking_abs_error_steady_p95_m", "operator": "le", "threshold": 0.004},
+    {"metric": "roi_removal_mean_um", "operator": "gt", "threshold": 0.0},
+    {"metric": "roi_coverage_fraction", "operator": "gt", "threshold": 0.0}
+  ],
+  "criteria_source": "learning/rl/gate_f_curved_physx_summarize.py::CRITERIA",
+  "freeze_utc": "2026-08-31T15:08:01Z",
+  "gate": "F4",
+  "scope": "PT-DESIGN synthetic curved PhysX diagnostic; not real-cell validation",
+  "status": "FROZEN_BEFORE_PHYSX_RUNS"
+}

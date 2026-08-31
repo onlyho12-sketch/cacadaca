@@ -1,0 +1,11 @@
+{
+  "candidate_label": "s20260831_it211",
+  "champion_promoted": false,
+  "champion_unchanged": true,
+  "created_utc": "2026-08-31T11:06:22.035880+00:00",
+  "decision": "PASS release validation; champion promotion still requires explicit approval.",
+  "failed_criteria": [],
+  "gate": "Gate E7 seed1 final release/regression validation",
+  "overall_release_pass": true,
+  "surface_seed_base": 26000
+}

@@ -1,0 +1,40 @@
+{
+  "created_before_f6_physx": true,
+  "gate": "F6",
+  "scope": {
+    "directions": ["same_xx", "cross_xy"],
+    "envs_per_profile_per_direction": 2,
+    "geometries": ["flat", "cylinder_r0p60", "sphere_r0p60", "freeform_seed0"],
+    "profiles": [
+      "legacy_stress",
+      "factory_prepolish",
+      "factory_prepolish_deep_defect",
+      "factory_prepolish_deep_stress"
+    ],
+    "sequences_per_geometry": 16,
+    "total_sequences": 64,
+    "total_tiles": 1600
+  },
+  "policy": {
+    "checkpoint": "learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+    "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+    "observation_dim": 14,
+    "action_dim": 2,
+    "policy_seed": 20260831,
+    "training_performed": false
+  },
+  "completion_requirements": {
+    "all_numeric_outputs_finite": true,
+    "completed_sequences": 64,
+    "failure_csv_required": true,
+    "sensor_fault_steps": 0,
+    "tile_rows": 1600
+  },
+  "zero_shot_sufficiency_vs_paired_f6_flat": {
+    "all_curved_sequences_safety_ok": true,
+    "all4_cell_area_drop_max_percentage_points": 1.0,
+    "mean_control_steps_increase_max_pct": 40.0,
+    "quality_pass_count_drop_max": 0
+  },
+  "interpretation": "Diagnostic PT-DESIGN synthetic curved PhysX zero-shot audit; not real-cell validation. If sufficiency fails, report bottleneck and stop before F7."
+}

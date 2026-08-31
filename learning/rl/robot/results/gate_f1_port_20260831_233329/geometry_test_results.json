@@ -1,0 +1,14 @@
+{
+  "gate": "F1",
+  "test_type": "CPU-only geometry and static syntax validation",
+  "python_command_available": false,
+  "python3_command_used": true,
+  "syntax_files_checked": 5,
+  "pytest_file": "learning/rl/tests/test_gate_f_curved_geometry.py",
+  "pytest_passed": 17,
+  "pytest_failed": 0,
+  "pytest_duration_seconds": 0.11,
+  "physx_executed": false,
+  "training_executed": false,
+  "overall_pass": true
+}

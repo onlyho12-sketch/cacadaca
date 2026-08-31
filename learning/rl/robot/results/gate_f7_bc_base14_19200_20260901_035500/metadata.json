@@ -1,0 +1,85 @@
+{
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_bc_base14_19200_20260901_035500/model_bc_gate_f7_base14.pt",
+  "checkpoint_sha256": "d6029d946c649a6ea46cd018cd99752cbb06255b908003360573ab7156573e61",
+  "created_utc": "2026-08-31T18:51:46.427772+00:00",
+  "critic_training_performed": false,
+  "epochs": 20,
+  "feature_names": [
+    "force_mean_norm",
+    "force_error_norm",
+    "force_delta_norm",
+    "feed_cmd_norm",
+    "path_progress",
+    "local_scratch_mean_norm",
+    "local_scratch_max_norm",
+    "local_removal_norm",
+    "local_clearcoat_margin_norm",
+    "previous_force_action",
+    "previous_feed_action",
+    "local_temperature_mean_norm",
+    "local_temperature_peak_norm",
+    "local_thermal_damage_norm"
+  ],
+  "gate": "F7_SMALL_BC_ABLATION",
+  "learning_rate": 0.0002,
+  "metrics": [
+    {
+      "feed_mae": 0.002936128992587328,
+      "force_mae": 0.013772199861705303,
+      "mae": 0.00835416465997696,
+      "mode": "base14",
+      "mse": 0.0005225799977779388,
+      "n": 13440,
+      "split": "train"
+    },
+    {
+      "feed_mae": 0.002982236910611391,
+      "force_mae": 0.01321253553032875,
+      "mae": 0.008097386918962002,
+      "mode": "base14",
+      "mse": 0.00046691132592968643,
+      "n": 2880,
+      "split": "validation"
+    },
+    {
+      "feed_mae": 0.003052069805562496,
+      "force_mae": 0.014785069040954113,
+      "mae": 0.008918569423258305,
+      "mode": "base14",
+      "mse": 0.0007939632050693035,
+      "n": 2880,
+      "split": "test"
+    }
+  ],
+  "mode": "base14",
+  "observation_dim": 14,
+  "parent": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "parent_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "parent_weight_initialized": true,
+  "ppo_performed": false,
+  "promotion_allowed": false,
+  "samples": 19200,
+  "shards": [
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_collect_flat_4_seed32000_20260901_034500/dataset.npz",
+      "sha256": "ed4362e5f3c35ea7efa84d2ad02c8cba7713c718fc0610d2669c0b3bd657a686"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_collect_cylinder_4_seed32000_20260901_034800/dataset.npz",
+      "sha256": "0e00a7c50c28a5e29321536944f644ea3d2c017d9ff01125d730520491035a49"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_collect_sphere_4_seed32000_20260901_035000/dataset.npz",
+      "sha256": "7de2308a4fe26729377efed4c189252b9fc99265507bf047513238d092eac337"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f7_collect_freeform_4_seed32000_20260901_035200/dataset.npz",
+      "sha256": "a1becc922a7778e4cfc6ad7a97e61321ad2f4a825b9a2cd37a0a4dfeba4946f9"
+    }
+  ],
+  "split_counts": {
+    "test": 2880,
+    "train": 13440,
+    "validation": 2880
+  }
+}

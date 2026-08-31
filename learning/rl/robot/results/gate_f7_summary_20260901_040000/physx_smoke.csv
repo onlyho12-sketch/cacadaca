@@ -1,0 +1,5 @@
+surface_kind,mode,steps,all_finite,sensor_fault_steps,smoke_pass
+flat,normal_curvature20,24,True,0,True
+cylinder,normal_curvature20,24,True,0,True
+sphere,normal_curvature20,24,True,0,True
+freeform,normal_curvature20,24,True,0,True

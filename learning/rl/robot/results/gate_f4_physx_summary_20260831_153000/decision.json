@@ -1,0 +1,29 @@
+{
+  "all_candidates_pass": false,
+  "candidate_count": 4,
+  "candidates_passed": 0,
+  "created_utc": "2026-08-31T15:31:50.394299+00:00",
+  "decision": "FAIL",
+  "gate": "F4",
+  "metric_status": "PT-DESIGN_SYNTHETIC_CURVED_PHYSX_DIAGNOSTIC",
+  "next_step": "Diagnose failed frozen checks in Gate F new files only; do not start F5.",
+  "sources": [
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f4_physx_flat_cross_20260831_151000/summary.json",
+      "sha256": "4e25b6fbb573ae1bbd519cd091fd8d69265e94bf69000cf3e2c5c7e5e2fa645b"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f4_physx_cylinder_r0p60_cross_20260831_151500/summary.json",
+      "sha256": "65a988dcbe58a59007acda6f3d2526971ae8714b05fe07ade452a154febeb481"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f4_physx_sphere_r0p60_cross_20260831_151800/summary.json",
+      "sha256": "9121bafecf04e9c48d74eee646eb240ad4863cca3f710ff1bc6e00aa3cd4e276"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f4_physx_freeform_s0_cross_trace_20260831_152800/summary.json",
+      "sha256": "03834afb4b29df5a685e4813312b781f1ccf685216850c6c23bf7a335262ff71"
+    }
+  ],
+  "training_performed": false
+}

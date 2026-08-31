@@ -1,0 +1,87 @@
+{
+  "actor_drift": {
+    "mlp_changed_tensor_count": 6,
+    "mlp_l2_delta": 1.0581325069969236,
+    "mlp_max_abs_delta": 0.04153458564542234,
+    "mlp_relative_l2_delta": 0.07492260588008923,
+    "mlp_tensor_count": 6
+  },
+  "actor_iterations": 255,
+  "algorithm_overrides": {
+    "clip_param": 0.1,
+    "desired_kl": 0.005,
+    "entropy_coef": 0.005,
+    "gamma": 0.9995,
+    "lambda": 0.95,
+    "learning_rate": 0.0001
+  },
+  "arm": "control",
+  "champion_promoted": false,
+  "champion_promotion_allowed": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/champion/model_bc_robot_tesla12p7.pt",
+  "checkpoint_sha256_after": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+  "checkpoint_sha256_before": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+  "completed_iterations": 261,
+  "created_utc": "2026-08-31T06:58:01.078052+00:00",
+  "critic_drift": {
+    "mlp_changed_tensor_count": 6,
+    "mlp_l2_delta": 11.795485447982736,
+    "mlp_max_abs_delta": 0.4748704358935356,
+    "mlp_relative_l2_delta": 1.2511693780121194,
+    "mlp_tensor_count": 6
+  },
+  "critic_warmup_iterations": 6,
+  "envs_per_profile": 4,
+  "gae_lambda": 0.95,
+  "gate": "Gate E6 equal-sample PPO credit pilot",
+  "integration_checks": {
+    "actor_finite": true,
+    "actor_mlp_changed": true,
+    "critic_finite": true,
+    "critic_mlp_changed": true,
+    "current_fallback_steps": 0,
+    "current_force_hard_violations": 0,
+    "current_sensor_faults": 0,
+    "current_thermal_hard_violations": 0,
+    "current_unstable_hard_violations": 0,
+    "no_contact_removal_errors": 0,
+    "parent_checkpoint_unchanged": true
+  },
+  "integration_pass": true,
+  "last_iteration_index": 260,
+  "model_final": "/home/rokey/cacadaca/learning/rl/robot/results/gate_e7_train_seed20260833_150336_20260831_160000/model_final.pt",
+  "model_final_sha256": "1762c30abc0ae08a14f21a4b6099867aa8e4c2df286e9751731c5b4ce6246087",
+  "nominal_samples": 150336,
+  "num_envs": 12,
+  "num_steps_per_env": 48,
+  "observation_dim": 14,
+  "observation_mode": "base14",
+  "parent_checkpoint_infos": {
+    "contact_mode": "physical",
+    "coverage": {
+      "contact_steps": 1061201,
+      "episode_ends": 200,
+      "free_steps": 38799,
+      "sensor_fault_steps": 0
+    },
+    "env": "RobotPolishEnv",
+    "observation_dim": 14,
+    "source": "robot_bc_physical"
+  },
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "mode": "gate_c",
+    "step_over_ratio": 0.4
+  },
+  "production_training": false,
+  "profiles": [
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "pt_design": true,
+  "seed": 20260833,
+  "surface_seed_base": 23000,
+  "total_iterations": 261
+}

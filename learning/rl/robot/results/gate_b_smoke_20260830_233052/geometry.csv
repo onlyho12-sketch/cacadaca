@@ -1,0 +1,2 @@
+map_margin_x_m,map_margin_y_m,quality_footprint_margin_x_m,quality_footprint_margin_y_m,workpiece_size_x_m,workpiece_size_y_m,physical_footprint_margin_x_m,physical_footprint_margin_y_m,quality_footprint_inside,physical_footprint_inside,map_size_x_m,map_size_y_m,roi_size_x_m,roi_size_y_m,resolution_m,pad_radius_m,step_over_ratio,step_over_m,raster_lines,state_machine_path_length_m
+0.06,0.06,0.0049999999999999975,0.0049999999999999975,0.36,0.36,0.024999999999999988,0.024999999999999988,True,True,0.32,0.32,0.2,0.2,0.002,0.055,0.184,0.02024,10,4.0

@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-08-30T17:10:24.159566+00:00",
+  "envs_per_profile": 1,
+  "episode_completed": false,
+  "normalization_status": "PT-DESIGN_NOT_MEASURED_DISTRIBUTION",
+  "num_envs": 3,
+  "observation_modes": {
+    "base14": 14,
+    "global20": 20,
+    "spatial120": 120
+  },
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "lines_per_sweep": 5,
+    "path_length_m": 2.1,
+    "path_mode": "gate_c",
+    "step_over_m": 0.044000000000000004,
+    "step_over_ratio": 0.4,
+    "sweeps": 2
+  },
+  "physical_contact": true,
+  "profiles": [
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "same_state_prefix_exact": true,
+  "sample_steps": [
+    0,
+    1,
+    5,
+    10,
+    20
+  ],
+  "steps": 20,
+  "training_performed": false,
+  "zero_action": true
+}

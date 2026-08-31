@@ -1,0 +1,37 @@
+{
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/results/gate_e4_ppo_base14_12env_seed20260831_20260831_071000/model_9.pt",
+  "checkpoint_infos": null,
+  "checkpoint_sha256": "eea05e0d732b696a925c247507219ac57d109f4928c5ff6a005d490976821155",
+  "completed": 8,
+  "created_utc": "2026-08-30T21:16:21.855129+00:00",
+  "envs_per_profile": 2,
+  "expected": 8,
+  "gate": "Gate E2 pilot paired evaluation",
+  "max_passes": 1,
+  "observation_dim": 14,
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "lines_per_sweep": 5,
+    "path_length_m": 2.1,
+    "path_mode": "gate_c",
+    "step_over_m": 0.044000000000000004,
+    "step_over_ratio": 0.4,
+    "sweeps": 2
+  },
+  "physical_contact": true,
+  "policy_label": "gate_e4_actor5",
+  "ppo_performed": false,
+  "profile_seeds": [
+    15000,
+    15097
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "surface_seed_base": 15000,
+  "training_performed_in_eval": false
+}

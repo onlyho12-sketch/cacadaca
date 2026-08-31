@@ -1,0 +1,13 @@
+{
+  "candidate_label": "s20260832_it260",
+  "champion_promoted": false,
+  "champion_unchanged": true,
+  "created_utc": "2026-08-31T10:32:40.522715+00:00",
+  "decision": "FAIL release: quality/safety/tile/reproducibility checks passed, but the frozen +40% mean control-step limit was exceeded.",
+  "failed_criteria": [
+    "mean_control_steps_increase_pct_le40"
+  ],
+  "gate": "Gate E7 release/regression validation",
+  "overall_release_pass": false,
+  "surface_seed_base": 26000
+}

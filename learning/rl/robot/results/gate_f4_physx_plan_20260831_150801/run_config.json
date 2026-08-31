@@ -1,0 +1,23 @@
+{
+  "action": [0.0, 0.0],
+  "candidates": [
+    {"candidate_id": "flat_cross", "surface_kind": "flat", "radius_m": 100000000.0, "freeform_seed": 0},
+    {"candidate_id": "cylinder_r0p60_cross", "surface_kind": "cylinder", "radius_m": 0.6, "freeform_seed": 0},
+    {"candidate_id": "sphere_r0p60_cross", "surface_kind": "sphere", "radius_m": 0.6, "freeform_seed": 0},
+    {"candidate_id": "freeform_s0_cross", "surface_kind": "freeform", "radius_m": 0.6, "freeform_seed": 0}
+  ],
+  "direction_mode": "cross_xy",
+  "factory_gate_c_edge_mode": "balanced_extend5",
+  "factory_gate_c_step_over_ratio": 0.4,
+  "feed_speed_mm_s": 12.7,
+  "gate": "F4",
+  "max_control_steps": 5000,
+  "num_envs": 1,
+  "pad_alignment": "vertical_control",
+  "physical_contact": true,
+  "physics_seed": 20260901,
+  "profile": "factory_prepolish",
+  "repolish_max_passes": 1,
+  "surface_seed": 31000,
+  "training_performed": false
+}

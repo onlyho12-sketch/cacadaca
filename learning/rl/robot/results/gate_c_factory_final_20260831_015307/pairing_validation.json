@@ -1,0 +1,14 @@
+{
+  "all_profile_sequence_count": 128,
+  "created_utc": "2026-08-30T16:53:07.685755+00:00",
+  "factory_initial_exact_cross_vs_same": {
+    "factory_prepolish": true,
+    "factory_prepolish_deep_defect": true,
+    "factory_prepolish_deep_stress": true
+  },
+  "factory_seed_exact_cross_vs_same": true,
+  "factory_sequence_count": 96,
+  "legacy_sequence_count": 32,
+  "legacy_summary_dir": "/home/rokey/cacadaca/learning/rl/robot/results/gate_c_summary_20260831_004613",
+  "training_performed": false
+}

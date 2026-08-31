@@ -1,0 +1,9 @@
+shield_mode,direction_mode,surface_profile,profile_seed,mismatched_fields,identical
+static_cap,same_xx,factory_prepolish,33000,,True
+static_cap,same_xx,factory_prepolish_deep_stress,33000,,True
+static_cap,same_xx,factory_prepolish_deep_defect,33000,,True
+static_cap,same_xx,legacy_stress,33000,,True
+static_cap,cross_xy,factory_prepolish,33000,,True
+static_cap,cross_xy,factory_prepolish_deep_defect,33000,,True
+static_cap,cross_xy,factory_prepolish_deep_stress,33000,,True
+static_cap,cross_xy,legacy_stress,33000,,True

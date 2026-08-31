@@ -1,0 +1,76 @@
+{
+  "caveat": "Teacher thresholds and factory profiles are PT-DESIGN.",
+  "champion_observation_dim": 14,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/champion/model_bc_robot_tesla12p7.pt",
+  "checkpoint_sha256": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+  "complete": true,
+  "created_utc": "2026-08-30T17:48:32.489708+00:00",
+  "envs_per_profile": 4,
+  "gate": "Gate E1 teacher screen",
+  "max_passes": 2,
+  "num_envs": 16,
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "lines_per_sweep": 5,
+    "path_length_m": 2.1,
+    "path_mode": "gate_c",
+    "step_over_m": 0.044000000000000004,
+    "step_over_ratio": 0.4,
+    "sweeps": 2
+  },
+  "physical_contact": true,
+  "ppo_performed": false,
+  "profile_seeds": {
+    "factory_prepolish": [
+      42,
+      139,
+      236,
+      333
+    ],
+    "factory_prepolish_deep_defect": [
+      42,
+      139,
+      236,
+      333
+    ],
+    "factory_prepolish_deep_stress": [
+      42,
+      139,
+      236,
+      333
+    ],
+    "legacy_stress": [
+      42,
+      139,
+      236,
+      333
+    ]
+  },
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "screen_observation_dim": 120,
+  "steps_executed": 10561,
+  "surface_seed_base": 42,
+  "surface_state_extended": false,
+  "teacher": "champion_then_finish",
+  "teacher_design": {
+    "base_feed_mm_s": 12.7,
+    "clearcoat_margin_guard_um": 2.0,
+    "design_status": "PT-DESIGN_SYNTHETIC_TEACHER_SCREEN",
+    "feed_ratio_limit": 0.5,
+    "finish_feed_action": -0.7401574803149606,
+    "finish_feed_mm_s": 8.0,
+    "finish_force_action": -1.0,
+    "over_fraction_guard": 0.4,
+    "protect_feed_action": 0.5,
+    "protect_force_action": -1.0,
+    "scratch_guard_um": 0.3,
+    "under_fraction_guard": 0.2
+  },
+  "training_performed": false
+}

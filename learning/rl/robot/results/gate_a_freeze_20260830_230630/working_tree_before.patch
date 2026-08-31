@@ -1,0 +1,136 @@
+diff --git "a/gloss_test/docs/\354\203\210\354\261\204\355\214\205_\354\240\204\354\262\264\354\236\221\354\227\205_\354\235\270\354\210\230\354\235\270\352\263\204\354\204\234.md" "b/gloss_test/docs/\354\203\210\354\261\204\355\214\205_\354\240\204\354\262\264\354\236\221\354\227\205_\354\235\270\354\210\230\354\235\270\352\263\204\354\204\234.md"
+index a6c5aa5..91e20ed 100644
+--- "a/gloss_test/docs/\354\203\210\354\261\204\355\214\205_\354\240\204\354\262\264\354\236\221\354\227\205_\354\235\270\354\210\230\354\235\270\352\263\204\354\204\234.md"
++++ "b/gloss_test/docs/\354\203\210\354\261\204\355\214\205_\354\240\204\354\262\264\354\236\221\354\227\205_\354\235\270\354\210\230\354\235\270\352\263\204\354\204\234.md"
+@@ -1099,3 +1099,83 @@ pass 2는 GU와 scratch는 개선했지만 Ra를 평균 0.271 μm로 악화시
+ > 반복으로 18/100을 성공시켰으며 82/100은 Ra 품질회귀 때문에 안전 중단했다. 다음은
+ > 같은 폴리싱을 더 반복하는 일이 아니라 한계 구역 보고·공정 변경 분류와 BMW 평면 연동,
+ > 그 후 보디 라인/곡면 전용 RL이다.
++
++---
++
++## 29. 2026-08-30 최신 계획 — 평면 Ra 회귀 원인 분리와 계층형 공정 제어
++
++> 이 절은 §28.5의 단순 `공정 변경 분류→BMW 평면 연동` 순서를 구체화하고 일부 대체한다.
++> 상세 실행계획, 보호 대상, 현재 dirty worktree, 비교 Git 이식 범위와 새 채팅 주문문은
++> `gloss_test/docs/새채팅_평면관측확장_경로최적화_인수인계서.md`를 우선 참조한다.
++
++### 29.1 현재 중단 지점
++
++- 현재 실행 중인 학습·평가 프로세스는 없다.
++- 100표면 상태기계는 1차 100개, 2차 89개까지만 실행했다.
++- 2차에서 7개가 추가 성공했고 82개는 Ra 품질회귀로 중단했다.
++- **3차 재폴리싱은 실행하지 않았다.**
++- `checkpoint_finish` 실험은 16표면 2조건만 완료했다.
++
++| pass 2+ finish 조건 | 성공 | 안전 위반 |
++|---|---:|---:|
++| force action -1.0, 12.7 mm/s | 3/16 | 0 |
++| force action -1.0, 8.0 mm/s | **5/16** | 0 |
++
++위 결과와 `learning/rl/repolish_eval.py`의 현재 변경은 미완료 실험 자산이므로 보존한다.
++
++### 29.2 새로 확정된 평면 문제
++
++- 품질 patch는 120×120 mm, 패드는 Ø110 mm라 경계 효과가 지배적일 수 있다.
++- 현재 PhysX Workpiece는 160×160 mm라 품질 patch 주변 연속 차체를 충분히 표현하지 못한다.
++- 현재 step-over 0.184는 20.24 mm 간격, 약 81.6% 중첩이며 과거 5.95 mm/s 해석식 조건에서
++  정해져 12.7 mm/s PhysX 반복공정에서 재최적화되지 않았다.
++- 예비 coverage 계산은 중앙이 모서리보다 약 50~58% 큰 제거 노출을 받을 수 있음을 보였다.
++- 패드를 평가 셀 내부에 제한하지 않는다. 평가 셀 경계는 가상 경계이며 패드는 넘어가도 된다.
++  대신 더 큰 연속 차체 상태맵/Workpiece 위에서 중앙 ROI를 판정한다.
++- 실제 패널 끝·틈·단차는 후속 edge 전용 안전 조건으로 분리한다.
++
++### 29.3 PPO에 추가할 정보
++
++다음 정보는 고해상도 환경 상태로 보관하고, 공간장은 우선 5×5 타일로 PPO에 제공한다.
++
++1. normalized pass 번호
++2. 직전 pass 검사 GU gap
++3. 직전 pass 검사 Ra/Rz gap
++4. 최소 clearcoat 안전여유
++5. 2차원 scratch 지도
++6. 2차원 누적 제거량 지도
++7. 중앙·가장자리 제거량 차이
++8. under-polished 타일 위치
++9. over-polished 타일 위치
++
++첫 재학습 action은 `ΔForce`, `ΔFeed` 두 개를 유지한다. RPM과 step-over는 pass/line 단위
++상위 공정변수로 두고, 자유 Δx/Δy/Δz 경로 PPO는 보류한다.
++
++### 29.4 새 실행 순서
++
++1. 기존 결과와 dirty worktree 동결·보존
++2. 큰 연속 평판/상태맵 + 중앙 판정 ROI 설계
++3. 미세 Ra/Rz와 경로 제거 waviness·균일도 분리
++4. step-over 0.18/0.25/0.32/0.40, 동일/교차 경로, edge correction 16표면 screen
++5. 기존 14ch / 전역 scalar 추가 / 5×5 공간지도 추가 관측 ablation
++6. pass-aware 새 BC와 PPO 재학습
++7. 동일 100표면에서 기존 18/100과 비교
++8. pass 단위 상위 recipe selector(BO/대리모델/상태기계) 연결
++9. 비교 Git의 곡면 geometry·normal·PhysX mesh·2×2 평가 구조만 선택 이식
++10. 우리 기준 12.7 mm/s·30 μm·힘 제한으로 곡면 새 학습
++
++### 29.5 비교 Git
++
++- 저장소: `https://github.com/seb000423/cacadaca.git`
++- 확인 branch/commit: `learning-bc-v2` / `ea9d030ea2c89e85b6678d90fc94f8b65066f430`
++- 가져올 것: cylinder/sphere/freeform geometry, local normal, 곡면 PhysX mesh, IK Z 연결,
++  2×2 평가 harness
++- 가져오지 않을 것: 구형 5.95 mm/s checkpoint, 35 μm+GU 결합, 힘 초과 재폴리싱,
++  공용 env 전체 덮어쓰기, 동일 raster path
++- 저쪽 99/150은 해석식 vehicle export이고, PhysX 곡면 재폴리싱은 0/8이다.
++
++### 29.6 다음 채팅 한 줄 지시
++
++> 세 인수인계서를 전부 읽고 보호 대상·dirty worktree·현재 중단 지점을 먼저 확인한 뒤,
++> 바로 학습하지 말고 Gate A 결과 동결과 Gate B 평면/ROI·Ra/coverage 진단 계획 및 예상시간을
++> 보고하고 승인을 기다린다.
+diff --git a/learning/rl/repolish_eval.py b/learning/rl/repolish_eval.py
+index d90523e..75b0996 100644
+--- a/learning/rl/repolish_eval.py
++++ b/learning/rl/repolish_eval.py
+@@ -35,9 +35,11 @@ from isaaclab.app import AppLauncher
+ 
+ parser = argparse.ArgumentParser()
+ parser.add_argument("--checkpoint", type=str, required=True)
+-parser.add_argument("--policy_mode", choices=("checkpoint", "zero", "finish_rule"),
++parser.add_argument("--policy_mode",
++                    choices=("checkpoint", "zero", "finish_rule", "checkpoint_finish"),
+                     default="checkpoint",
+-                    help="checkpoint 정책, residual=0 기준, 또는 후속 약한 마무리 규칙")
++                    help="checkpoint 정책, residual=0 기준, 후속 약한 마무리 규칙, "
++                         "또는 1차 checkpoint+2차 마무리 규칙")
+ parser.add_argument("--finish_force_action", type=float, default=-0.5,
+                     help="finish_rule의 2차 force residual")
+ parser.add_argument("--finish_late_force_action", type=float, default=-1.0,
+@@ -143,6 +145,29 @@ def main():
+               f"{args.finish_force_action:.3f}; pass3+ force_action="
+               f"{args.finish_late_force_action:.3f}; feed={args.finish_feed_mm_s:.3f} mm/s, "
+               f"feed_action={finish_feed_action:.3f}; finish_min_gu={args.finish_min_gu:.2f})")
++    elif args.policy_mode == "checkpoint_finish":
++        checkpoint_policy = load_policy(args.checkpoint, env.device)
++        base_feed = env.recipe.feed_speed_mm_s
++        finish_feed_action = ((args.finish_feed_mm_s / base_feed) - 1.0) / env.cfg.feed_ratio_limit
++        finish_feed_action = float(np.clip(finish_feed_action, -1.0, 1.0))
++
++        def policy(obs):
++            # Pass 1 keeps the current champion exactly as-is.  From pass 2 onward,
++            # replace only the two residual actions with the controlled finish pair.
++            actions = checkpoint_policy(obs).clone()
++            later = env._pass_count > 0
++            actions[later, 0] = float(np.clip(args.finish_force_action, -1.0, 1.0))
++            actions[later, 1] = finish_feed_action
++            return actions
++
++        policy_name = (
++            f"{os.path.basename(args.checkpoint)}+finish"
++            f"(force={float(np.clip(args.finish_force_action, -1.0, 1.0)):.3f},"
++            f"feed={args.finish_feed_mm_s:.3f})"
++        )
++        print(f"[repolish] policy=checkpoint_finish (pass1={os.path.basename(args.checkpoint)}; "
++              f"pass2+ force_action={args.finish_force_action:.3f}; "
++              f"feed={args.finish_feed_mm_s:.3f} mm/s, feed_action={finish_feed_action:.3f})")
+     else:
+         policy = load_policy(args.checkpoint, env.device)
+         policy_name = os.path.basename(args.checkpoint)

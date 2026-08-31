@@ -1,0 +1,26 @@
+{
+  "champion_promoted": false,
+  "champion_quality_pass": 24,
+  "champion_safety_pass": 32,
+  "confirmation_sequences_per_policy": 32,
+  "confirmation_tiles_per_policy": 800,
+  "created_utc": "2026-08-31T04:55:43.866456+00:00",
+  "curved_surface_scope": "Not trained in Gate E6; audit as a separate next gate before any unified policy.",
+  "delta_mean_all4_area_percentage_points": 0.18656249999997954,
+  "delta_mean_control_steps": 520.625,
+  "delta_mean_control_steps_pct": 14.929251834792504,
+  "flat_work_complete": false,
+  "gate": "Gate E6 equal-sample PPO credit pilot",
+  "long_rollout_candidate_outperformed_control": false,
+  "next_flat_step_requires_approval": "Decide area/tile acceptance thresholds, then run approved larger-seed/full-training gate.",
+  "promotion_reason": "No promotion: pilot quality gains are small, strict/95% tile counts do not improve, and mean completion steps increase materially.",
+  "selected_screen_checkpoint": "control_46080",
+  "selected_training_arm": "control_48_step_lambda_0.95",
+  "tile_count_winner": {
+    "tiles_all4_area_100pct": "tie",
+    "tiles_all4_area_ge90pct": "control_46080",
+    "tiles_all4_area_ge95pct": "tie"
+  },
+  "trained_quality_pass": 24,
+  "trained_safety_pass": 32
+}

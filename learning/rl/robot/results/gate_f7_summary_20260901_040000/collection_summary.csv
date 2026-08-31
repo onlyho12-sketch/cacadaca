@@ -1,0 +1,5 @@
+surface_kind,samples,risk_mean,teacher_changed_fraction,sensor_fault_steps,latched_force_violation_step_sum
+flat,4800,0.0,0.0,0,0
+cylinder,4800,1.0,0.9702083333333333,0,0
+sphere,4800,1.0,0.9889583333333334,0,0
+freeform,4800,0.9880637526512146,0.9227083333333334,0,0

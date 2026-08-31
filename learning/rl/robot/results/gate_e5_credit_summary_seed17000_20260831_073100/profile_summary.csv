@@ -1,0 +1,4 @@
+surface_profile,executions,safety_ok,quality_ok,control_steps_mean,terminal_reward_mean,dense_reward_sum_mean,direct_credit_steps_mean,direct_credit_path_fraction_mean
+factory_prepolish,4,4,4,3095.25,699.3825531005859,-65.7031422816217,23.25,0.007500395442875997
+factory_prepolish_deep_defect,4,4,4,3352.25,693.7959136962891,-40.98789626930375,16.25,0.004886572908099995
+factory_prepolish_deep_stress,4,4,4,3359.5,680.0432891845703,-40.06932436558418,23.5,0.007033988312899374

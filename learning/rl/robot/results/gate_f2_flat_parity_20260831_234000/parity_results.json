@@ -1,0 +1,28 @@
+{
+  "gate": "F2",
+  "created_local": "2026-08-31T23:40:00+09:00",
+  "test_type": "CPU-only flat geometry and force-definition parity",
+  "pytest_files": [
+    "learning/rl/tests/test_gate_f_curved_geometry.py",
+    "learning/rl/tests/test_gate_f_flat_parity.py"
+  ],
+  "pytest_passed": 23,
+  "pytest_failed": 0,
+  "pytest_duration_seconds": 0.23,
+  "flat_max_abs_height_m": 0.0,
+  "flat_max_abs_normal_error": 0.0,
+  "force_projection_max_abs_error_n": 0.0,
+  "flat_mesh_vertices": 1681,
+  "flat_mesh_triangles": 3200,
+  "radius_to_infinity": {
+    "radius_m": 100000000.0,
+    "cylinder_max_abs_height_m": 0.0,
+    "sphere_max_abs_height_m": 0.0,
+    "maximum_tangent_normal_component": 1.6e-09,
+    "maximum_normal_z_error": 0.0
+  },
+  "factory_surface_state_quality_arrays_unchanged": true,
+  "physx_executed": false,
+  "training_executed": false,
+  "overall_pass": true
+}

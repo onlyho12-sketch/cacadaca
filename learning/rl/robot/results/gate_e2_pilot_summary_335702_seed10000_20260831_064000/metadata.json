@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-08-30T20:29:29.023576+00:00",
+  "executions": 256,
+  "input_dirs": [
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_e2_eval1_frozen_champion_same_32_seed10000_20260831_052500",
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_e2_eval1_bc_base14_same_32_seed10000_20260831_053600",
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_e2_eval1_bc_global20_same_32_seed10000_20260831_054400",
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_e2_eval1_bc_spatial120_same_32_seed10000_20260831_055200",
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_e2_eval1_frozen_champion_cross_32_seed10000_20260831_060000",
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_e2_eval1_bc_base14_cross_32_seed10000_20260831_061000",
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_e2_eval1_bc_global20_cross_32_seed10000_20260831_062000",
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_e2_eval1_bc_spatial120_cross_32_seed10000_20260831_063000"
+  ],
+  "max_passes": 1,
+  "paired_rows": 192,
+  "ppo_performed": false,
+  "selection": "KEEP_FROZEN_CHAMPION_REJECT_NEW_BC_PROMOTION"
+}

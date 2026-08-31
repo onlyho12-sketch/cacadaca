@@ -1,0 +1,57 @@
+{
+  "champion_promoted": false,
+  "completion_pass": true,
+  "control_entry_force_overloads": 3,
+  "created_utc": "2026-08-31T20:10:14.578725+00:00",
+  "criteria_frozen_before_physx": {
+    "candidate_selection_tiebreak": [
+      "fewer cylinder+freeform force overloads",
+      "higher curved safety pass count",
+      "smaller paired curved all4 area drop versus control",
+      "less intrusive shield (static_cap before predictive_shield)"
+    ],
+    "final_gate": {
+      "candidate_force_overloads_both_directions": 0,
+      "entry_curved_safety_pass_gt_control": true,
+      "flat_quality_pass_not_below_control": true,
+      "flat_safety_pass_not_below_control": true,
+      "mean_curved_all4_area_drop_max_percentage_points": 1.0,
+      "sensor_fault_steps": 0
+    },
+    "stage2_entry": {
+      "entry_curved_force_overloads_below_control": true,
+      "flat_action_passthrough_parity": true,
+      "flat_safety_pass_not_below_control": true,
+      "sensor_fault_steps": 0
+    }
+  },
+  "decision": "PASS",
+  "entered_candidates": [
+    "static_cap",
+    "predictive_shield"
+  ],
+  "gate": "F8_SMALL_FORCE_SAFETY_CONSTRAINT_PILOT",
+  "parent_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "runs": 12,
+  "selected_candidate": "static_cap",
+  "selection_table": [
+    {
+      "curved_all4_drop_pp": -0.039166666666665385,
+      "curved_safety_pass": 12,
+      "entry_curved_force_overloads": 0,
+      "intrusiveness_rank": 0,
+      "shield_mode": "static_cap"
+    },
+    {
+      "curved_all4_drop_pp": -0.03749999999999787,
+      "curved_safety_pass": 12,
+      "entry_curved_force_overloads": 0,
+      "intrusiveness_rank": 1,
+      "shield_mode": "predictive_shield"
+    }
+  ],
+  "sequences": 48,
+  "stage": "1",
+  "tile_rows": 1200,
+  "training_performed": false
+}

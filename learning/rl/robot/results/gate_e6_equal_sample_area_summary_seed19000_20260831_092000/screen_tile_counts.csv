@@ -1,0 +1,7 @@
+stage,policy_label,direction_mode,tiles_total,tiles_all4_area_100pct,tiles_all4_area_ge95pct,tiles_all4_area_ge90pct,all4_cells_pass,surface_cells_total,all4_cell_area_pct
+screen,control_14976,same_xx,200,161,164,164,75571,80000,94.46375
+screen,control_30528,same_xx,200,161,164,165,75648,80000,94.56
+screen,control_46080,same_xx,200,161,164,165,75715,80000,94.64375
+screen,candidate_15360,same_xx,200,161,164,164,75507,80000,94.38375
+screen,candidate_30720,same_xx,200,160,164,165,75637,80000,94.54625
+screen,candidate_46080,same_xx,200,160,164,165,75620,80000,94.525

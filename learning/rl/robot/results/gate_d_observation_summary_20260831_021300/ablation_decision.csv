@@ -1,0 +1,4 @@
+observation_mode,observation_dim,established_base14,global_inspection_features,tile_5x5_channels,same_state_prefix_exact,all_finite,next_stage_role,selection_basis,claim_limit
+base14,14,True,0,0,True,True,frozen_baseline,Established checkpoint-compatible local observation,No pass-level or surface-location information
+global20,20,True,6,0,True,True,ablation_control,Adds signed GU/Ra/Rz gaps pass number clearcoat margin and center-edge delta,Does not identify which tile requires rework
+spatial120,120,True,6,4,True,True,recommended_BC_candidate,Retains global20 prefix and adds scratch removal under and over 5x5 maps,Information selection only; policy performance not tested

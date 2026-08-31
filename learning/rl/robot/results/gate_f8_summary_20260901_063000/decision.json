@@ -1,0 +1,26 @@
+{
+  "candidate_curved_safety_pass": 16,
+  "candidate_force_overloads": 0,
+  "champion_promoted": false,
+  "checks": {
+    "candidate_zero_force_overloads": true,
+    "curved_all4_drop_le_1pp": true,
+    "curved_safety_improved": true,
+    "flat_quality_not_regressed": true,
+    "flat_safety_not_regressed": true,
+    "zero_sensor_faults": true
+  },
+  "completion_pass": true,
+  "control_curved_safety_pass": 11,
+  "control_force_overloads": 5,
+  "created_utc": "2026-08-31T21:30:05.059324+00:00",
+  "curved_all4_area_delta_pp_candidate_minus_control": 0.06187500000000057,
+  "force_safety_gate_pass": true,
+  "gate": "F8_SMALL_FORCE_SAFETY_CONSTRAINT_PILOT",
+  "ppo_performed": false,
+  "production_readiness": false,
+  "recommendation": "Static curved-only +0.50 force-action cap passes this small synthetic pilot. Require a separately approved larger multi-seed validation before integration or release.",
+  "release_modified": false,
+  "selected_candidate": "static_cap",
+  "training_performed": false
+}

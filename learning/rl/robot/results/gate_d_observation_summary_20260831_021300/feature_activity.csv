@@ -1,0 +1,3 @@
+inspection_stage,direction_scope,profile_count,summary_feature_rows,varying_across_16_seeds,nonzero_in_any_seed,interpretation
+initial,same_xx,3,318,75,75,Initial scratch location clearcoat and signed quality gaps are informative; removal and pass-derived channels are correctly zero
+after_pass,same_xx,3,318,302,305,Removal under-over center-edge and pass channels become active after inspection

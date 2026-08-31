@@ -1,0 +1,17 @@
+scope,check,observed,operator,threshold,passed
+completion,completed_sequences,64,eq,64,True
+completion,tile_rows,1600,eq,1600,True
+completion,sensor_fault_steps,0,eq,0,True
+completion,selected_numeric_outputs_finite,True,eq,True,True
+cylinder,all_sequences_safety_ok,11,eq,16,False
+cylinder,quality_pass_count_delta,-4,ge,0,False
+cylinder,all4_delta_percentage_points,-0.1893749999999983,ge,-1.0,True
+cylinder,mean_control_steps_delta_pct,-20.628065846098288,le,40.0,True
+sphere,all_sequences_safety_ok,16,eq,16,True
+sphere,quality_pass_count_delta,0,ge,0,True
+sphere,all4_delta_percentage_points,-0.006875000000007958,ge,-1.0,True
+sphere,mean_control_steps_delta_pct,-0.08727316500647397,le,40.0,True
+freeform,all_sequences_safety_ok,11,eq,16,False
+freeform,quality_pass_count_delta,-4,ge,0,False
+freeform,all4_delta_percentage_points,-0.109375,ge,-1.0,True
+freeform,mean_control_steps_delta_pct,-19.123356104607424,le,40.0,True

@@ -1,0 +1,14 @@
+## lr_yj...origin/lr_yj
+ M gloss_test/docs/새채팅_전체작업_인수인계서.md
+ M learning/rl/repolish_eval.py
+?? gloss_test/docs/새채팅_평면관측확장_경로최적화_인수인계서.md
+?? learning/rl/robot/results/gate_a_freeze_20260830_230630/
+?? learning/rl/robot/results/repolish_tesla12p7_bc_finish_hybrid_smoke_1env.csv
+?? learning/rl/robot/results/repolish_tesla12p7_bc_finish_hybrid_smoke_1env_passes.csv
+?? learning/rl/robot/results/repolish_tesla12p7_bc_finish_hybrid_smoke_1env_tiles.csv
+?? learning/rl/robot/results/repolish_tesla12p7_bc_finishgrid_fm1p0_v12p7_16env.csv
+?? learning/rl/robot/results/repolish_tesla12p7_bc_finishgrid_fm1p0_v12p7_16env_passes.csv
+?? learning/rl/robot/results/repolish_tesla12p7_bc_finishgrid_fm1p0_v12p7_16env_tiles.csv
+?? learning/rl/robot/results/repolish_tesla12p7_bc_finishgrid_fm1p0_v8p0_16env.csv
+?? learning/rl/robot/results/repolish_tesla12p7_bc_finishgrid_fm1p0_v8p0_16env_passes.csv
+?? learning/rl/robot/results/repolish_tesla12p7_bc_finishgrid_fm1p0_v8p0_16env_tiles.csv

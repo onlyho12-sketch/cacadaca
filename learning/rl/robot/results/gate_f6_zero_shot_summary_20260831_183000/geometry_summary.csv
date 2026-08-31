@@ -1,0 +1,5 @@
+surface_kind,sequences,safety_pass,quality_pass,sensor_fault_steps,force_overload_failures,max_pass_failures,mean_control_steps,mean_force_action,mean_feed_action,all4_cells_pass,surface_cells_total,all4_cell_area_pct,tiles_total,tiles_all4_area_100pct,tiles_all4_area_ge95pct,tiles_all4_area_ge90pct,tiles_all4_area_ge80pct,outcomes_json
+flat,16,16,12,0,0,4,4153.625,0.6734785141535462,-0.33645450670044313,146869,160000,91.793125,400,278,294,304,329,"{""fail_max_passes"": 4, ""success"": 12}"
+cylinder,16,11,8,0,5,3,3296.8125,0.7467890666291649,-0.4372824040380585,146566,160000,91.60375,400,278,294,304,328,"{""fail_force_overload"": 5, ""fail_max_passes"": 3, ""success"": 8}"
+sphere,16,16,12,0,0,4,4150.0,0.6694475069166446,-0.3348937914202793,146858,160000,91.78625,400,278,294,304,329,"{""fail_max_passes"": 4, ""success"": 12}"
+freeform,16,11,8,0,5,3,3359.3125,0.7611030612989719,-0.45496090767212033,146694,160000,91.68375,400,278,294,304,328,"{""fail_force_overload"": 5, ""fail_max_passes"": 3, ""success"": 8}"

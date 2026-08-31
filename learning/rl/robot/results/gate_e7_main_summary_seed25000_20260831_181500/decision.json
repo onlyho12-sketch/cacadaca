@@ -1,0 +1,55 @@
+{
+  "champion_promoted": false,
+  "confirm_surface_seed_base": 25000,
+  "created_utc": "2026-08-31T09:28:29.025980+00:00",
+  "flat_work_complete": false,
+  "gate": "Gate E7 flat PPO multi-seed main training",
+  "next_step_requires_approval": "Choose raw-quality or quality-time objective and acceptance threshold before promotion; then run the selected policy's release/regression validation.",
+  "promotion_reason": "No automatic promotion: all candidates are safe and improve quality, but the pre-declared acceptance threshold for quality versus completion-time cost was not set.",
+  "quality_time_candidate": "s20260832_it260",
+  "raw_quality_winner": "s20260833_it211",
+  "samples_per_seed": 150336,
+  "screen_selected": [
+    {
+      "mean_control_steps": 4346.25,
+      "mean_final_all4_pass_area_pct": 91.88000000000001,
+      "quality_pass": 4,
+      "safety_pass": 8,
+      "selected_checkpoint_iteration": 211,
+      "selected_nominal_samples": 122112,
+      "selected_policy_label": "s20260831_it211",
+      "selection_order": "safety, quality, all4 area, lower steps",
+      "training_seed": 20260831
+    },
+    {
+      "mean_control_steps": 5142.125,
+      "mean_final_all4_pass_area_pct": 92.31,
+      "quality_pass": 5,
+      "safety_pass": 8,
+      "selected_checkpoint_iteration": 260,
+      "selected_nominal_samples": 150336,
+      "selected_policy_label": "s20260832_it260",
+      "selection_order": "safety, quality, all4 area, lower steps",
+      "training_seed": 20260832
+    },
+    {
+      "mean_control_steps": 6432.625,
+      "mean_final_all4_pass_area_pct": 92.53125000000001,
+      "quality_pass": 6,
+      "safety_pass": 8,
+      "selected_checkpoint_iteration": 211,
+      "selected_nominal_samples": 122112,
+      "selected_policy_label": "s20260833_it211",
+      "selection_order": "safety, quality, all4 area, lower steps",
+      "training_seed": 20260833
+    }
+  ],
+  "screen_surface_seed_base": 24000,
+  "seed_20260832_segmented_after_iteration_196": true,
+  "total_nominal_samples": 451008,
+  "training_seeds": [
+    20260831,
+    20260832,
+    20260833
+  ]
+}

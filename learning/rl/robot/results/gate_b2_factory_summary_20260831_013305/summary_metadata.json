@@ -1,0 +1,120 @@
+{
+  "created_utc": "2026-08-30T16:33:05.992420+00:00",
+  "paired_row_count": 0,
+  "run_directories": [
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_b2_factory_physx_20260831_012700"
+  ],
+  "run_metadata": [
+    {
+      "caveat": "All factory profile ranges are PT-DESIGN, not measured distributions.",
+      "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/champion/model_bc_robot_tesla12p7.pt",
+      "checkpoint_sha256": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+      "complete": true,
+      "created_utc": "2026-08-30T16:31:41.558180+00:00",
+      "envs_per_profile": 4,
+      "factory_specs": {
+        "factory_prepolish": {
+          "base_ra_max_um": 0.12,
+          "base_ra_min_um": 0.1,
+          "deep_depth_max_um": null,
+          "deep_depth_min_um": null,
+          "design_status": "PT-DESIGN_NO_MEASURED_FACTORY_DISTRIBUTION",
+          "profile_id": "factory_prepolish",
+          "scratch_length_max_m": 0.08,
+          "scratch_length_min_m": 0.01,
+          "scratch_width_m": 0.002,
+          "shallow_depth_max_um": 0.6,
+          "shallow_depth_min_um": 0.1,
+          "shallow_scratch_count_max": 2,
+          "shallow_scratch_count_min": 0
+        },
+        "factory_prepolish_deep_defect": {
+          "base_ra_max_um": 0.12,
+          "base_ra_min_um": 0.1,
+          "deep_depth_max_um": 1.0,
+          "deep_depth_min_um": 0.6,
+          "design_status": "PT-DESIGN_NO_MEASURED_FACTORY_DISTRIBUTION",
+          "profile_id": "factory_prepolish_deep_defect",
+          "scratch_length_max_m": 0.08,
+          "scratch_length_min_m": 0.01,
+          "scratch_width_m": 0.002,
+          "shallow_depth_max_um": 0.6,
+          "shallow_depth_min_um": 0.1,
+          "shallow_scratch_count_max": 2,
+          "shallow_scratch_count_min": 0
+        },
+        "factory_prepolish_deep_stress": {
+          "base_ra_max_um": 0.12,
+          "base_ra_min_um": 0.1,
+          "deep_depth_max_um": 1.5,
+          "deep_depth_min_um": 1.0,
+          "design_status": "PT-DESIGN_NO_MEASURED_FACTORY_DISTRIBUTION",
+          "profile_id": "factory_prepolish_deep_stress",
+          "scratch_length_max_m": 0.08,
+          "scratch_length_min_m": 0.01,
+          "scratch_width_m": 0.002,
+          "shallow_depth_max_um": 0.6,
+          "shallow_depth_min_um": 0.1,
+          "shallow_scratch_count_max": 2,
+          "shallow_scratch_count_min": 0
+        }
+      },
+      "feed_speed_mm_s": 12.7,
+      "geometry": {
+        "map_margin_x_m": 0.06,
+        "map_margin_y_m": 0.06,
+        "physical_footprint_inside": true,
+        "physical_footprint_margin_x_m": 0.024999999999999988,
+        "physical_footprint_margin_y_m": 0.024999999999999988,
+        "quality_footprint_inside": true,
+        "quality_footprint_margin_x_m": 0.0049999999999999975,
+        "quality_footprint_margin_y_m": 0.0049999999999999975,
+        "workpiece_size_x_m": 0.36,
+        "workpiece_size_y_m": 0.36
+      },
+      "mar_density_or_severity_created": false,
+      "max_passes": 1,
+      "num_envs": 12,
+      "obs_dim": 14,
+      "path": {
+        "direction_mode": "same_xx",
+        "edge_mode": "established_centered_raster",
+        "lines": 10,
+        "path_length_m": 4.0,
+        "path_mode": "gate_b",
+        "step_over_ratio": 0.184
+      },
+      "physical_contact": true,
+      "profile_seeds": {
+        "factory_prepolish": [
+          1000,
+          1097,
+          1194,
+          1291
+        ],
+        "factory_prepolish_deep_defect": [
+          1000,
+          1097,
+          1194,
+          1291
+        ],
+        "factory_prepolish_deep_stress": [
+          1000,
+          1097,
+          1194,
+          1291
+        ]
+      },
+      "profiles": [
+        "factory_prepolish",
+        "factory_prepolish_deep_defect",
+        "factory_prepolish_deep_stress"
+      ],
+      "steps_executed": 6304,
+      "surface_state_extended": false,
+      "training_performed": false
+    }
+  ],
+  "sequence_count": 12,
+  "training_performed": false
+}

@@ -1,0 +1,24 @@
+{
+  "acceptance_source": "learning/rl/gate_f5_alignment_summarize.py::F5_THRESHOLDS and Gate F4 CRITERIA",
+  "candidate_kinds": ["flat", "cylinder", "sphere", "freeform"],
+  "frozen_before_f5_physx": true,
+  "gate": "F5",
+  "normal_mode_must_pass_all_f4_checks": true,
+  "normal_runs_required": 4,
+  "thresholds": {
+    "coverage_drop_max": 0.01,
+    "curved_alignment_error_ratio_max": 0.25,
+    "curved_removal_relative_delta_max": 0.05,
+    "flat_coverage_abs_delta": 0.01,
+    "flat_force_steady_mean_abs_delta_n": 0.1,
+    "flat_gap_p95_abs_delta_m": 0.0002,
+    "flat_removal_abs_delta_um": 0.005,
+    "flat_target_tilt_max_deg": 0.000001,
+    "normal_alignment_error_steady_p95_deg": 2.0,
+    "target_quaternion_norm_max_error": 0.00001,
+    "target_quaternion_step_angle_max_deg": 1.0,
+    "target_tilt_max_deg": 15.0
+  },
+  "training_performed": false,
+  "vertical_baselines": "reuse completed Gate F4 remediation runs with identical path, physics, surface seed, zero action, and 0.5 mm tracking compensation"
+}

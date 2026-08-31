@@ -1,0 +1,35 @@
+{
+  "gate": "Gate E7 seed1 final release/regression validation",
+  "created_kst": "2026-08-31T19:40:00+09:00",
+  "design_status": "PT-DESIGN/SYNTHETIC final flat release candidate validation",
+  "candidate_label": "s20260831_it211",
+  "candidate_checkpoint": "learning/rl/robot/results/gate_e7_train_seed20260831_150336_20260831_110000/model_211.pt",
+  "candidate_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "candidate_segmented_training": false,
+  "champion_checkpoint": "learning/rl/robot/champion/model_bc_robot_tesla12p7.pt",
+  "champion_sha256": "5fa1a65a60a90ffca5116a8d75d20a34749ebd69d71bb6f27287e0957f49b14a",
+  "champion_evaluation_reused_from": "gate_e7_release_champion_same/cross_32_seed26000_20260831_184500",
+  "surface_seed_base": 26000,
+  "directions": ["same_xx", "cross_xy"],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "envs_per_profile": 8,
+  "sequences_per_policy": 64,
+  "tiles_per_policy": 1600,
+  "repeat_candidate_same_xx": true,
+  "acceptance_criteria_frozen_before_evaluation": {
+    "candidate_safety_pass_fraction": 1.0,
+    "candidate_sensor_fault_steps": 0,
+    "candidate_quality_pass_not_below_champion": true,
+    "candidate_all4_cell_area_not_below_champion": true,
+    "candidate_tile_counts_not_below_champion_at_pct": [100, 95, 90, 80],
+    "candidate_mean_control_steps_increase_pct_max": 40.0,
+    "candidate_same_seed_repeat_exact_csv_match": true
+  },
+  "automatic_champion_promotion": false,
+  "protected_files_modified": false
+}

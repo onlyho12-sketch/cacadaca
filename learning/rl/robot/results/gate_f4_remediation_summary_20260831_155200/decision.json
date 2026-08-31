@@ -1,0 +1,29 @@
+{
+  "all_candidates_pass": true,
+  "candidate_count": 4,
+  "candidates_passed": 4,
+  "created_utc": "2026-08-31T15:51:38.899196+00:00",
+  "decision": "PASS",
+  "gate": "F4",
+  "metric_status": "PT-DESIGN_SYNTHETIC_CURVED_PHYSX_DIAGNOSTIC",
+  "next_step": "F5 requires separate user approval; do not start automatically.",
+  "sources": [
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f4_remediation_flat_cross_20260831_154100/summary.json",
+      "sha256": "62414b79bdd011a9bed921d9fd74b9b4dd77a2c9f8206fde1f796d39023f52de"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f4_remediation_cylinder_r0p60_cross_20260831_154600/summary.json",
+      "sha256": "25c77ffb214fd4a2ecc8bea8dcead6ec7a6004bfc87555d546b67d06b8c9f561"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f4_remediation_sphere_r0p60_cross_20260831_154900/summary.json",
+      "sha256": "9c5c3aad0178abe1c1be153fe1c147872ac5d03f27d034511b143ee05278fefd"
+    },
+    {
+      "path": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f4_remediation_freeform_s0_cross_20260831_154300/summary.json",
+      "sha256": "d800b5c5f51f2f84242e88fa92039f439d0a28f547ec63abb758bcd335fb21a3"
+    }
+  ],
+  "training_performed": false
+}

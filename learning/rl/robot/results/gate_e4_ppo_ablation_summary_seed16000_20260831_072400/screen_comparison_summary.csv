@@ -1,0 +1,4 @@
+stage,candidate,direction_mode,pairs,champion_safety_ok,candidate_safety_ok,champion_quality_ok,candidate_quality_ok,champion_sensor_fault_steps,candidate_sensor_fault_steps,mean_delta_gu_final,mean_delta_ra_final_um,mean_delta_rz_final_um,mean_delta_scratch_final_um,mean_delta_clearcoat_min_um,mean_delta_temperature_peak_c,mean_delta_control_steps
+screen_delta,actor1,same_xx,8,8,8,3,3,0,0,-0.009287413200413042,-2.1392848276145793e-06,0.00011906215395042496,0.0006473751051403812,0.0029382744652801662,-0.01520127473582722,-20.125
+screen_delta,actor3,same_xx,8,8,8,3,3,0,0,-0.02733330706692616,-0.000186041873741662,-0.0006929270018599248,0.0012623051003991456,0.006374450406178234,-0.07281314891743396,-29.5
+screen_delta,actor5,same_xx,8,8,8,3,4,0,0,-0.002168302238496622,-0.0008494983956766605,-0.0028553249990108803,0.0008976130281381084,0.004415522130856608,-0.10214934861779446,-15.75

@@ -1,0 +1,17 @@
+checkpoint,env,sequence,outcome,disposition,passes,best_observed_pass,best_observed_gu,gu_before,gu_final,ra_final_um,rz_final_um,scratch_before_um,scratch_final_um,clearcoat_min_um,temperature_peak_c,thermal_damage_peak,quality_ok,safety_ok
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",6,0,success,success,1,1,71.54,57.21,71.54,0.1462,1.379,1.536,0.896,38.69,39.08,0.031657,True,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",13,0,fail_max_passes,best_safe_result_current_process_limit,2,2,70.8,59.79,70.8,0.2136,1.812,1.688,0.915,38.55,37.71,0.033403,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",10,0,success,success,2,2,71.47,53.79,71.47,0.1369,1.42,1.791,0.935,41.98,38.03,0.026197,True,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",2,0,success,success,2,2,71.34,47.91,71.34,0.1617,1.361,1.457,0.647,39.17,38.18,0.024733,True,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",7,0,fail_max_passes,best_safe_result_current_process_limit,2,2,71.68,58.69,71.68,0.2335,1.899,1.919,0.861,38.61,37.05,0.010405,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",8,0,fail_max_passes,best_safe_result_current_process_limit,2,2,71.77,58.63,71.77,0.2102,1.627,1.726,0.679,37.27,38.37,0.047933,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",1,0,fail_max_passes,best_safe_result_current_process_limit,2,2,71.56,52.13,71.56,0.2022,1.568,1.759,0.729,37.38,37.67,0.016374,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",15,0,fail_max_passes,best_safe_result_current_process_limit,2,2,69.78,52.21,69.78,0.2273,1.613,1.559,0.564,37.27,39.3,0.059794,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",4,0,fail_max_passes,best_safe_result_current_process_limit,2,2,70.36,51.78,70.36,0.2021,1.938,1.733,0.954,37.47,39.11,0.063836,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",11,0,fail_max_passes,best_safe_result_current_process_limit,2,2,69.97,46.44,69.97,0.2221,1.793,1.566,0.469,41.36,38.63,0.051964,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",0,0,fail_max_passes,best_safe_result_current_process_limit,2,2,67.72,44.05,67.72,0.1974,1.853,1.829,0.981,37.05,39.15,0.064187,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",9,0,success,success,2,2,70.19,47.75,70.19,0.1626,1.491,1.68,0.799,39.25,39.1,0.051504,True,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",14,0,success,success,2,2,70.65,53.13,70.65,0.1821,1.368,1.661,0.689,37.12,39.17,0.064729,True,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",5,0,fail_max_passes,best_safe_result_current_process_limit,2,2,70.32,46.59,70.32,0.2023,1.592,1.505,0.504,40.2,37.86,0.046699,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",3,0,fail_max_passes,best_safe_result_current_process_limit,2,2,69.37,45.11,69.37,0.2237,1.737,1.634,0.577,43.39,39.16,0.064724,False,True
+"model_bc_robot_tesla12p7.pt+finish(force=-1.000,feed=8.000)",12,0,fail_max_passes,best_safe_result_current_process_limit,2,2,69.27,43.46,69.27,0.1912,1.605,1.843,0.716,40.46,39.15,0.064338,False,True

@@ -1,0 +1,58 @@
+{
+  "clearcoat_removal_temperature_models_changed": false,
+  "created_utc": "2026-08-30T16:24:40.758960+00:00",
+  "design_status": "PT-DESIGN_NO_MEASURED_FACTORY_DISTRIBUTION",
+  "factory_specs": {
+    "factory_prepolish": {
+      "base_ra_max_um": 0.12,
+      "base_ra_min_um": 0.1,
+      "deep_depth_max_um": null,
+      "deep_depth_min_um": null,
+      "design_status": "PT-DESIGN_NO_MEASURED_FACTORY_DISTRIBUTION",
+      "profile_id": "factory_prepolish",
+      "scratch_length_max_m": 0.08,
+      "scratch_length_min_m": 0.01,
+      "scratch_width_m": 0.002,
+      "shallow_depth_max_um": 0.6,
+      "shallow_depth_min_um": 0.1,
+      "shallow_scratch_count_max": 2,
+      "shallow_scratch_count_min": 0
+    },
+    "factory_prepolish_deep_defect": {
+      "base_ra_max_um": 0.12,
+      "base_ra_min_um": 0.1,
+      "deep_depth_max_um": 1.0,
+      "deep_depth_min_um": 0.6,
+      "design_status": "PT-DESIGN_NO_MEASURED_FACTORY_DISTRIBUTION",
+      "profile_id": "factory_prepolish_deep_defect",
+      "scratch_length_max_m": 0.08,
+      "scratch_length_min_m": 0.01,
+      "scratch_width_m": 0.002,
+      "shallow_depth_max_um": 0.6,
+      "shallow_depth_min_um": 0.1,
+      "shallow_scratch_count_max": 2,
+      "shallow_scratch_count_min": 0
+    },
+    "factory_prepolish_deep_stress": {
+      "base_ra_max_um": 0.12,
+      "base_ra_min_um": 0.1,
+      "deep_depth_max_um": 1.5,
+      "deep_depth_min_um": 1.0,
+      "design_status": "PT-DESIGN_NO_MEASURED_FACTORY_DISTRIBUTION",
+      "profile_id": "factory_prepolish_deep_stress",
+      "scratch_length_max_m": 0.08,
+      "scratch_length_min_m": 0.01,
+      "scratch_width_m": 0.002,
+      "shallow_depth_max_um": 0.6,
+      "shallow_depth_min_um": 0.1,
+      "shallow_scratch_count_max": 2,
+      "shallow_scratch_count_min": 0
+    }
+  },
+  "legacy_exact_count": 256,
+  "legacy_generator": "ESTABLISHED_GATE_B_GENERATOR_UNCHANGED",
+  "mar_density_or_severity_created": false,
+  "ra_rz_gu_formulas_changed": false,
+  "seeds_per_profile": 256,
+  "surface_state_extended": false
+}
