@@ -1,0 +1,141 @@
+{
+  "arms": {
+    "control_parent": {
+      "force_hard_violations": 5,
+      "max_raw_force_n": 13.881390571594238,
+      "mean_all4_area_pct": 94.03687500000001,
+      "mean_control_steps": 3351.1875,
+      "mean_gu": 70.90530084882369,
+      "mean_ra_um": 0.10249212280679561,
+      "mean_rz_um": 1.315381624376193,
+      "mean_scratch_um": 0.9713089390871046,
+      "outcomes": {
+        "fail_force_overload": 5,
+        "fail_max_passes": 3,
+        "success": 8
+      },
+      "quality_ok_sequences": 8,
+      "safety_ok_sequences": 11,
+      "sensor_fault_steps": 0,
+      "sequences": 16,
+      "thermal_hard_violations": 0,
+      "unstable_hard_violations": 0
+    },
+    "deterministic_g3": {
+      "force_hard_violations": 0,
+      "max_raw_force_n": 13.86620044708252,
+      "mean_all4_area_pct": 93.94375,
+      "mean_control_steps": 4939.125,
+      "mean_gu": 71.26241496505301,
+      "mean_ra_um": 0.08882604514276524,
+      "mean_rz_um": 1.2534665365493187,
+      "mean_scratch_um": 0.9622131310017166,
+      "outcomes": {
+        "fail_max_passes": 4,
+        "success": 12
+      },
+      "quality_ok_sequences": 12,
+      "safety_ok_sequences": 16,
+      "sensor_fault_steps": 0,
+      "sequences": 16,
+      "thermal_hard_violations": 0,
+      "unstable_hard_violations": 0
+    },
+    "residual_ppo": {
+      "force_hard_violations": 0,
+      "max_raw_force_n": 8.51738166809082,
+      "mean_all4_area_pct": 93.829375,
+      "mean_control_steps": 6537.125,
+      "mean_gu": 70.68888091297651,
+      "mean_ra_um": 0.0836179170661583,
+      "mean_rz_um": 1.2315733260570247,
+      "mean_scratch_um": 0.9816288120641322,
+      "outcomes": {
+        "fail_max_passes": 4,
+        "success": 12
+      },
+      "quality_ok_sequences": 12,
+      "safety_ok_sequences": 16,
+      "sensor_fault_steps": 0,
+      "sequences": 16,
+      "thermal_hard_violations": 0,
+      "unstable_hard_violations": 0
+    }
+  },
+  "candidate_promoted": false,
+  "checks": [
+    {
+      "actual": 48,
+      "check": "all_expected_sequences",
+      "expected": 48,
+      "pass": true
+    },
+    {
+      "actual": 1200,
+      "check": "all_expected_tiles",
+      "expected": 1200,
+      "pass": true
+    },
+    {
+      "actual": 16,
+      "check": "ppo_completed_all_sequences",
+      "expected": 16,
+      "pass": true
+    },
+    {
+      "actual": 0,
+      "check": "ppo_force_hard_violations",
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "actual": 0,
+      "check": "ppo_thermal_hard_violations",
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "actual": 0,
+      "check": "ppo_unstable_hard_violations",
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "actual": 0,
+      "check": "ppo_sensor_fault_steps",
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "actual": 0,
+      "check": "ppo_cap_contract_failures",
+      "expected": 0,
+      "pass": true
+    },
+    {
+      "actual": -0.11437500000000078,
+      "check": "ppo_mean_all4_non_degradation_pp",
+      "expected": ">=0",
+      "pass": false
+    },
+    {
+      "actual": 0,
+      "check": "ppo_any_paired_all4_improvement",
+      "expected": ">0 pairs",
+      "pass": false
+    }
+  ],
+  "created_utc": "2026-09-01T12:41:24.040155+00:00",
+  "decision": "FAIL_RETAIN_DETERMINISTIC_G3",
+  "gate": "F10H_BOUNDED_RESIDUAL_PPO_FIXED_EVALUATION",
+  "gate_pass": false,
+  "paired_all4_delta_pp_ppo_minus_deterministic": -0.11437500000000078,
+  "paired_equal": 4,
+  "paired_improved": 0,
+  "paired_worse": 12,
+  "parent_checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "ppo_control_steps_increase_pct": 32.35390884012857,
+  "reason": "Residual PPO passed safety but reduced paired ALL-4 area and increased control steps; retain deterministic G3.",
+  "release_modified": false,
+  "residual_checkpoint_sha256": "8b4a2e0a4cc3a7fd785fcf9a526759f44591d8a393dee8c060b96f0d27f842b8"
+}

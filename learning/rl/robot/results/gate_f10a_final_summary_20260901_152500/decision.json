@@ -1,0 +1,23 @@
+{
+  "candidate_overloads_trace_covered": 11,
+  "control_overloads_trace_covered": 4,
+  "created_utc": "2026-09-01T06:22:04.098460+00:00",
+  "decision": "F10A_COMPLETE_STATIC_CAP_REJECTED",
+  "f9_candidate_cylinder_overloads": 11,
+  "f9_control_cylinder_overloads": 4,
+  "f9_summary": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f9_summary_20260901_132500",
+  "gate": "F10A_READONLY_ANALYSIS",
+  "integration_allowed": false,
+  "next_required_runs": [],
+  "physx_executed_by_this_summary": false,
+  "physx_reexecution_required": false,
+  "reason": "all 11 static-cap and 4 control cylinder overloads now have substep traces; F9 rejection remains unchanged",
+  "time_baseline": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10a_time_baseline_v2_20260901_150000",
+  "trace_latch_events_from_csv": 16,
+  "trace_roots": [
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10a_trace_20260901_140000",
+    "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10a_trace_completion_20260901_151500"
+  ],
+  "trace_runs_reused": 17,
+  "training_performed": false
+}

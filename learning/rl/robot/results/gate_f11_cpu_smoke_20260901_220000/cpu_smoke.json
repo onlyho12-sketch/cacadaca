@@ -1,0 +1,34 @@
+{
+  "actual_changed_cells": 16587,
+  "blocked_cells_changed": 0,
+  "changed_inside_planned_cells": 16587,
+  "changed_outside_planned_cells": 0,
+  "cpu_smoke_checks": {
+    "automatic_rework_allowed": true,
+    "cell_count": true,
+    "concave_cells_excluded": true,
+    "one_or_more_regions": true,
+    "revalidation_exactly_actual_changed": true,
+    "touched_locked_cells_recorded": true,
+    "unchanged_pass_locked_revalidated_zero": true
+  },
+  "cpu_smoke_pass": true,
+  "no_improvement_cells": 0,
+  "planned_but_unchanged_cells": 0,
+  "planned_footprint_cells": 16587,
+  "revalidated_cells": 16587,
+  "revalidation_exactly_actual_changed": true,
+  "rework_affected_cells": 9533,
+  "state_counts": {
+    "CLEARCOAT_GUARD": 0,
+    "NOT_REACHED": 0,
+    "NO_IMPROVEMENT": 0,
+    "PASS_LOCKED": 8949,
+    "REWORK": 0,
+    "REWORK_AFFECTED": 0,
+    "REWORK_FAIL": 0,
+    "REWORK_PASS": 16587,
+    "UNSAFE_GEOMETRY": 64
+  },
+  "unchanged_pass_locked_revalidated": 0
+}

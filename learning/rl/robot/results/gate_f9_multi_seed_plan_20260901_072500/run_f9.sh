@@ -53,6 +53,13 @@ for base in 40000 41000 42000 43000; do
           --max-control-steps 8000 \
           --out-dir "$out" \
           --headless
+        # python.sh can exit 0 even when the evaluation aborted (e.g. the Isaac
+        # asset server is unreachable), so trust the artifact, not the exit code.
+        if [ ! -f "$out/metadata.json" ] || [ ! -f "$out/sequences.csv" ]; then
+          echo "FATAL: run produced no metadata.json/sequences.csv despite exit 0: $out" >&2
+          echo "FATAL: verify network access to the Isaac asset server, then resume." >&2
+          exit 3
+        fi
         echo "$out" >> "$DIRLIST"
         done_count=$((done_count + 1))
         echo "[F9 $(date +%F' '%T)] done  ($done_count/64) $out"

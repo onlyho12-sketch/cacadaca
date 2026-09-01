@@ -1,0 +1,41 @@
+{
+  "acceptance_checks_pass": true,
+  "candidate_sequences": 24,
+  "candidate_tile_rows": 600,
+  "checkpoint_created": false,
+  "control_sequences_reused": 24,
+  "created_utc": "2026-09-01T09:51:31.708918+00:00",
+  "decision": "PASS",
+  "detail": {
+    "cylinder": {
+      "all4_drop_pp": 0.10874999999997215,
+      "candidate_all4_area_pct_mean": 91.50125000000001,
+      "control_all4_area_pct_mean": 91.60999999999999,
+      "force_overloads": 0,
+      "substep_raw_force_max_n": 13.491291046142578,
+      "supervisor_fraction_max": 0.07434590553856608
+    },
+    "flat": {
+      "all4_drop_pp": -1.4210854715202004e-14,
+      "candidate_all4_area_pct_mean": 91.61750000000002,
+      "control_all4_area_pct_mean": 91.6175,
+      "force_overloads": 0,
+      "substep_raw_force_max_n": 10.269700050354004,
+      "supervisor_fraction_max": 0.0
+    },
+    "freeform": {
+      "all4_drop_pp": 0.15249999999996078,
+      "candidate_all4_area_pct_mean": 91.43750000000001,
+      "control_all4_area_pct_mean": 91.58999999999997,
+      "force_overloads": 0,
+      "substep_raw_force_max_n": 13.16357135772705,
+      "supervisor_fraction_max": 0.1365414710485133
+    }
+  },
+  "gate": "F10G3_SUBSTEP_SUPERVISOR_24_SEQUENCE_PHYSX",
+  "next_step_allowed": true,
+  "polishing_v5_modified": false,
+  "production_ready": false,
+  "recommendation": "Proceed only with separately approved PPO/F11 work; retain the deterministic supervisor as the hard safety layer.",
+  "training_performed": false
+}

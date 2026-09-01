@@ -1,0 +1,53 @@
+{
+  "actual_gu_sensor_connected": false,
+  "all4_pass_area_pct": 97.85,
+  "all4_pass_cells": 9785,
+  "cells": 10000,
+  "control_steps": 4946,
+  "created_utc": "2026-09-01T13:14:01.878566+00:00",
+  "direction_mode": "same_xx",
+  "f10h_cap_contract_failures": 0,
+  "f10h_force_overload_seen": 0,
+  "f10h_supervisor_faults": 0,
+  "gate": "F11_PHYSX_TO_SELECTIVE_PLANNER_SMOKE",
+  "latched_safety": {
+    "force_hard_violated": false,
+    "thermal_hard_violated": false,
+    "unstable_hard_violated": false
+  },
+  "ledger_cells": 10000,
+  "ledger_complete": true,
+  "ledger_status_counts": {
+    "PASS_LOCKED": 9785,
+    "REWORK": 215
+  },
+  "parent_checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "parent_checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "physics_seed": 20261001,
+  "planner_summary": {
+    "automatic_rework_allowed": false,
+    "automatic_rework_block_reasons": [
+      "COLLATERAL_FOOTPRINT_LIMIT"
+    ],
+    "changed_cells": 5385,
+    "changed_to_target_ratio": 25.046511627906977,
+    "nominal_rework_time_s": 20.0,
+    "ready_regions": 2,
+    "regions": 2,
+    "rejected_barrier_regions": 0,
+    "revalidation_cells": 5385,
+    "rework_affected_locked_cells": 5170,
+    "target_cells": 215,
+    "target_fraction": 0.0215
+  },
+  "polishing_v5_modified": false,
+  "profile": "factory_prepolish",
+  "reached_cells": 10000,
+  "scope": "FIRST_PASS_PHYSX_TO_F11_PLAN_ONLY",
+  "second_pass_physx_executed": false,
+  "smoke_pass": true,
+  "status": "ADAPTER_PASS_REWORK_BLOCKED",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 71000,
+  "unreached_cells": 0
+}
