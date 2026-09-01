@@ -1,0 +1,49 @@
+{
+  "assumptions_pt_design": {
+    "approach_s": 3.0,
+    "feed_mm_s": 12.7,
+    "inspection_s_per_m2": 0.0,
+    "rail_speed_m_s": 0.2,
+    "retract_s": 2.0,
+    "transit_speed_m_s": 0.25,
+    "turn_s": 0.6
+  },
+  "created_utc": "2026-09-01T05:48:57.736191+00:00",
+  "gate": "F10A_VEHICLE_TIME_BASELINE",
+  "inputs_modified": false,
+  "measured_from_data": [
+    "path_length_m",
+    "waypoints",
+    "reversals",
+    "rail_move_m"
+  ],
+  "physx_executed": false,
+  "scan_dir": "/home/rokey/cacadaca/scan_result/car",
+  "summary": {
+    "bottleneck_rail": "C",
+    "coarse_parallel_h": 0.8276101501257309,
+    "coarse_parallel_s": 2979.396540452631,
+    "coarse_serial_h": 2.325904186543612,
+    "coarse_serial_s": 8373.255071557003,
+    "rework_10pct_feed12p7_parallel_h": 0.8996512590190253,
+    "rework_10pct_feed12p7_serial_h": 2.5420275132234957,
+    "rework_10pct_feed8p0_parallel_h": 0.9419754104938359,
+    "rework_10pct_feed8p0_serial_h": 2.6689999676479275,
+    "rework_20pct_feed12p7_parallel_h": 0.97169236791232,
+    "rework_20pct_feed12p7_serial_h": 2.7581508399033794,
+    "rework_20pct_feed8p0_parallel_h": 1.0563406708619412,
+    "rework_20pct_feed8p0_serial_h": 3.0120957487522424,
+    "rework_30pct_feed12p7_parallel_h": 1.0437334768056146,
+    "rework_30pct_feed12p7_serial_h": 2.9742741665832626,
+    "rework_30pct_feed8p0_parallel_h": 1.170705931230046,
+    "rework_30pct_feed8p0_serial_h": 3.3551915298565578,
+    "rework_50pct_feed12p7_parallel_h": 1.1878156945922036,
+    "rework_50pct_feed12p7_serial_h": 3.4065208199430304,
+    "rework_50pct_feed8p0_parallel_h": 1.3994364519662563,
+    "rework_50pct_feed8p0_serial_h": 4.041383092065188,
+    "total_path_length_m": 98.8115849580428,
+    "total_segments": 38,
+    "total_waypoints": 2498
+  },
+  "training_performed": false
+}

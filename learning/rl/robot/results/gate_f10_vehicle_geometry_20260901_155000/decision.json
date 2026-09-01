@@ -1,0 +1,49 @@
+{
+  "acceptance_checks_pass": true,
+  "configuration_pt_design": {
+    "boundary_unsafe_risk": 0.85,
+    "confidence_review_threshold": 0.55,
+    "confidence_unsafe_threshold": 0.4,
+    "curvature_unsafe_ratio": 0.8,
+    "fit_radius_m": 0.06,
+    "flat_curvature_1_m": 0.05,
+    "huber_delta": 1.5,
+    "max_neighbors": 320,
+    "min_neighbors": 24,
+    "normal_spread_unsafe_deg": 20.0,
+    "pad_radius_m": 0.055,
+    "path_continuity_max_step_m": 0.08,
+    "path_deviation_unsafe_m": 0.02,
+    "robust_iterations": 4,
+    "support_radius_m": 0.075
+  },
+  "created_utc": "2026-09-01T06:31:20.495974+00:00",
+  "gate": "F10B_VEHICLE_GEOMETRY_CPU",
+  "next_step_allowed": false,
+  "paths_modified": false,
+  "physx_executed": false,
+  "point_cloud": "/home/rokey/cacadaca/scan_result/car/points/real_camera_surface_points.ply",
+  "point_cloud_points": 111968,
+  "polishing_v5_modified": false,
+  "status": "ANALYSIS_COMPLETE_THRESHOLDS_NOT_SAFETY_VALIDATED",
+  "summary": {
+    "fit_confidence_median": 0.9581109469377687,
+    "fit_confidence_min": 0.626363023436983,
+    "fit_rms_p95_m": 0.002753810611990425,
+    "normal_angle_continuous_max_deg": 76.55825655102942,
+    "normal_angle_previous_max_deg": 87.6665892675099,
+    "normal_unit_error_max": 3.3306690738754696e-16,
+    "path_discontinuities": 105,
+    "review_required": 601,
+    "segments": 38,
+    "surface_class_counts": {
+      "concave": 164,
+      "convex": 1115,
+      "near_flat": 6,
+      "saddle": 1213
+    },
+    "unsafe_geometry_pt_design": 565,
+    "waypoints": 2498
+  },
+  "training_performed": false
+}

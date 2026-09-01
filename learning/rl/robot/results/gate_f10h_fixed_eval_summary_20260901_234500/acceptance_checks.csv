@@ -1,0 +1,11 @@
+check,expected,actual,pass
+all_expected_sequences,48,48,True
+all_expected_tiles,1200,1200,True
+ppo_completed_all_sequences,16,16,True
+ppo_force_hard_violations,0,0,True
+ppo_thermal_hard_violations,0,0,True
+ppo_unstable_hard_violations,0,0,True
+ppo_sensor_fault_steps,0,0,True
+ppo_cap_contract_failures,0,0,True
+ppo_mean_all4_non_degradation_pp,>=0,-0.11437500000000078,False
+ppo_any_paired_all4_improvement,>0 pairs,0,False

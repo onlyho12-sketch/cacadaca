@@ -1,0 +1,63 @@
+{
+  "acceptance_checks_pass": true,
+  "actual_vehicle_quality_input_available": false,
+  "configuration_pt_design": {
+    "approach_s": 4.0,
+    "fine_feed_mm_s": 8.0,
+    "fine_stepover_m": 0.0275,
+    "max_changed_to_target_ratio": 4.0,
+    "max_parallel_vehicle_h": 4.0,
+    "max_regions_per_rail": 8,
+    "max_regions_total": 24,
+    "max_rework_fraction": 0.5,
+    "merge_gap_m": 0.02,
+    "pad_radius_m": 0.055,
+    "resolution_m": 0.002,
+    "retract_s": 1.5
+  },
+  "created_utc": "2026-09-01T06:47:42.957096+00:00",
+  "gate": "F10E_REGION_REWORK_PLANNER_CPU",
+  "next_step_allowed": false,
+  "physx_executed": false,
+  "polishing_v5_modified": false,
+  "region_limit_pass": true,
+  "status": "CONTRACT_COMPLETE_SYNTHETIC_PLAN_ONLY",
+  "summary": {
+    "changed_cells": 18655,
+    "changed_to_target_ratio": 2.5820069204152247,
+    "nominal_rework_time_s": 173.5,
+    "ready_regions": 1,
+    "regions": 1,
+    "rejected_barrier_regions": 0,
+    "revalidation_cells": 18655,
+    "rework_affected_locked_cells": 11430,
+    "target_cells": 7225,
+    "target_fraction": 0.2822265625
+  },
+  "training_performed": false,
+  "vehicle_time_guard": {
+    "bounded_50pct_rework_parallel_h": 1.4235992989126474,
+    "coarse_parallel_path_feed_h": 0.8047709497179488,
+    "historical_log_caveat": "diagnostic old local run; not current wall-clock or production validation",
+    "historical_v5_first_pass_simulated_physical_time": [
+      {
+        "first_done_step": 21358,
+        "rail": "C",
+        "simulated_physical_time_s": 355.96666666666664
+      },
+      {
+        "first_done_step": 9956,
+        "rail": "SL",
+        "simulated_physical_time_s": 165.93333333333334
+      },
+      {
+        "first_done_step": 10261,
+        "rail": "SR",
+        "simulated_physical_time_s": 171.01666666666668
+      }
+    ],
+    "max_parallel_vehicle_h": 4.0,
+    "time_guard_pass": true,
+    "twelve_hour_estimate_supported_by_local_path_model": false
+  }
+}

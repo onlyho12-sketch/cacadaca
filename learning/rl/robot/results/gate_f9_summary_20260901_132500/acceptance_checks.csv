@@ -1,0 +1,10 @@
+scope,check,observed,operator,threshold,passed
+completion,sequences,256,eq,256,True
+completion,tile_rows,6400,eq,6400,True
+final,entry_curved_safety_pass,53,gt,52,True
+final,candidate_force_overloads,11,eq,0,False
+final,flat_safety_pass,32,ge,32,True
+final,flat_quality_pass,20,ge,20,True
+final,mean_curved_all4_area_drop_pp,0.06437499999999947,le,1.0,True
+final,sensor_fault_steps,0,eq,0,True
+final,flat_action_passthrough_parity,True,eq,True,True

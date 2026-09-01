@@ -1,0 +1,5 @@
+env,surface_profile,trace_rows,original_latch_events,supervisor_intervention_rows,supervisor_intervention_fraction,supervisor_lead_substeps_before_latch
+0,legacy_stress,3258,1,32,0.009821976672805401,2
+1,factory_prepolish,3600,0,43,0.011944444444444445,
+2,factory_prepolish_deep_defect,3600,0,35,0.009722222222222222,
+3,factory_prepolish_deep_stress,3600,0,35,0.009722222222222222,

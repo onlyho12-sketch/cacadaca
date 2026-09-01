@@ -1,0 +1,8 @@
+check,expected,actual,pass
+region_count_limit,<=24,1,True
+rework_fraction_limit,<=0.5,0.2822265625,True
+no_barrier_contact,0,0,True
+revalidation_exactly_changed_mask,18655,18655,True
+changed_to_target_ratio,<=4.0,2.5820069204152247,True
+three_rail_time_guard,<=4h,1.4235992989126474,True
+twelve_hour_plan_rejected,False,False,True

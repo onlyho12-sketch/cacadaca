@@ -1,0 +1,33 @@
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:54:58.825023+00:00",
+  "decimation": 6,
+  "direction_mode": "cross_xy",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    41000,
+    41000,
+    41000,
+    41000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "static_cap",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 41000,
+  "trace_rows": 17244,
+  "training_performed": false
+}

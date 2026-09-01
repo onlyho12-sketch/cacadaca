@@ -1,0 +1,75 @@
+{
+  "acceptance_checks_pass": false,
+  "candidate_force_overloads": 4,
+  "candidate_sequences": 24,
+  "checkpoint_created": false,
+  "control_force_overloads": 1,
+  "control_sequences_reused": 24,
+  "created_utc": "2026-09-01T07:37:51.029291+00:00",
+  "decision": "FAIL",
+  "detail": {
+    "candidate": {
+      "cylinder": {
+        "force_overloads": 0,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.54750000000001,
+        "raw_force_max_n": 11.051043510437012,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      },
+      "flat": {
+        "force_overloads": 0,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.61750000000002,
+        "raw_force_max_n": 9.350665092468262,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      },
+      "freeform": {
+        "force_overloads": 4,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.43875000000001,
+        "raw_force_max_n": 14.069583892822266,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      }
+    },
+    "control": {
+      "cylinder": {
+        "force_overloads": 0,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.60999999999999,
+        "raw_force_max_n": 12.179244041442871,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      },
+      "flat": {
+        "force_overloads": 0,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.6175,
+        "raw_force_max_n": 9.350665092468262,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      },
+      "freeform": {
+        "force_overloads": 1,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.58999999999997,
+        "raw_force_max_n": 13.385598182678223,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      }
+    }
+  },
+  "gate": "F10G_CURVATURE_SAFETY_SMALL_PHYSX_PILOT",
+  "next_step_allowed": false,
+  "polishing_v5_modified": false,
+  "recommendation": "Reject current deterministic candidate; diagnose freeform overloads before PPO or integration.",
+  "training_performed": false
+}

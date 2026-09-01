@@ -1,0 +1,3 @@
+region_id,target_cells,target_area_m2,i_min,i_max,j_min,j_max,path_points,path_length_m,changed_cells,rework_affected_locked_cells,barrier_hit,plan_state,nominal_time_s
+1,442,0.0017679999999999998,45,66,45,75,4,0.14800000000000002,5214,4772,False,READY_CPU_ONLY,24.000000000000004
+2,208,0.000832,105,117,100,115,2,0.03,3202,2994,False,READY_CPU_ONLY,9.25

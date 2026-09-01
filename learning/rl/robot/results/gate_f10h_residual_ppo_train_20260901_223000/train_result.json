@@ -1,0 +1,118 @@
+{
+  "champion_promoted": false,
+  "created_utc": "2026-09-01T09:59:17.814499+00:00",
+  "evaluation_required": true,
+  "final_candidate_model": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10h_residual_ppo_train_20260901_223000/stage_3_freeform_cross_xy/residual_model.pt",
+  "final_candidate_model_sha256": "8b4a2e0a4cc3a7fd785fcf9a526759f44591d8a393dee8c060b96f0d27f842b8",
+  "gate": "F10H_BOUNDED_RESIDUAL_PPO_CURRICULUM",
+  "iterations_per_stage": 250,
+  "nominal_samples": 384000,
+  "num_envs": 8,
+  "num_steps_per_env": 48,
+  "observation_dim": 20,
+  "observation_mode": "normal_curvature20",
+  "parent_checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "parent_checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "parent_checkpoint_sha256_after": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "production_training": true,
+  "promotion_allowed": false,
+  "release_modified": false,
+  "stage_results": [
+    {
+      "checks": {
+        "actor_finite": true,
+        "cap_contract_failures": 0,
+        "critic_finite": true,
+        "force_overload_seen": 0,
+        "parent_checkpoint_unchanged": true,
+        "sensor_faults_current": 0,
+        "supervisor_faults": 0
+      },
+      "direction_mode": "same_xx",
+      "mean_abs_executed_residual_action": 0.04099747414517818,
+      "model": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10h_residual_ppo_train_20260901_223000/stage_0_cylinder_same_xx/residual_model.pt",
+      "model_sha256": "e2aa04080386e0b80a7a235e77170fc7bb61c6d36a26404f048a3a02ba8755eb",
+      "stage_index": 0,
+      "stage_pass": true,
+      "supervisor_interventions": 6952,
+      "surface_kind": "cylinder"
+    },
+    {
+      "checks": {
+        "actor_finite": true,
+        "cap_contract_failures": 0,
+        "critic_finite": true,
+        "force_overload_seen": 0,
+        "parent_checkpoint_unchanged": true,
+        "sensor_faults_current": 0,
+        "supervisor_faults": 0
+      },
+      "direction_mode": "same_xx",
+      "mean_abs_executed_residual_action": 0.08030092423494595,
+      "model": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10h_residual_ppo_train_20260901_223000/stage_1_freeform_same_xx/residual_model.pt",
+      "model_sha256": "96e41af8e102d16d42d50e9f7fb73f0a32f834e4157e70debf87bf5de2d3655a",
+      "stage_index": 1,
+      "stage_pass": true,
+      "supervisor_interventions": 5379,
+      "surface_kind": "freeform"
+    },
+    {
+      "checks": {
+        "actor_finite": true,
+        "cap_contract_failures": 0,
+        "critic_finite": true,
+        "force_overload_seen": 0,
+        "parent_checkpoint_unchanged": true,
+        "sensor_faults_current": 0,
+        "supervisor_faults": 0
+      },
+      "direction_mode": "cross_xy",
+      "mean_abs_executed_residual_action": 0.08184224027224506,
+      "model": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10h_residual_ppo_train_20260901_223000/stage_2_cylinder_cross_xy/residual_model.pt",
+      "model_sha256": "d797aa9e03d88e71a130b1d7998903131aa27a14b273fa0c8248de245cc5bd71",
+      "stage_index": 2,
+      "stage_pass": true,
+      "supervisor_interventions": 2564,
+      "surface_kind": "cylinder"
+    },
+    {
+      "checks": {
+        "actor_finite": true,
+        "cap_contract_failures": 0,
+        "critic_finite": true,
+        "force_overload_seen": 0,
+        "parent_checkpoint_unchanged": true,
+        "sensor_faults_current": 0,
+        "supervisor_faults": 0
+      },
+      "direction_mode": "cross_xy",
+      "mean_abs_executed_residual_action": 0.08317020134530806,
+      "model": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10h_residual_ppo_train_20260901_223000/stage_3_freeform_cross_xy/residual_model.pt",
+      "model_sha256": "8b4a2e0a4cc3a7fd785fcf9a526759f44591d8a393dee8c060b96f0d27f842b8",
+      "stage_index": 3,
+      "stage_pass": true,
+      "supervisor_interventions": 4964,
+      "surface_kind": "freeform"
+    }
+  ],
+  "stages": [
+    {
+      "direction_mode": "same_xx",
+      "surface_kind": "cylinder"
+    },
+    {
+      "direction_mode": "same_xx",
+      "surface_kind": "freeform"
+    },
+    {
+      "direction_mode": "cross_xy",
+      "surface_kind": "cylinder"
+    },
+    {
+      "direction_mode": "cross_xy",
+      "surface_kind": "freeform"
+    }
+  ],
+  "total_iterations": 1000,
+  "training_pass": true
+}

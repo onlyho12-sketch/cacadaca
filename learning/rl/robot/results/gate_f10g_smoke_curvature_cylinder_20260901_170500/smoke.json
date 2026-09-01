@@ -1,0 +1,12 @@
+{
+  "active_envs_after": 4,
+  "all_observations_and_actions_finite": true,
+  "created_utc": "2026-09-01T07:03:30.619876+00:00",
+  "gate": "F10G_CURVATURE_SAFETY_SMOKE",
+  "sensor_fault_steps": 0,
+  "shield_mode": "curvature_safety",
+  "smoke_pass": true,
+  "steps": 300,
+  "surface_kind": "cylinder",
+  "training_performed": false
+}

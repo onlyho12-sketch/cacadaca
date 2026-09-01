@@ -1,0 +1,18 @@
+{
+  "gate": "F10G_REJECTED_CANDIDATE_SUBSTEP_TRACE",
+  "frozen_before_execution": true,
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "safety_source_sha256": "b9c2f641b0a89e76062405b6c50693ba4a7bee6912155b4c57302cf05e100a72",
+  "trace_source_sha256": "a6679d11b6042ada5e68b9808ca4dbbadcaaee35f35b8f7437be03dcd142a63d",
+  "surface_kind": "freeform",
+  "directions": ["same_xx", "cross_xy"],
+  "surface_seed_base": 40000,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "max_control_steps": 8000,
+  "expected_overload_profiles": {
+    "same_xx": ["factory_prepolish_deep_defect"],
+    "cross_xy": ["legacy_stress", "factory_prepolish", "factory_prepolish_deep_defect"]
+  },
+  "scope": "diagnostic PhysX only; no tuning, training, checkpoint, release, or v5 changes"
+}

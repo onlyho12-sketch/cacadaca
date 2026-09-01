@@ -1,0 +1,56 @@
+{
+  "candidate_overloads_trace_covered": 10,
+  "control_overloads_trace_covered": 0,
+  "created_utc": "2026-09-01T06:11:08.934295+00:00",
+  "decision": "INCOMPLETE_NEEDS_MINIMAL_TRACE",
+  "f9_candidate_cylinder_overloads": 11,
+  "f9_control_cylinder_overloads": 4,
+  "f9_summary": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f9_summary_20260901_132500",
+  "gate": "F10A_READONLY_ANALYSIS",
+  "integration_allowed": false,
+  "next_required_runs": [
+    {
+      "direction_mode": "same_xx",
+      "max_control_steps": 2700,
+      "purpose": "late candidate overload",
+      "shield_mode": "static_cap",
+      "surface_seed_base": 41000
+    },
+    {
+      "direction_mode": "same_xx",
+      "max_control_steps": 800,
+      "purpose": "control-positive paired trace",
+      "shield_mode": "control",
+      "surface_seed_base": 43000
+    },
+    {
+      "direction_mode": "cross_xy",
+      "max_control_steps": 800,
+      "purpose": "control-positive paired trace",
+      "shield_mode": "control",
+      "surface_seed_base": 43000
+    },
+    {
+      "direction_mode": "same_xx",
+      "max_control_steps": 800,
+      "purpose": "control-positive paired trace",
+      "shield_mode": "static_cap",
+      "surface_seed_base": 43000
+    },
+    {
+      "direction_mode": "cross_xy",
+      "max_control_steps": 800,
+      "purpose": "control-positive paired trace",
+      "shield_mode": "static_cap",
+      "surface_seed_base": 43000
+    }
+  ],
+  "physx_executed_by_this_summary": false,
+  "physx_reexecution_required": true,
+  "reason": "existing 800-step trace omitted one late candidate event and all seed43000 control-positive runs",
+  "time_baseline": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10a_time_baseline_v2_20260901_150000",
+  "trace_latch_events_from_csv": 10,
+  "trace_root": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10a_trace_20260901_140000",
+  "trace_runs_reused": 12,
+  "training_performed": false
+}

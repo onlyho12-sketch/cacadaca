@@ -1,0 +1,234 @@
+{
+  "created_utc": "2026-09-01T06:11:08.354926+00:00",
+  "gate": "F10A_VEHICLE_TIME_BASELINE_V2",
+  "inputs_modified": false,
+  "inspection_time": "UNKNOWN_NOT_INCLUDED",
+  "limitations": [
+    "nominal path/feed calculation; not a measured PhysX cycle",
+    "runtime IK/collision/skip/contact delays are not modeled",
+    "reversals are a geometric proxy and current turn dwell is zero",
+    "rework fractions and region counts are scenarios, not measurements"
+  ],
+  "measured_from_data": [
+    "path_length_m",
+    "waypoints",
+    "rail_move_m"
+  ],
+  "physx_executed": false,
+  "runtime_constants_from_local_polishing_v5": {
+    "approach_s": 4.0,
+    "control_hz": 60.0,
+    "feed_mm_s": 12.7,
+    "initial_home_s": 1.5,
+    "rail_speed_m_s": 0.324,
+    "retract_s": 1.5,
+    "slide_settle_s": 1.5,
+    "turn_s": 0.0
+  },
+  "scan_dir": "/home/rokey/cacadaca/scan_result/car",
+  "summary": {
+    "bottleneck_rail": "C",
+    "coarse_parallel_h": 0.8047709497179488,
+    "coarse_parallel_s": 2897.1754189846156,
+    "coarse_serial_h": 2.244536646613856,
+    "coarse_serial_s": 8080.331927809881,
+    "rework_scenarios": [
+      {
+        "coarse_plus_fine_parallel_h": 0.9291477306679995,
+        "coarse_plus_fine_serial_h": 2.5922157610515044,
+        "failed_path_fraction": 0.1,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 1251.644811975535,
+        "regions_per_active_rail": 1
+      },
+      {
+        "coarse_plus_fine_parallel_h": 0.9322032862235551,
+        "coarse_plus_fine_serial_h": 2.601382427718171,
+        "failed_path_fraction": 0.1,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 1284.644811975535,
+        "regions_per_active_rail": 3
+      },
+      {
+        "coarse_plus_fine_parallel_h": 0.9352588417791107,
+        "coarse_plus_fine_serial_h": 2.6105490943848375,
+        "failed_path_fraction": 0.1,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 1317.644811975535,
+        "regions_per_active_rail": 5
+      },
+      {
+        "coarse_plus_fine_parallel_h": 0.8836839263444024,
+        "coarse_plus_fine_serial_h": 2.4652433066270723,
+        "failed_path_fraction": 0.1,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 794.543976047581,
+        "regions_per_active_rail": 1
+      },
+      {
+        "coarse_plus_fine_parallel_h": 0.886739481899958,
+        "coarse_plus_fine_serial_h": 2.474409973293739,
+        "failed_path_fraction": 0.1,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 827.543976047581,
+        "regions_per_active_rail": 3
+      },
+      {
+        "coarse_plus_fine_parallel_h": 0.8897950374555136,
+        "coarse_plus_fine_serial_h": 2.483576639960406,
+        "failed_path_fraction": 0.1,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 860.543976047581,
+        "regions_per_active_rail": 5
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.0519967338402727,
+        "coarse_plus_fine_serial_h": 2.93531154215582,
+        "failed_path_fraction": 0.2,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 2486.78962395107,
+        "regions_per_active_rail": 1
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.0550522893958283,
+        "coarse_plus_fine_serial_h": 2.944478208822486,
+        "failed_path_fraction": 0.2,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 2519.78962395107,
+        "regions_per_active_rail": 3
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.0581078449513837,
+        "coarse_plus_fine_serial_h": 2.953644875489153,
+        "failed_path_fraction": 0.2,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 2552.78962395107,
+        "regions_per_active_rail": 5
+      },
+      {
+        "coarse_plus_fine_parallel_h": 0.9610691251930785,
+        "coarse_plus_fine_serial_h": 2.6813666333069563,
+        "failed_path_fraction": 0.2,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 1572.587952095162,
+        "regions_per_active_rail": 1
+      },
+      {
+        "coarse_plus_fine_parallel_h": 0.964124680748634,
+        "coarse_plus_fine_serial_h": 2.690533299973623,
+        "failed_path_fraction": 0.2,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 1605.587952095162,
+        "regions_per_active_rail": 3
+      },
+      {
+        "coarse_plus_fine_parallel_h": 0.9671802363041896,
+        "coarse_plus_fine_serial_h": 2.6996999666402894,
+        "failed_path_fraction": 0.2,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 1638.587952095162,
+        "regions_per_active_rail": 5
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.1748457370125456,
+        "coarse_plus_fine_serial_h": 3.2784073232601347,
+        "failed_path_fraction": 0.3,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 3721.9344359266047,
+        "regions_per_active_rail": 1
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.1779012925681012,
+        "coarse_plus_fine_serial_h": 3.2875739899268015,
+        "failed_path_fraction": 0.3,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 3754.9344359266047,
+        "regions_per_active_rail": 3
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.1809568481236565,
+        "coarse_plus_fine_serial_h": 3.2967406565934683,
+        "failed_path_fraction": 0.3,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 3787.9344359266047,
+        "regions_per_active_rail": 5
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.0384543240417543,
+        "coarse_plus_fine_serial_h": 2.8974899599868396,
+        "failed_path_fraction": 0.3,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 2350.631928142743,
+        "regions_per_active_rail": 1
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.04150987959731,
+        "coarse_plus_fine_serial_h": 2.9066566266535063,
+        "failed_path_fraction": 0.3,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 2383.631928142743,
+        "regions_per_active_rail": 3
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.0445654351528653,
+        "coarse_plus_fine_serial_h": 2.915823293320173,
+        "failed_path_fraction": 0.3,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 2416.631928142743,
+        "regions_per_active_rail": 5
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.4205437433570918,
+        "coarse_plus_fine_serial_h": 3.9645988854687655,
+        "failed_path_fraction": 0.5,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 6192.224059877674,
+        "regions_per_active_rail": 1
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.4235992989126474,
+        "coarse_plus_fine_serial_h": 3.9737655521354323,
+        "failed_path_fraction": 0.5,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 6225.224059877674,
+        "regions_per_active_rail": 3
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.426654854468203,
+        "coarse_plus_fine_serial_h": 3.982932218802099,
+        "failed_path_fraction": 0.5,
+        "fine_feed_mm_s": 8.0,
+        "fine_serial_s": 6258.224059877674,
+        "regions_per_active_rail": 5
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.1932247217391063,
+        "coarse_plus_fine_serial_h": 3.329736613346607,
+        "failed_path_fraction": 0.5,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 3906.7198802379053,
+        "regions_per_active_rail": 1
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.196280277294662,
+        "coarse_plus_fine_serial_h": 3.3389032800132736,
+        "failed_path_fraction": 0.5,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 3939.7198802379053,
+        "regions_per_active_rail": 3
+      },
+      {
+        "coarse_plus_fine_parallel_h": 1.1993358328502175,
+        "coarse_plus_fine_serial_h": 3.3480699466799404,
+        "failed_path_fraction": 0.5,
+        "fine_feed_mm_s": 12.7,
+        "fine_serial_s": 3972.7198802379053,
+        "regions_per_active_rail": 5
+      }
+    ],
+    "total_path_length_m": 98.81158495804279,
+    "total_segments": 38,
+    "total_waypoints": 2498
+  },
+  "training_performed": false
+}

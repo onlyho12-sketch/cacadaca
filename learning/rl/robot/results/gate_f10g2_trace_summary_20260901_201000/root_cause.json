@@ -1,0 +1,37 @@
+{
+  "candidate_status": "REJECTED",
+  "created_utc": "2026-09-01T09:03:57.493390+00:00",
+  "decision": "ROOT_CAUSE_CONFIRMED",
+  "direct_cause": "The control-rate predictor used the prior 20 Hz mean and negative delta, so it left predictive_cap=1.0 while the 120 Hz admittance/contact loop deepened penetration after a force trough and produced a within-tick raw spike.",
+  "dynamics": {
+    "last_substep_raw_rise_n": 6.620924949645996,
+    "last_substep_raw_slope_n_s": 794.5109939575195,
+    "local_raw_force_trough_n": 2.061298370361328,
+    "trough_to_event_gap_deepen_um": 83.92333984375,
+    "trough_to_event_raw_rise_n": 12.000873565673828
+  },
+  "event": {
+    "command_force_n": 6.277897834777832,
+    "control_step": 542,
+    "filtered_force_n": 10.207253456115723,
+    "geometry_cap_action": 0.2883914462163858,
+    "normal_alignment_error_deg": 0.10835235565900803,
+    "predicted_force_n": 5.841239094734192,
+    "predictive_cap_action": 1.0,
+    "profile": "legacy_stress",
+    "profile_seed": 40000,
+    "raw_force_n": 14.062171936035156,
+    "sensor_fault": false,
+    "substep": 3
+  },
+  "gate": "F10G2_V2_CYLINDER_OVERLOAD_ROOT_CAUSE",
+  "implementation_performed": false,
+  "recommended_design": "Use authoritative substep raw/filtered force state or a latched peak/rise envelope; do not attempt another static action cap or PPO before deterministic safety passes.",
+  "ruled_out": [
+    "path direction (same/cross are identical before the trip)",
+    "sensor fault",
+    "normal misalignment",
+    "command discontinuity at the trip"
+  ],
+  "training_allowed": false
+}

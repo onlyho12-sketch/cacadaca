@@ -1,0 +1,14 @@
+check,expected,actual,pass
+candidate_sequences,24,24,True
+candidate_tile_rows,600,600,True
+force_overloads,0,0,True
+thermal_overloads,0,0,True
+instability_overloads,0,0,True
+sensor_fault_steps,0,0,True
+supervisor_faults,0,0,True
+substep_raw_force_max_n,<14,13.491291046142578,True
+supervisor_fraction_max,<=0.25,0.1365414710485133,True
+flat_action_exact_parity,True,True,True
+flat_all4_drop_pp,<=0,-1.4210854715202004e-14,True
+curved_all4_drop_pp,<=1,0.13062499999996646,True
+projected_vehicle_parallel_time_h,<=4,1.212396526225413,True

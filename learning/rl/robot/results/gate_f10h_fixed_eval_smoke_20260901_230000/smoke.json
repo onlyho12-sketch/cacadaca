@@ -1,0 +1,14 @@
+{
+  "active_envs_after": 4,
+  "arm": "residual_ppo",
+  "cap_contract_failures": 0,
+  "created_utc": "2026-09-01T11:07:54.032543+00:00",
+  "force_overload_seen": 0,
+  "gate": "F10H_FIXED_EVALUATION_SMOKE",
+  "observations_and_actions_finite": true,
+  "sensor_faults_current": 0,
+  "smoke_pass": true,
+  "steps": 8,
+  "supervisor_faults": 0,
+  "surface_kind": "cylinder"
+}

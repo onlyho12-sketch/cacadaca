@@ -1,0 +1,9 @@
+check,expected,actual,pass
+vehicle_waypoints,2498,2498,True
+flat_exact_action_parity,True,True,True
+nominal_executed_never_above_parent,True,True,True
+downward_request_not_delayed,True,True,True
+dynamic_predictor_caps_all_9N_plus_delta,<=0,1.043081283569336e-07,True
+all_outputs_finite,True,True,True
+static_cap_not_used,False,False,True
+projected_parallel_vehicle_time_h,<=4,1.212396526225413,True

@@ -1,0 +1,37 @@
+{
+  "all_finite": true,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "completed": 4,
+  "created_utc": "2026-09-01T03:29:41.747768+00:00",
+  "diagnostic_version": "gate_e6_local_window_area_v1",
+  "direction_mode": "same_xx",
+  "envs_per_profile": 1,
+  "expected": 4,
+  "gate": "F8_FORCE_SAFETY",
+  "observation_mode": "base14",
+  "path": {
+    "direction_mode": "same_xx",
+    "edge_mode": "balanced_extend5",
+    "lines_per_sweep": 5,
+    "path_length_m": 2.1,
+    "path_mode": "gate_c",
+    "step_over_m": 0.044000000000000004,
+    "step_over_ratio": 0.4,
+    "sweeps": 2
+  },
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "saved_iteration": 211,
+  "shield_mode": "control",
+  "surface_kind": "sphere",
+  "surface_seed_base": 43000,
+  "tile_rows": 100,
+  "training_performed": false
+}

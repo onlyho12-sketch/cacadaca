@@ -1,0 +1,29 @@
+{
+  "acceptance_checks_pass": true,
+  "actual_gu_sensor_connected": false,
+  "created_utc": "2026-09-01T06:41:59.278046+00:00",
+  "full_scan_count": 1,
+  "gate": "F10D_CELLWISE_QUALITY_STATE_CPU",
+  "gu_source": "learning.polytwin.gloss_proxy literature_gu_proxy_v1",
+  "next_step_allowed": false,
+  "physx_executed": false,
+  "polishing_v5_modified": false,
+  "quality_source": "learning.rl.gate_e6_area_quality.local_quality_maps",
+  "selective_revalidation_contract_implemented": true,
+  "state_counts": {
+    "CLEARCOAT_GUARD": 16,
+    "NOT_REACHED": 4,
+    "NO_IMPROVEMENT": 0,
+    "PASS_LOCKED": 24783,
+    "REWORK": 772,
+    "REWORK_AFFECTED": 0,
+    "REWORK_FAIL": 0,
+    "REWORK_PASS": 0,
+    "UNSAFE_GEOMETRY": 25
+  },
+  "status": "CONTRACT_COMPLETE_ACTUAL_VEHICLE_QUALITY_NOT_EVALUATED",
+  "synthetic_demo_cells": 25600,
+  "synthetic_demo_inspection_wall_s": 0.013614723000500817,
+  "training_performed": false,
+  "unchanged_pass_locked_revalidation_allowed": false
+}

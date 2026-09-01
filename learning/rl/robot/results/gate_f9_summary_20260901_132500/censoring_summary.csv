@@ -1,0 +1,5 @@
+surface_kind,pairs,censored_pairs,uncensored_pairs,control_hard_violations,candidate_hard_violations,raw_mean_control_steps_control_censored,raw_mean_control_steps_candidate_censored,uncensored_mean_step_delta_candidate_minus_control
+flat,32,0,32,0,0,4136.59375,4136.59375,0.0
+cylinder,32,15,17,4,11,3703.53125,3058.65625,-8.882352941176471
+sphere,32,0,32,0,0,4137.90625,4119.71875,-18.1875
+freeform,32,8,24,8,0,3487.34375,4137.09375,-2.1666666666666665

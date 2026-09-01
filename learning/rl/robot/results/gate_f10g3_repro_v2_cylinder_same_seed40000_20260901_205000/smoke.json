@@ -1,0 +1,19 @@
+{
+  "active_envs_after": 4,
+  "all_observations_and_actions_finite": true,
+  "created_utc": "2026-09-01T09:16:34.913317+00:00",
+  "force_overload_sequences": 0,
+  "gate": "F10G3_SUBSTEP_SUPERVISOR_PHYSX",
+  "raw_force_max_n": 10.629647254943848,
+  "safety_interface": "F10_CURVATURE_SAFETY_V2_PLUS_SUBSTEP_SUPERVISOR_V1",
+  "sensor_fault_steps": 0,
+  "shield_mode": "curvature_safety_v3",
+  "smoke_pass": true,
+  "steps": 600,
+  "substep_supervisor_sha256": "14d641b14838be85f300044f887774dc4420b6fc64b4ca3d05feb0989dc3b5c5",
+  "substep_supervisor_source": "/home/rokey/cacadaca/learning/rl/gate_f10_substep_supervisor.py",
+  "substep_supervisor_total_faults": 0,
+  "substep_supervisor_total_interventions": 543,
+  "surface_kind": "cylinder",
+  "training_performed": false
+}

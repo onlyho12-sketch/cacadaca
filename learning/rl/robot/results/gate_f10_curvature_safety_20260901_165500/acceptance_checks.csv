@@ -1,0 +1,11 @@
+check,expected,actual,pass
+all_vehicle_waypoints,2498,2498,True
+zero_residual_exact_parity,True,True,True
+finite_all_arms,True,True,True
+force_within_deterministic_envelope,True,True,True
+feed_within_deterministic_envelope,True,True,True
+no_fixed_static_cap,False,False,True
+observation_schema_complete,10,10,True
+unsafe_geometry_is_hold_zero_command,True,True,True
+combined_projected_parallel_under_4h,<=4.0,1.212396526225413,True
+combined_force_feed_slew_bounded,True,True,True

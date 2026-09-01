@@ -1,0 +1,7 @@
+check,expected,actual,pass
+resolution_is_existing_2mm,0.002,0.002,True
+centered_window_is_existing_5x5,5,5,True
+all_cells_inspected_exactly_once,25600,25600,True
+all4_is_exact_and,True,True,True
+clearcoat_temperature_separate_from_all4,True,True,True
+state_partition_complete,25600,25600,True

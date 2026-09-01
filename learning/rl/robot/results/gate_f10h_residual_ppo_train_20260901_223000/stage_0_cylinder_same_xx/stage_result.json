@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "actor_finite": true,
+    "cap_contract_failures": 0,
+    "critic_finite": true,
+    "force_overload_seen": 0,
+    "parent_checkpoint_unchanged": true,
+    "sensor_faults_current": 0,
+    "supervisor_faults": 0
+  },
+  "direction_mode": "same_xx",
+  "mean_abs_executed_residual_action": 0.04099747414517818,
+  "model": "/home/rokey/cacadaca/learning/rl/robot/results/gate_f10h_residual_ppo_train_20260901_223000/stage_0_cylinder_same_xx/residual_model.pt",
+  "model_sha256": "e2aa04080386e0b80a7a235e77170fc7bb61c6d36a26404f048a3a02ba8755eb",
+  "stage_index": 0,
+  "stage_pass": true,
+  "supervisor_interventions": 6952,
+  "surface_kind": "cylinder"
+}

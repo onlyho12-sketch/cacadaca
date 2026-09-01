@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "force_command_never_above_parent": true,
+    "intervention_fraction_each_env_le_2pct": true,
+    "single_original_latch": true,
+    "supervisor_intercepts_before_latch": true,
+    "trace_rows_14058": true
+  },
+  "created_utc": "2026-09-01T09:11:36.422751+00:00",
+  "decision": "PASS",
+  "gate": "F10G3_SUBSTEP_SUPERVISOR_OFFLINE_REPLAY",
+  "max_intervention_fraction": 0.011944444444444445,
+  "next_required": "isolated PhysX adapter and frozen small revalidation",
+  "physx_performed": false,
+  "production_ready": false,
+  "trace_sha256": "ea3373e094687f89a05c9f0e3460f0a5a6132c772c7924368fba920a072d1588",
+  "training_performed": false
+}

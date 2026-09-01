@@ -1,0 +1,5 @@
+shield_mode,surface_kind,direction_mode,surface_profile,env,surface_seed_base,f9_control_steps,f9_sampled_raw_force_max_n,trace_latch_found,trace_control_step,trace_substep,trace_raw_force_n,trace_raw_force_slope_n_s
+control,cylinder,same_xx,factory_prepolish_deep_defect,2,43000,485,8.780902862548828,False,,,,
+control,cylinder,same_xx,factory_prepolish_deep_stress,3,43000,485,8.780902862548828,False,,,,
+control,cylinder,cross_xy,factory_prepolish_deep_defect,2,43000,485,8.780902862548828,False,,,,
+control,cylinder,cross_xy,factory_prepolish_deep_stress,3,43000,485,8.780902862548828,False,,,,

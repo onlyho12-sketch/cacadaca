@@ -1,0 +1,12 @@
+shield_mode,surface_kind,direction_mode,surface_profile,env,surface_seed_base,f9_control_steps,f9_sampled_raw_force_max_n,trace_latch_found,trace_control_step,trace_substep,trace_raw_force_n,trace_raw_force_slope_n_s
+static_cap,cylinder,cross_xy,factory_prepolish_deep_defect,2,40000,599,8.924559593200684,True,598,2,14.400492668151855,768.8726806640625
+static_cap,cylinder,cross_xy,factory_prepolish_deep_stress,3,40000,599,8.924559593200684,True,598,2,14.400492668151855,768.8726806640625
+static_cap,cylinder,same_xx,factory_prepolish_deep_defect,2,40000,599,8.924559593200684,True,598,2,14.400492668151855,768.8726806640625
+static_cap,cylinder,same_xx,factory_prepolish_deep_stress,3,40000,599,8.924559593200684,True,598,2,14.400492668151855,768.8726806640625
+static_cap,cylinder,same_xx,factory_prepolish,1,41000,474,15.757790565490723,True,473,5,15.757790565490723,919.083366394043
+static_cap,cylinder,same_xx,factory_prepolish_deep_defect,2,41000,2500,14.95443344116211,True,2499,5,14.95443344116211,906.1064529418945
+static_cap,cylinder,cross_xy,factory_prepolish,1,41000,474,15.757790565490723,True,473,5,15.757790565490723,919.083366394043
+static_cap,cylinder,same_xx,factory_prepolish_deep_defect,2,42000,471,7.96527624130249,True,470,1,15.692977905273438,928.8184547424316
+static_cap,cylinder,same_xx,factory_prepolish_deep_stress,3,42000,502,9.931870460510254,True,501,0,15.671957015991211,985.4409599304199
+static_cap,cylinder,cross_xy,factory_prepolish_deep_defect,2,42000,471,7.96527624130249,True,470,1,15.692977905273438,928.8184547424316
+static_cap,cylinder,cross_xy,factory_prepolish_deep_stress,3,42000,502,9.931870460510254,True,501,0,15.671957015991211,985.4409599304199

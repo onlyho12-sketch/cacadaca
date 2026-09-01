@@ -1,0 +1,10 @@
+check,expected,actual,pass
+source_row_count_preserved,2498,2498,True
+path_order_preserved,True,True,True
+hold_review_zero_contact_command,True,True,True
+finite_schedule,True,True,True
+force_within_local_v5_anchors,True,True,True
+feed_within_existing_policy_range,6.35..12.7,True,True
+force_slew_within_candidate_limit,True,True,True
+feed_slew_within_candidate_limit,True,True,True
+unsafe_mask_maps_exactly_to_hold,True,True,True

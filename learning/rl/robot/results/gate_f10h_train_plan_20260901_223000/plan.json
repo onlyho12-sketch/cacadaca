@@ -1,0 +1,29 @@
+{
+  "gate": "F10H_BOUNDED_RESIDUAL_PPO_CURRICULUM",
+  "frozen_before_training": true,
+  "parent_checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "bounded_residual_sha256": "fd6533ff9ddb1c7ff094ef46ef8e831f4de5169b30d23dc35498d9597d8e018b",
+  "substep_supervisor_sha256": "14d641b14838be85f300044f887774dc4420b6fc64b4ca3d05feb0989dc3b5c5",
+  "smoke_environment_sha256": "68595eeb27e43a402eab4a275608b1180e75d0aad2d4a81d939fd54a93bc1655",
+  "trainer_sha256": "16bb802717822d59cfbcccd724cc5c4f47a0b408076cf43f2b1770cf93cab61f",
+  "stages": [
+    "cylinder/same_xx",
+    "freeform/same_xx",
+    "cylinder/cross_xy",
+    "freeform/cross_xy"
+  ],
+  "envs_per_profile": 2,
+  "num_envs": 8,
+  "iterations_per_stage": 250,
+  "total_iterations": 1000,
+  "num_steps_per_env": 48,
+  "nominal_samples": 384000,
+  "abort_on": [
+    "force overload",
+    "sensor or supervisor fault",
+    "deterministic cap contract failure",
+    "non-finite actor or critic"
+  ],
+  "promotion_allowed": false,
+  "scope": "training candidate only; separate frozen evaluation required"
+}

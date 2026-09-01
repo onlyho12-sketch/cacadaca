@@ -1,0 +1,15 @@
+check,expected,actual,pass
+candidate_sequences,24,24,True
+candidate_tile_rows,600,600,True
+candidate_force_overloads,0,2,False
+candidate_thermal_overloads,0,0,True
+candidate_instability_overloads,0,0,True
+sensor_fault_steps,0,0,True
+all_finite,True,True,True
+flat_action_exact_parity,True,True,True
+flat_quality_drop_pp,<=0,-1.4210854715202004e-14,True
+cylinder_force_non_degradation,candidate<=control,2<=0,False
+freeform_force_improvement,candidate<control,0<1,True
+mean_curved_all4_drop_pp,<=1,0.2112499999999926,True
+parent_upper_bound_contract,True,True,True
+projected_vehicle_parallel_time_h,<=4,1.212396526225413,True

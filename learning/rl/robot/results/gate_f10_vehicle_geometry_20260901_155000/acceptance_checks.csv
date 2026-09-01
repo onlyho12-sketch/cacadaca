@@ -1,0 +1,7 @@
+check,expected,actual,pass
+canonical_point_count,111968,111968,True
+existing_path_waypoints,2498,2498,True
+existing_path_segments,38,38,True
+unit_normals,<=1e-6 max error,3.3306690738754696e-16,True
+finite_critical_geometry,True,True,True
+paths_coincident_with_cloud,<=1e-5 m max,6.551048428580173e-08,True

@@ -1,0 +1,1059 @@
+[F10A 14:49:31] start (1/12) static_cap/same_xx/seed40000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788241771.323651   30232 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788241771.323681   30232 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.203922 s, Mean: 1.203922 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.715263 s, Mean: 0.715263 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=same_xx path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] static_cap/cylinder/same_xx/seed40000 step=200 active=4 rows=4800
+[F10A] static_cap/cylinder/same_xx/seed40000 step=400 active=4 rows=9600
+[F10A] static_cap/cylinder/same_xx/seed40000 step=600 active=2 rows=14388
+[F10A] static_cap/cylinder/same_xx/seed40000 step=800 active=2 rows=16788
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:50:14.630943+00:00",
+  "decimation": 6,
+  "direction_mode": "same_xx",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    40000,
+    40000,
+    40000,
+    40000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "static_cap",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 40000,
+  "trace_rows": 16788,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:49:31Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:49:31Z [370ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:49:35Z [3,969ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:49:35Z [4,086ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:49:37Z [5,738ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:50:15] done (1/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/static_cap_cylinder_same_xx_seed40000
+[F10A 14:50:15] start (2/12) control/same_xx/seed40000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788241815.219372   30503 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788241815.219402   30503 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.173520 s, Mean: 1.173520 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.720665 s, Mean: 0.720665 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=same_xx path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] control/cylinder/same_xx/seed40000 step=200 active=4 rows=4800
+[F10A] control/cylinder/same_xx/seed40000 step=400 active=4 rows=9600
+[F10A] control/cylinder/same_xx/seed40000 step=600 active=4 rows=14400
+[F10A] control/cylinder/same_xx/seed40000 step=800 active=4 rows=19200
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:51:03.015548+00:00",
+  "decimation": 6,
+  "direction_mode": "same_xx",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    40000,
+    40000,
+    40000,
+    40000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "control",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 40000,
+  "trace_rows": 19200,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:50:15Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:50:15Z [369ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:50:19Z [3,975ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:50:19Z [4,095ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:50:20Z [5,720ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:51:03] done (2/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/control_cylinder_same_xx_seed40000
+[F10A 14:51:03] start (3/12) static_cap/cross_xy/seed40000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788241863.620685   31272 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788241863.620716   31272 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.099022 s, Mean: 1.099022 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.727847 s, Mean: 0.727847 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=cross_xy path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] static_cap/cylinder/cross_xy/seed40000 step=200 active=4 rows=4800
+[F10A] static_cap/cylinder/cross_xy/seed40000 step=400 active=4 rows=9600
+[F10A] static_cap/cylinder/cross_xy/seed40000 step=600 active=2 rows=14388
+[F10A] static_cap/cylinder/cross_xy/seed40000 step=800 active=2 rows=16788
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:51:48.270035+00:00",
+  "decimation": 6,
+  "direction_mode": "cross_xy",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    40000,
+    40000,
+    40000,
+    40000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "static_cap",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 40000,
+  "trace_rows": 16788,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:51:03Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:51:03Z [376ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:51:07Z [4,081ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:51:07Z [4,215ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:51:09Z [5,767ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:51:48] done (3/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/static_cap_cylinder_cross_xy_seed40000
+[F10A 14:51:48] start (4/12) control/cross_xy/seed40000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788241908.827554   31566 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788241908.827583   31566 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.017837 s, Mean: 1.017837 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.698447 s, Mean: 0.698447 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=cross_xy path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] control/cylinder/cross_xy/seed40000 step=200 active=4 rows=4800
+[F10A] control/cylinder/cross_xy/seed40000 step=400 active=4 rows=9600
+[F10A] control/cylinder/cross_xy/seed40000 step=600 active=4 rows=14400
+[F10A] control/cylinder/cross_xy/seed40000 step=800 active=4 rows=19200
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:52:33.621579+00:00",
+  "decimation": 6,
+  "direction_mode": "cross_xy",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    40000,
+    40000,
+    40000,
+    40000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "control",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 40000,
+  "trace_rows": 19200,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:51:48Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:51:49Z [364ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:51:52Z [4,009ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:51:52Z [4,145ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:51:54Z [5,581ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:52:34] done (4/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/control_cylinder_cross_xy_seed40000
+[F10A 14:52:34] start (5/12) static_cap/same_xx/seed41000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788241954.266841   31876 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788241954.266876   31876 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 0.979685 s, Mean: 0.979685 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.726284 s, Mean: 0.726284 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=same_xx path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] static_cap/cylinder/same_xx/seed41000 step=200 active=4 rows=4800
+[F10A] static_cap/cylinder/same_xx/seed41000 step=400 active=4 rows=9600
+[F10A] static_cap/cylinder/same_xx/seed41000 step=600 active=3 rows=13644
+[F10A] static_cap/cylinder/same_xx/seed41000 step=800 active=3 rows=17244
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:53:19.124223+00:00",
+  "decimation": 6,
+  "direction_mode": "same_xx",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    41000,
+    41000,
+    41000,
+    41000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "static_cap",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 41000,
+  "trace_rows": 17244,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:52:34Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:52:34Z [372ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:52:38Z [3,983ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:52:38Z [4,101ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:52:39Z [5,547ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:53:19] done (5/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/static_cap_cylinder_same_xx_seed41000
+[F10A 14:53:19] start (6/12) control/same_xx/seed41000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788241999.663395   32243 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788241999.663426   32243 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:53:19Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:53:19Z [347ms] [Error] [omni.core.ITypeFactory] Circular dependency detected! Interface: omni::platforminfo::ICpuInfo requested. But plugin with an interface: /home/rokey/isaacsim-6.0.1/kit/kernel/plugins/libomni.platforminfo.plugin.so is already in resolving state.
+2026-09-01T05:53:19Z [347ms] [Error] [carb] [Plugin: gpu.foundation.plugin] Dependency: [omni::platforminfo::ICpuInfo v1.0] failed to be resolved.
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.124305 s, Mean: 1.124305 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.693716 s, Mean: 0.693716 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=same_xx path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] control/cylinder/same_xx/seed41000 step=200 active=4 rows=4800
+[F10A] control/cylinder/same_xx/seed41000 step=400 active=4 rows=9600
+[F10A] control/cylinder/same_xx/seed41000 step=600 active=4 rows=14400
+[F10A] control/cylinder/same_xx/seed41000 step=800 active=4 rows=19200
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:54:11.712135+00:00",
+  "decimation": 6,
+  "direction_mode": "same_xx",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    41000,
+    41000,
+    41000,
+    41000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "control",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 41000,
+  "trace_rows": 19200,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+2026-09-01T05:53:19Z [372ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:53:23Z [3,949ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:53:23Z [4,070ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:53:25Z [5,621ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:54:12] done (6/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/control_cylinder_same_xx_seed41000
+[F10A 14:54:12] start (7/12) static_cap/cross_xy/seed41000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788242052.288270   32617 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788242052.288302   32617 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.066967 s, Mean: 1.066967 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.715116 s, Mean: 0.715116 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=cross_xy path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] static_cap/cylinder/cross_xy/seed41000 step=200 active=4 rows=4800
+[F10A] static_cap/cylinder/cross_xy/seed41000 step=400 active=4 rows=9600
+[F10A] static_cap/cylinder/cross_xy/seed41000 step=600 active=3 rows=13644
+[F10A] static_cap/cylinder/cross_xy/seed41000 step=800 active=3 rows=17244
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:54:58.825023+00:00",
+  "decimation": 6,
+  "direction_mode": "cross_xy",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    41000,
+    41000,
+    41000,
+    41000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "static_cap",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 41000,
+  "trace_rows": 17244,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:54:12Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:54:12Z [396ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:54:16Z [4,161ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:54:16Z [4,290ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:54:18Z [5,800ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:54:59] done (7/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/static_cap_cylinder_cross_xy_seed41000
+[F10A 14:54:59] start (8/12) control/cross_xy/seed41000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788242099.401131   32866 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788242099.401160   32866 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.083841 s, Mean: 1.083841 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.747877 s, Mean: 0.747877 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=cross_xy path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] control/cylinder/cross_xy/seed41000 step=200 active=4 rows=4800
+[F10A] control/cylinder/cross_xy/seed41000 step=400 active=4 rows=9600
+[F10A] control/cylinder/cross_xy/seed41000 step=600 active=4 rows=14400
+[F10A] control/cylinder/cross_xy/seed41000 step=800 active=4 rows=19200
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:55:53.980715+00:00",
+  "decimation": 6,
+  "direction_mode": "cross_xy",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    41000,
+    41000,
+    41000,
+    41000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "control",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 41000,
+  "trace_rows": 19200,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:54:59Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:54:59Z [373ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:55:03Z [4,092ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:55:03Z [4,216ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:55:05Z [5,785ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:55:54] done (8/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/control_cylinder_cross_xy_seed41000
+[F10A 14:55:54] start (9/12) static_cap/same_xx/seed42000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788242154.651983   33133 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788242154.652020   33133 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.170760 s, Mean: 1.170760 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.790065 s, Mean: 0.790065 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=same_xx path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] static_cap/cylinder/same_xx/seed42000 step=200 active=4 rows=4800
+[F10A] static_cap/cylinder/same_xx/seed42000 step=400 active=4 rows=9600
+[F10A] static_cap/cylinder/same_xx/seed42000 step=600 active=2 rows=13038
+[F10A] static_cap/cylinder/same_xx/seed42000 step=800 active=2 rows=15438
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:56:55.735219+00:00",
+  "decimation": 6,
+  "direction_mode": "same_xx",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    42000,
+    42000,
+    42000,
+    42000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "static_cap",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 42000,
+  "trace_rows": 15438,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:55:54Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:55:54Z [400ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:55:58Z [4,333ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:55:59Z [4,465ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:56:00Z [6,140ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:56:56] done (9/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/static_cap_cylinder_same_xx_seed42000
+[F10A 14:56:56] start (10/12) control/same_xx/seed42000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788242216.410529   33417 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788242216.410566   33417 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.101395 s, Mean: 1.101395 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.782407 s, Mean: 0.782407 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=same_xx path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] control/cylinder/same_xx/seed42000 step=200 active=4 rows=4800
+[F10A] control/cylinder/same_xx/seed42000 step=400 active=4 rows=9600
+[F10A] control/cylinder/same_xx/seed42000 step=600 active=4 rows=14400
+[F10A] control/cylinder/same_xx/seed42000 step=800 active=4 rows=19200
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:57:59.445107+00:00",
+  "decimation": 6,
+  "direction_mode": "same_xx",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    42000,
+    42000,
+    42000,
+    42000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "control",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 42000,
+  "trace_rows": 19200,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:56:56Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:56:56Z [416ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:57:01Z [4,686ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:57:01Z [4,816ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:57:02Z [6,417ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:57:59] done (10/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/control_cylinder_same_xx_seed42000
+[F10A 14:57:59] start (11/12) static_cap/cross_xy/seed42000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788242280.070118   33900 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788242280.070153   33900 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.103490 s, Mean: 1.103490 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.815585 s, Mean: 0.815585 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=cross_xy path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] static_cap/cylinder/cross_xy/seed42000 step=200 active=4 rows=4800
+[F10A] static_cap/cylinder/cross_xy/seed42000 step=400 active=4 rows=9600
+[F10A] static_cap/cylinder/cross_xy/seed42000 step=600 active=2 rows=13038
+[F10A] static_cap/cylinder/cross_xy/seed42000 step=800 active=2 rows=15438
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T05:59:02.634379+00:00",
+  "decimation": 6,
+  "direction_mode": "cross_xy",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    42000,
+    42000,
+    42000,
+    42000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "static_cap",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 42000,
+  "trace_rows": 15438,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:58:00Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:58:00Z [416ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:58:04Z [4,650ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:58:04Z [4,786ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:58:06Z [6,398ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 14:59:03] done (11/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/static_cap_cylinder_cross_xy_seed42000
+[F10A 14:59:03] start (12/12) control/cross_xy/seed42000
+The '--headless' CLI argument is deprecated. Omit '--viz' for default headless. If config visualizers are enabled and you want to force headless, use '--viz none'.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1788242343.319958   34240 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1788242343.319993   34240 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 20260901
+	Physics step-size     : 0.008333333333333333
+	Rendering step-size   : 0.05
+	Environment step-size : 0.05
+[INFO]: Registered backend 'physx' for factory Articulation.
+[INFO] Robot /World/envs/env_0/Robot/m0609/m0609: 폴리싱 디스크 생성 완료 → /World/envs/env_0/Robot/m0609/m0609/polishing_contact_pad
+[INFO]: Registered backend 'physx' for factory ContactSensor.
+[INFO]: Time taken for scene creation Last: 1.206608 s, Mean: 1.206608 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4
+	Environment spacing   : 1.6
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : []
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                 Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                 |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+| Index | Name      | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction |   Position Limits   | Velocity Limits | Effort Limits |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+|   0   | joint_1   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   1   | joint_2   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      2.618      |    9.6e+03    |
+|   2   | joint_3   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-2.618, 2.618]   |      3.142      |    5.4e+03    |
+|   3   | joint_4   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   4   | joint_5   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   5   | joint_6   |  1.0e+04  | 500.000 |  0.000   |      0.000      |      0.000       |      0.000       |   [-6.283, 6.283]   |      3.927      |    2.7e+03    |
+|   6   | pad_joint |  2.0e+03  | 100.000 |  0.000   |      0.000      |      0.000       |      0.000       | [-3.4e+38, 3.4e+38] |     104.720     |    100.000    |
++-------+-----------+-----------+---------+----------+-----------------+------------------+------------------+---------------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 0.881115 s, Mean: 0.881115 s, Std: 0.000000 s, N: 1
+[INFO]: Completed setting up the environment...
+[RobotPolishEnv] robot feed override 5.946 -> 12.700 mm/s (policy range 6.350~19.050 mm/s)
+[RobotPolishEnv] v5 M0609+pad coupled | link_6 contact offset=[-0.0025 -0.02    0.0448] m
+[FactoryPlanarRoiPolishEnv] Gate C so=0.40 edge=balanced_extend5 direction=cross_xy path=2.100m
+[GateF7CurvedObservationEnv] mode=base14 obs_dim=14
+[F10A] control/cylinder/cross_xy/seed42000 step=200 active=4 rows=4800
+[F10A] control/cylinder/cross_xy/seed42000 step=400 active=4 rows=9600
+[F10A] control/cylinder/cross_xy/seed42000 step=600 active=4 rows=14400
+[F10A] control/cylinder/cross_xy/seed42000 step=800 active=4 rows=19200
+{
+  "champion_promoted": false,
+  "checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "created_utc": "2026-09-01T06:00:08.261920+00:00",
+  "decimation": 6,
+  "direction_mode": "cross_xy",
+  "gate": "F10A_OVERLOAD_SUBSTEP_TRACE",
+  "latch_control_step_by_env": {},
+  "latched_envs": [],
+  "observation_mode": "base14",
+  "physics_dt": 0.008333333333333333,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "profile_seeds": [
+    42000,
+    42000,
+    42000,
+    42000
+  ],
+  "profiles": [
+    "legacy_stress",
+    "factory_prepolish",
+    "factory_prepolish_deep_defect",
+    "factory_prepolish_deep_stress"
+  ],
+  "release_modified": false,
+  "shield_mode": "control",
+  "surface_kind": "cylinder",
+  "surface_seed_base": 42000,
+  "trace_rows": 19200,
+  "training_performed": false
+}
+[INFO]: SimulationContext cleared
+Loading user config located at: '/home/rokey/isaacsim-6.0.1/kit/data/Kit/IsaacLab/3.0/user.config.json'
+2026-09-01T05:59:03Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config 'extension.toml' doesn't exist '/home/rokey/IsaacLab/source/isaaclab_visualizers' or '/home/rokey/IsaacLab/source/isaaclab_visualizers/config'
+2026-09-01T05:59:03Z [437ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-09-01T05:59:08Z [4,898ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-09-01T05:59:08Z [5,036ms] [Warning] [omni.usd] Encountered USD Warnings but USD Diagnostics are currently muted. To view USD Warnings, please set the '/persistent/app/usd/muteUsdDiagnostics' setting to false in Preferences page.
+2026-09-01T05:59:10Z [6,817ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[F10A 15:00:08] done (12/12) learning/rl/robot/results/gate_f10a_trace_20260901_140000/control_cylinder_cross_xy_seed42000
+[F10A 15:00:08] all traces complete

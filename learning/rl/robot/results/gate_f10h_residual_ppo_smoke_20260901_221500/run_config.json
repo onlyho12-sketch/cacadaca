@@ -1,0 +1,17 @@
+{
+  "action_dim": 2,
+  "actor_iterations": 1,
+  "created_utc": "2026-09-01T09:55:59.762221+00:00",
+  "critic_warmup_iterations": 1,
+  "gate": "F10H_BOUNDED_RESIDUAL_PPO_SMOKE",
+  "nominal_samples": 384,
+  "num_envs": 4,
+  "num_steps_per_env": 48,
+  "observation_dim": 20,
+  "observation_mode": "normal_curvature20",
+  "parent_checkpoint": "/home/rokey/cacadaca/learning/rl/robot/releases/gate_e7_seed1_it211_20260831_201801/model_gate_e7_seed1_it211.pt",
+  "parent_checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "production_training": false,
+  "promotion_allowed": false,
+  "surface_kind": "cylinder"
+}

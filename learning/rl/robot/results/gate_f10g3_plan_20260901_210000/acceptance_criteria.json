@@ -1,0 +1,40 @@
+{
+  "gate": "F10G3_SUBSTEP_SUPERVISOR_STAGED_PHYSX",
+  "frozen_before_full_sequence_execution": true,
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "curvature_safety_sha256": "666d5099875e9e7aeadc376b00493e7819645aae3ff95e3f403f92011b2ed50c",
+  "substep_supervisor_sha256": "14d641b14838be85f300044f887774dc4420b6fc64b4ca3d05feb0989dc3b5c5",
+  "evaluator_sha256": "1986db1ffa312cf4308706f2b3a2a2992197b8072b6aa8b96535183ff28f90e2",
+  "stage_1": {
+    "surface_kind": "cylinder",
+    "direction_mode": "same_xx",
+    "sequences": 4,
+    "tile_rows": 100,
+    "force_overloads": 0,
+    "thermal_overloads": 0,
+    "instability_overloads": 0,
+    "sensor_fault_steps": 0,
+    "substep_supervisor_faults": 0,
+    "substep_raw_force_max_n_lt": 14.0,
+    "mean_all4_drop_vs_f9_control_max_pp": 1.0,
+    "supervisor_fraction_max": 0.25
+  },
+  "stage_2_if_stage_1_passes": {
+    "surface_kinds": ["flat", "cylinder", "freeform"],
+    "directions": ["same_xx", "cross_xy"],
+    "total_sequences": 24,
+    "total_tile_rows": 600,
+    "force_overloads": 0,
+    "thermal_overloads": 0,
+    "instability_overloads": 0,
+    "sensor_fault_steps": 0,
+    "substep_supervisor_faults": 0,
+    "substep_raw_force_max_n_lt": 14.0,
+    "flat_action_exact_parity": true,
+    "flat_quality_drop_max_pp": 0.0,
+    "mean_curved_all4_drop_max_pp": 1.0,
+    "supervisor_fraction_max": 0.25,
+    "projected_parallel_vehicle_time_max_h": 4.0
+  },
+  "scope": "isolated PhysX validation only; no PPO, training, checkpoint, release, or polishing_v5 changes"
+}

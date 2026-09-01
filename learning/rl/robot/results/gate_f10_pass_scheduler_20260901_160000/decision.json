@@ -1,0 +1,48 @@
+{
+  "acceptance_checks_pass": true,
+  "configuration_pt_design": {
+    "approach_s": 4.0,
+    "base_feed_mm_s": 12.7,
+    "control_hz": 60.0,
+    "entry_feed_ratio": 0.5,
+    "entry_force_ratio": 0.35,
+    "entry_soft_start_m": 0.04,
+    "feed_slew_mm_s2": 25.0,
+    "force_slew_n_s": 2.0,
+    "initial_home_s": 1.5,
+    "minimum_feed_ratio": 0.5,
+    "path_continuity_max_step_m": 0.08,
+    "retract_s": 1.5,
+    "risk_lookaround_m": 0.055,
+    "side_flat_force_n": 6.0,
+    "side_steep_force_n": 3.5,
+    "slide_settle_s": 1.5,
+    "top_flat_force_n": 8.0,
+    "top_steep_force_n": 5.0
+  },
+  "created_utc": "2026-09-01T06:34:59.840652+00:00",
+  "gate": "F10C_COARSE_PASS_SCHEDULER_CPU",
+  "limitations": [
+    "force/feed/slew values are PT-DESIGN candidates pending PhysX validation",
+    "HOLD_REVIEW waypoints are excluded from the nominal executable-subset time",
+    "existing rail ownership and waypoint order are preserved; no load rebalancing mutation"
+  ],
+  "next_step_allowed": false,
+  "original_path_arrays_modified": false,
+  "physx_executed": false,
+  "polishing_v5_modified": false,
+  "status": "SCHEDULE_BUILT_HOLD_REVIEW_UNRESOLVED",
+  "summary": {
+    "bottleneck_rail": "SL",
+    "contact_groups": 223,
+    "full_vehicle_time_status": "UNKNOWN_UNTIL_HOLD_REVIEW_WAYPOINTS_RESOLVED",
+    "hold_review_waypoints": 565,
+    "nominal_executable_subset_parallel_h": 0.7674410371326297,
+    "nominal_executable_subset_serial_h": 2.205419159926591,
+    "polish_waypoints": 1933,
+    "requires_reapproach_count": 223,
+    "waypoints": 2498,
+    "workload_max_min_ratio": 1.0822177249718126
+  },
+  "training_performed": false
+}

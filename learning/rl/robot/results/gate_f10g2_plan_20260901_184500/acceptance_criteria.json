@@ -1,0 +1,32 @@
+{
+  "gate": "F10G2_CURVATURE_SAFETY_V2_SMALL_PHYSX_PILOT",
+  "frozen_before_execution": true,
+  "frozen_utc": "2026-09-01T08:45:00+00:00",
+  "checkpoint_sha256": "c733763bfebd7fcead01cf2574bbd1621c4660b9347143cccb35e0e83449d052",
+  "safety_source_sha256": "666d5099875e9e7aeadc376b00493e7819645aae3ff95e3f403f92011b2ed50c",
+  "evaluator_sha256": "fe7c2c68ce87545fa6bdcbdccecb03f4ff881bcc66bf21855a270279568c343a",
+  "candidate": "curvature_safety_v2",
+  "surface_kinds": ["flat", "cylinder", "freeform"],
+  "directions": ["same_xx", "cross_xy"],
+  "surface_seed_base": 40000,
+  "physics_seed": 20260901,
+  "policy_seed": 20260831,
+  "new_sequences": 24,
+  "reused_control_sequences": 24,
+  "acceptance": {
+    "candidate_force_overloads": 0,
+    "candidate_thermal_overloads": 0,
+    "candidate_instability_overloads": 0,
+    "candidate_sensor_fault_steps": 0,
+    "completion_sequences": 24,
+    "completion_tile_rows": 600,
+    "flat_action_exact_parity": true,
+    "flat_quality_drop_max_percentage_points": 0.0,
+    "cylinder_force_overloads_not_above_control": true,
+    "freeform_force_overloads_below_control": true,
+    "mean_curved_all4_drop_max_percentage_points": 1.0,
+    "parent_upper_bound_contract": true,
+    "projected_parallel_vehicle_time_max_h": 4.0
+  },
+  "scope": "small PhysX pilot only; no training, checkpoint, release, or polishing_v5 changes"
+}

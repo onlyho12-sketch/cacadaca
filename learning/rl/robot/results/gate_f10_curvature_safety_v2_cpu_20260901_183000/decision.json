@@ -1,0 +1,14 @@
+{
+  "acceptance_checks_pass": true,
+  "checkpoint_created": false,
+  "created_utc": "2026-09-01T08:20:02.584996+00:00",
+  "gate": "F10_CURVATURE_SAFETY_V2_CPU",
+  "hold_waypoints": 565,
+  "next_step_allowed": false,
+  "physx_executed": false,
+  "polishing_v5_modified": false,
+  "projected_parallel_vehicle_time_h": 1.212396526225413,
+  "status": "CPU_CANDIDATE_COMPLETE_PHYSX_NOT_AUTHORIZED",
+  "training_performed": false,
+  "waypoints": 2498
+}

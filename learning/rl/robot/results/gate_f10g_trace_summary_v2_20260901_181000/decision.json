@@ -1,0 +1,32 @@
+{
+  "checkpoint_created": false,
+  "created_utc": "2026-09-01T08:10:11.718702+00:00",
+  "events_reproduced": 4,
+  "executed_force_above_parent_events": 3,
+  "finding": "symmetric force slew can hold executed force above a downward parent request; geometry-only risk is low at all latch events and lacks dynamic force/rate prediction",
+  "gate": "F10G_SUBSTEP_ROOT_CAUSE",
+  "geometry_risk_at_latch_range": [
+    0.028954512435205724,
+    0.24534672647625225
+  ],
+  "next_step_allowed": false,
+  "physx_executed": true,
+  "polishing_v5_modified": false,
+  "raw_force_slope_n_s_range": [
+    127.5918960571289,
+    282.08850860595703
+  ],
+  "rejected_hypotheses": [
+    "contact-loss/re-entry is common to all four events",
+    "feed slowdown alone explains all four events"
+  ],
+  "required_candidate_properties": [
+    "executed force never exceeds downward parent request",
+    "downward force change is immediate or substantially faster than upward slew",
+    "dynamic measured-force and force-rate predictive guard",
+    "flat exact parity"
+  ],
+  "sensor_fault_events": 0,
+  "status": "ROOT_CAUSE_CONFIRMED_CURRENT_CANDIDATE_REJECTED",
+  "training_performed": false
+}

@@ -1,0 +1,74 @@
+{
+  "acceptance_checks_pass": false,
+  "candidate_sequences": 24,
+  "candidate_tile_rows": 600,
+  "checkpoint_created": false,
+  "control_sequences_reused": 24,
+  "created_utc": "2026-09-01T08:57:12.176100+00:00",
+  "decision": "FAIL",
+  "detail": {
+    "candidate": {
+      "cylinder": {
+        "force_overloads": 2,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.17375,
+        "raw_force_max_n": 13.95544719696045,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      },
+      "flat": {
+        "force_overloads": 0,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.61750000000002,
+        "raw_force_max_n": 9.350665092468262,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      },
+      "freeform": {
+        "force_overloads": 0,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.60375000000002,
+        "raw_force_max_n": 13.751830101013184,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      }
+    },
+    "control": {
+      "cylinder": {
+        "force_overloads": 0,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.60999999999999,
+        "raw_force_max_n": 12.179244041442871,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      },
+      "flat": {
+        "force_overloads": 0,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.6175,
+        "raw_force_max_n": 9.350665092468262,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      },
+      "freeform": {
+        "force_overloads": 1,
+        "instability_overloads": 0,
+        "mean_all4_area_pct": 91.58999999999997,
+        "raw_force_max_n": 13.385598182678223,
+        "sensor_fault_steps": 0,
+        "sequences": 8,
+        "thermal_overloads": 0
+      }
+    }
+  },
+  "gate": "F10G2_CURVATURE_SAFETY_V2_SMALL_PHYSX_PILOT",
+  "next_step_allowed": false,
+  "polishing_v5_modified": false,
+  "recommendation": "Reject v2: it removes the freeform overload but introduces cylinder overloads. Diagnose before PPO or integration.",
+  "training_performed": false
+}
