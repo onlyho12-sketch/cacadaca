@@ -4,6 +4,10 @@
 **NVIDIA Isaac Sim** 기반 시뮬레이션 프로젝트입니다.
 3D 스캔 → 경로 생성 → 폴리싱 시뮬레이션 → 웹 대시보드 시각화의 파이프라인으로 구성됩니다.
 
+[![시연 영상](docs/demo-thumb.jpg)](https://github.com/onlyho12-sketch/cacadaca/releases/download/demo/cacadaca.mp4)
+
+<sub>▶ 이미지를 클릭하면 시연 영상(1분 22초)을 볼 수 있습니다.</sub>
+
 ---
 
 ## 1. 시스템 설계 & 플로우 차트
